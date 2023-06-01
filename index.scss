@@ -45,6 +45,7 @@
         background: linear-gradient(red, orange, yellow, greenyellow, cyan, blue, magenta);
         height: 100%;
         width: 40%;
+        position: relative;
       }
 
       .transparency {
@@ -66,6 +67,15 @@
           height: 100%;
           background: linear-gradient(red, transparent);
         }
+      }
+
+      .vertical_slider {
+        background-color: #fff;
+        width: 110%;
+        height: 2.5%;
+        position: absolute;
+        top: 0%;
+        left: -5%;
       }
     }
   }
