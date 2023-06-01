@@ -1,0 +1,6 @@
+# local
+local
+.vscode
+
+# dependencies
+node_modules
