@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "watch": "npx webpack --config webpack.dev.ts"
+  },
   "devDependencies": {
     "ts-loader": "^9.4.3",
     "ts-node": "^10.9.1",
