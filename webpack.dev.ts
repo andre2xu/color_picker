@@ -1,5 +1,5 @@
 const { merge } = require('webpack-merge');
-const common_configs = require('./webpack.config.js');
+const common_configs = require('./webpack.config.ts');
 
 module.exports = merge(common_configs, {
   watch: true,
