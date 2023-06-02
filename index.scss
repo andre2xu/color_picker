@@ -5,6 +5,10 @@
     flex-direction: row;
     box-sizing: border-box;
 
+    &.hide {
+      display: none;
+    }
+
     .shade_AND_tint_AND_searchbar {
       height: 100%;
       width: 80%;
