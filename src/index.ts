@@ -15,6 +15,33 @@ class JSColorPicker {
 
     // INITIALIZATION
     this.container = $(CONTAINER);
+
+    // builds color picker
+    this.container.addClass('jscp_container');
+
+    this.container.html(
+      `
+      <div class="jscp">
+        <div class="shade_AND_tint_AND_searchbar">
+          <div class="shade_AND_tint"></div>
+
+          <input type="text" class="searchbar">
+        </div>
+
+        <div class="hue_AND_transparency">
+          <div class="hue">
+            <div class="vertical_slider"></div>
+          </div>
+
+          <div class="transparency">
+            <div class="alpha_channel"></div>
+
+            <div class="vertical_slider"></div>
+          </div>
+        </div>
+      </div>
+      `
+    );
   };
 
 
