@@ -68,6 +68,12 @@ class JSColorPicker {
       g: 0,
       b: 0
     };
+
+    if (this.searchbar !== undefined) {
+      const STARTING_COLOR = this.selected_color;
+
+      this.searchbar.val(`rgb(${STARTING_COLOR.r}, ${STARTING_COLOR.g}, ${STARTING_COLOR.b})`);
+    }
   };
 
 
