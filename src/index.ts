@@ -4,12 +4,19 @@ import $ from 'jquery';
 
 type ComponentReference = JQuery<HTMLElement> | undefined;
 
+interface RGB {
+  r: number,
+  g: number,
+  b: number,
+};
+
 class JSColorPicker {
   container: ComponentReference;
   shades_and_tints: ComponentReference;
   searchbar: ComponentReference;
   hues: ComponentReference;
   alpha_channel: ComponentReference;
+  selected_color: RGB;
 
   constructor (container_id: string) {
     const CONTAINER: HTMLElement | null = document.getElementById(container_id);
@@ -54,6 +61,13 @@ class JSColorPicker {
     this.searchbar = $(`.searchbar`).first();
     this.hues = $(`.hue`).first();
     this.alpha_channel = $(`.alpha_channel`).first();
+
+    // initializes defaults
+    this.selected_color = {
+      r: 255,
+      g: 0,
+      b: 0
+    };
   };
 
 
