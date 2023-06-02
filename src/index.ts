@@ -12,6 +12,7 @@ interface RGB {
 
 class JSColorPicker {
   container: ComponentReference;
+  color_picker: ComponentReference;
   shades_and_tints: ComponentReference;
   searchbar: ComponentReference;
   hues: ComponentReference;
@@ -57,6 +58,7 @@ class JSColorPicker {
     );
 
     // gets the color picker's components
+    this.color_picker = $('.jscp').first();
     this.shades_and_tints = $(`.shade_AND_tint`).first();
     this.searchbar = $(`.searchbar`).first();
     this.hues = $(`.hue`).first();
