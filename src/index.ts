@@ -114,6 +114,18 @@ class JSColorPicker {
       });
     }
   };
+
+  hide() {
+    if (this.color_picker !== undefined) {
+      this.color_picker.addClass('hide');
+    }
+  };
+
+  show() {
+    if (this.color_picker !== undefined) {
+      this.color_picker.removeClass('hide');
+    }
+  };
 };
 
 new JSColorPicker('test');
