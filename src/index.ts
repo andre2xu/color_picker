@@ -77,7 +77,7 @@ class JSColorPicker {
       this.searchbar.val(`rgb(${STARTING_COLOR.r}, ${STARTING_COLOR.g}, ${STARTING_COLOR.b})`);
     }
 
-    this.setSize(320, 200);
+    this.setSize(300, 200);
   };
 
 
@@ -89,7 +89,8 @@ class JSColorPicker {
     if (this.color_picker !== undefined) {
       this.color_picker.css({
         width: w,
-        height: h
+        height: h,
+        padding: w * 0.025
       });
 
       // ensures the searchbar's text is responsive to changes in the color picker's size
