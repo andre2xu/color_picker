@@ -2,10 +2,11 @@
   .jscp {
     width: calc(380px + 0px);
     height: calc(230px + 0px);
-    padding: 10px;
+    padding: 2.5%;
     background-color: #0f2537;
     display: flex;
     flex-direction: row;
+    box-sizing: border-box;
 
     .shade_AND_tint_AND_searchbar {
       height: 100%;
