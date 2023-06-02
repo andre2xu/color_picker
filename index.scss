@@ -19,6 +19,7 @@
           linear-gradient(270deg, red, white);
         width: 100%;
         height: 83%;
+        cursor: pointer;
       }
 
       .searchbar {
@@ -46,6 +47,7 @@
         height: 100%;
         width: 40%;
         position: relative;
+        cursor: pointer;
       }
 
       .transparency {
@@ -62,6 +64,7 @@
         width: 40%;
         margin-left: 10%;
         position: relative;
+        cursor: pointer;
 
         .alpha_channel {
           width: 100%;
