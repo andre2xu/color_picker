@@ -48,6 +48,12 @@ class JSColorPicker {
       </div>
       `
     );
+
+    // gets the color picker's components
+    this.shades_and_tints = $(`.shade_AND_tint`).first();
+    this.searchbar = $(`.searchbar`).first();
+    this.hues = $(`.hue`).first();
+    this.alpha_channel = $(`.alpha_channel`).first();
   };
 
 
