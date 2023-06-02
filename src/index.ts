@@ -6,6 +6,10 @@ type ComponentReference = JQuery<HTMLElement> | undefined;
 
 class JSColorPicker {
   container: ComponentReference;
+  shades_and_tints: ComponentReference;
+  searchbar: ComponentReference;
+  hues: ComponentReference;
+  alpha_channel: ComponentReference;
 
   constructor (container_id: string) {
     const CONTAINER: HTMLElement | null = document.getElementById(container_id);
