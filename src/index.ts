@@ -91,6 +91,13 @@ class JSColorPicker {
         width: w,
         height: h
       });
+
+      // ensures the searchbar's text is responsive to changes in the color picker's size
+      if (this.searchbar !== undefined) {
+        this.searchbar.css({
+          fontSize: this.searchbar[0].clientHeight * 0.55
+        });
+      }
     }
   };
 };
