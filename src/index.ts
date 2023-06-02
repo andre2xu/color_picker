@@ -76,6 +76,8 @@ class JSColorPicker {
 
       this.searchbar.val(`rgb(${STARTING_COLOR.r}, ${STARTING_COLOR.g}, ${STARTING_COLOR.b})`);
     }
+
+    this.setSize(320, 200);
   };
 
 
@@ -83,6 +85,14 @@ class JSColorPicker {
 
 
   // SETTERS
+  setSize(w: number, h: number) {
+    if (this.color_picker !== undefined) {
+      this.color_picker.css({
+        width: w,
+        height: h
+      });
+    }
+  };
 };
 
 new JSColorPicker('test');
