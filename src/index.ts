@@ -101,6 +101,19 @@ class JSColorPicker {
       }
     }
   };
+
+  setScale(multiplier: number) {
+    if (this.color_picker !== undefined) {
+      const COLOR_PICKER = this.color_picker[0];
+      const NEW_WIDTH = COLOR_PICKER.clientWidth * multiplier;
+
+      this.color_picker.css({
+        width: NEW_WIDTH,
+        height: COLOR_PICKER.clientHeight * multiplier,
+        padding: NEW_WIDTH * 0.025
+      });
+    }
+  };
 };
 
 new JSColorPicker('test');
