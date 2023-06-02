@@ -59,10 +59,10 @@ class JSColorPicker {
 
     // gets the color picker's components
     this.color_picker = $('.jscp').first();
-    this.shades_and_tints = $(`.shade_AND_tint`).first();
-    this.searchbar = $(`.searchbar`).first();
-    this.hues = $(`.hue`).first();
-    this.alpha_channel = $(`.alpha_channel`).first();
+    this.shades_and_tints = $('.shade_AND_tint').first();
+    this.searchbar = $('.searchbar').first();
+    this.hues = $('.hue').first();
+    this.alpha_channel = $('.alpha_channel').first();
 
     // initializes defaults
     this.selected_color = {
