@@ -72,7 +72,7 @@ class JSColorPicker {
     };
 
     if (this.searchbar !== undefined) {
-      const STARTING_COLOR = this.selected_color;
+      const STARTING_COLOR: RGB = this.selected_color;
 
       this.searchbar.val(`rgb(${STARTING_COLOR.r}, ${STARTING_COLOR.g}, ${STARTING_COLOR.b})`);
     }
@@ -104,8 +104,8 @@ class JSColorPicker {
 
   setScale(multiplier: number) {
     if (this.color_picker !== undefined) {
-      const COLOR_PICKER = this.color_picker[0];
-      const NEW_WIDTH = COLOR_PICKER.clientWidth * multiplier;
+      const COLOR_PICKER: HTMLElement = this.color_picker[0];
+      const NEW_WIDTH: number = COLOR_PICKER.clientWidth * multiplier;
 
       this.color_picker.css({
         width: NEW_WIDTH,
