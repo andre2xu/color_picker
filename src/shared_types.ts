@@ -4,8 +4,14 @@ interface RGB {
   b: number,
 };
 
+interface Coordinates {
+  x: number,
+  y: number
+};
+
 
 
 export {
-  RGB
+  RGB,
+  Coordinates
 };
