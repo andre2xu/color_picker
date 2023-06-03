@@ -92,8 +92,11 @@ class JSColorPicker {
           event.clientY
         );
 
-        if (this.hues !== undefined && this.hues[0] === CLICKED_ELEMENT) {
-          
+        if (this.hues !== undefined && this.hues[0] === CLICKED_ELEMENT && this.hue_slider !== undefined) {
+          helpers.moveVerticalSlider(
+            this.hue_slider[0],
+            MOUSE_POSITION.y
+          );
         }
       }
     }.bind(this));
