@@ -15,6 +15,7 @@ class JSColorPicker {
   hue_slider: ComponentReference;
   hue_canvas: ComponentReference;
   alpha_channel: ComponentReference;
+  ac_slider: ComponentReference;
   selected_color: shared_types.RGB;
 
   constructor (container_id: string) {
@@ -65,6 +66,7 @@ class JSColorPicker {
     this.hue_slider = this.hues.children('.vertical_slider').first();
     this.hue_canvas = $('.hue_canvas').first();
     this.alpha_channel = $('.alpha_channel').first();
+    this.ac_slider = this.alpha_channel.parent().children('.vertical_slider').first();
 
     // initializes defaults
     this.selected_color = {
