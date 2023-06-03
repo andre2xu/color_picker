@@ -1,15 +1,10 @@
 import $ from 'jquery';
 import helpers from './helpers';
+import * as shared_types from './shared_types';
 
 
 
 type ComponentReference = JQuery<HTMLElement> | undefined;
-
-interface RGB {
-  r: number,
-  g: number,
-  b: number,
-};
 
 class JSColorPicker {
   container: ComponentReference;
@@ -19,7 +14,7 @@ class JSColorPicker {
   hues: ComponentReference;
   hue_canvas: ComponentReference;
   alpha_channel: ComponentReference;
-  selected_color: RGB;
+  selected_color: shared_types.RGB;
 
   constructor (container_id: string) {
     const CONTAINER: HTMLElement | null = document.getElementById(container_id);
@@ -77,7 +72,7 @@ class JSColorPicker {
     };
 
     if (this.searchbar !== undefined) {
-      const STARTING_COLOR: RGB = this.selected_color;
+      const STARTING_COLOR: shared_types.RGB = this.selected_color;
 
       this.searchbar.val(`rgb(${STARTING_COLOR.r}, ${STARTING_COLOR.g}, ${STARTING_COLOR.b})`);
     }
@@ -89,7 +84,7 @@ class JSColorPicker {
       const CLICKED_ELEMENT: HTMLElement = event.target;
 
       if (event.clientX !== undefined && event.clientY !== undefined) {
-        const MOUSE_POSITION = helpers.getMousePositionRelativeToElement(
+        const MOUSE_POSITION: shared_types.Coordinates = helpers.getMousePositionRelativeToElement(
           event.target,
           event.clientX,
           event.clientY
