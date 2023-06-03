@@ -3,8 +3,8 @@ import $ from 'jquery';
 
 
 function updateComponentCanvasDimensions(jscp_component: HTMLElement, component_canvas: HTMLCanvasElement) {
-  component_canvas.width = jscp_component.clientWidth;
-  component_canvas.height = jscp_component.clientHeight;
+  component_canvas.width = jscp_component.offsetWidth;
+  component_canvas.height = jscp_component.offsetHeight;
 };
 
 function getMousePositionRelativeToElement(element: HTMLElement, mouse_x: number, mouse_y: number) {
