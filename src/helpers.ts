@@ -7,10 +7,18 @@ function updateComponentCanvasDimensions(jscp_component: HTMLElement, component_
   component_canvas.height = jscp_component.clientHeight;
 };
 
+function getMousePositionRelativeToElement(element: HTMLElement, mouse_x: number, mouse_y: number) {
+  return {
+    x: mouse_x - element.offsetLeft,
+    y: mouse_y - element.offsetTop
+  };
+};
+
 
 
 const helpers = {
-  updateComponentCanvasDimensions
+  updateComponentCanvasDimensions,
+  getMousePositionRelativeToElement
 };
 
 export default helpers;
