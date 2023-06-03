@@ -127,13 +127,11 @@ class JSColorPicker {
   setScale(multiplier: number) {
     if (this.color_picker !== undefined) {
       const COLOR_PICKER: HTMLElement = this.color_picker[0];
-      const NEW_WIDTH: number = COLOR_PICKER.clientWidth * multiplier;
 
-      this.color_picker.css({
-        width: NEW_WIDTH,
-        height: COLOR_PICKER.clientHeight * multiplier,
-        padding: NEW_WIDTH * 0.025
-      });
+      this.setSize(
+        COLOR_PICKER.clientWidth * multiplier,
+        COLOR_PICKER.clientHeight * multiplier
+      );
     }
   };
 
