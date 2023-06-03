@@ -88,7 +88,7 @@ class JSColorPicker {
     this.color_picker.on('mousedown', function (this: JSColorPicker, event: JQuery.TriggeredEvent) {
       const CLICKED_ELEMENT: HTMLElement = event.target;
 
-      if (event.clientX !== undefined && event.clientY !== undefined) {
+      if (event.button === 0 && event.clientX !== undefined && event.clientY !== undefined) {
         const MOUSE_POSITION: shared_types.Coordinates = helpers.getMousePositionRelativeToElement(
           event.target,
           event.clientX,
