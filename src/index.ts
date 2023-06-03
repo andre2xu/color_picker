@@ -89,6 +89,12 @@ class JSColorPicker {
       const CLICKED_ELEMENT: HTMLElement = event.target;
 
       if (event.clientX !== undefined && event.clientY !== undefined) {
+        const MOUSE_POSITION = helpers.getMousePositionRelativeToElement(
+          event.target,
+          event.clientX,
+          event.clientY
+        );
+
         if (this.hues !== undefined && this.hues[0] === CLICKED_ELEMENT) {
           
         }
