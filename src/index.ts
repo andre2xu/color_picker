@@ -81,7 +81,11 @@ class JSColorPicker {
 
     // binds event listeners
     this.color_picker.on('click', function (this: JSColorPicker, event: JQuery.TriggeredEvent) {
-      
+      const CLICKED_ELEMENT: HTMLElement = event.target;
+
+      if (this.hues !== undefined && this.hues[0] === CLICKED_ELEMENT) {
+        
+      }
     }.bind(this));
   };
 
