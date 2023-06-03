@@ -17,6 +17,7 @@ class JSColorPicker {
   alpha_channel: ComponentReference;
   ac_slider: ComponentReference;
   selected_color: shared_types.RGB;
+  component_held: ComponentReference;
 
   constructor (container_id: string) {
     const CONTAINER: HTMLElement | null = document.getElementById(container_id);
@@ -84,7 +85,7 @@ class JSColorPicker {
     this.setSize(300, 200);
 
     // binds event listeners
-    this.color_picker.on('click', function (this: JSColorPicker, event: JQuery.TriggeredEvent) {
+    this.color_picker.on('mousedown', function (this: JSColorPicker, event: JQuery.TriggeredEvent) {
       const CLICKED_ELEMENT: HTMLElement = event.target;
 
       if (event.clientX !== undefined && event.clientY !== undefined) {
@@ -109,6 +110,10 @@ class JSColorPicker {
           );
         }
       }
+    }.bind(this));
+
+    this.color_picker.on('mouseup', function (this: JSColorPicker) {
+      this.component_held = undefined;
     }.bind(this));
   };
 
