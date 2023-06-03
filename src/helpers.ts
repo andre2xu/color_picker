@@ -15,11 +15,33 @@ function getMousePositionRelativeToElement(element: HTMLElement, mouse_x: number
   };
 };
 
+function moveVerticalSlider(vertical_slider: HTMLElement, y: number) {
+  const VS: JQuery<HTMLElement> = $(vertical_slider);
+  const VS_PARENT = VS.parent()[0];
+
+  if (VS.hasClass('vertical_slider') === false) {
+    throw ReferenceError('Not a vertical slider');
+  }
+
+  let slider_y: number = y - (vertical_slider.offsetHeight * 0.5);
+
+  // ensures the vertical slider stays inside of its component
+  if (slider_y < 0) {
+    slider_y = 0;
+  }
+  else if (slider_y > VS_PARENT.offsetHeight) {
+    slider_y = VS_PARENT.offsetHeight;
+  }
+
+  VS.css('top', slider_y);
+};
+
 
 
 const helpers = {
   updateComponentCanvasDimensions,
-  getMousePositionRelativeToElement
+  getMousePositionRelativeToElement,
+  moveVerticalSlider
 };
 
 export default helpers;
