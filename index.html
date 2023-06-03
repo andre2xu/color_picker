@@ -10,8 +10,30 @@
   <title>Color Picker</title>
 </head>
 <body>
+  <canvas id="fake_hue" width="23" height="185"></canvas>
+
   <div id="test"></div>
 
   <script src="./dist/color_picker.js"></script>
+
+  <script>
+    // HUE CANVAS SIMULATION
+    const hue_canvas = document.getElementById('fake_hue');
+    const hc_ctx = hue_canvas.getContext('2d');
+
+    const hue_gradient = hc_ctx.createLinearGradient(0, 0, hue_canvas.clientWidth, hue_canvas.clientHeight);
+    hue_gradient.addColorStop(0/6, "red");
+    hue_gradient.addColorStop(1/6, "orange");
+    hue_gradient.addColorStop(2/6, "yellow");
+    hue_gradient.addColorStop(3/6, "greenyellow");
+    hue_gradient.addColorStop(4/6, "cyan");
+    hue_gradient.addColorStop(5/6, "blue");
+    hue_gradient.addColorStop(6/6, "magenta");
+
+    hc_ctx.fillStyle = hue_gradient;
+    hc_ctx.fillRect(0, 0, hue_canvas.clientWidth, hue_canvas.clientHeight);
+
+    // hue_canvas.width = 100;
+  </script>
 </body>
 </html>
