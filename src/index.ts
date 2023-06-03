@@ -100,6 +100,14 @@ class JSColorPicker {
             MOUSE_POSITION.y
           );
         }
+        else if (this.alpha_channel !== undefined && this.alpha_channel[0] === CLICKED_ELEMENT && this.ac_slider !== undefined) {
+          const AC_CONTAINER: HTMLElement = event.target.parentElement as HTMLElement;
+
+          helpers.moveVerticalSlider(
+            this.ac_slider[0],
+            event.clientY - AC_CONTAINER.offsetTop
+          );
+        }
       }
     }.bind(this));
   };
