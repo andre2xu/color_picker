@@ -120,20 +120,18 @@ class JSColorPicker {
     }.bind(this));
 
     this.color_picker.on('mousemove', function (this: JSColorPicker, event: JQuery.TriggeredEvent) {
-      const ELEMENT_HOVERING_OVER: HTMLElement = event.target;
-
       if (event.button === 0 && this.component_held !== undefined && event.clientX !== undefined && event.clientY !== undefined) {
-        const MOUSE_POSITION: shared_types.Coordinates = helpers.getMousePositionRelativeToElement(
-          event.target,
-          event.clientX,
-          event.clientY
-        );
+        if (this.hues !== undefined && this.hue_slider !== undefined) {
+          const HUE_COMPONENT: HTMLElement = this.hues[0];
 
-        if (this.hues !== undefined && this.hues[0] === ELEMENT_HOVERING_OVER && this.hue_slider !== undefined) {
-          helpers.moveVerticalSlider(
-            this.hue_slider[0],
-            MOUSE_POSITION.y
-          );
+          let mouse_y: number = event.clientY - HUE_COMPONENT.offsetTop;
+
+          if (mouse_y <= HUE_COMPONENT.offsetHeight) {
+            helpers.moveVerticalSlider(
+              this.hue_slider[0],
+              mouse_y
+            );
+          }
         }
       }
     }.bind(this));
