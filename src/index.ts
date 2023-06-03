@@ -137,6 +137,10 @@ class JSColorPicker {
         }
       }
     }.bind(this));
+
+    this.color_picker.on('mouseleave', function (this: JSColorPicker) {
+      this.component_held = undefined;
+    }.bind(this));
   };
 
 
