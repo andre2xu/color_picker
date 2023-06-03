@@ -12,6 +12,7 @@ class JSColorPicker {
   shades_and_tints: ComponentReference;
   searchbar: ComponentReference;
   hues: ComponentReference;
+  hue_slider: ComponentReference;
   hue_canvas: ComponentReference;
   alpha_channel: ComponentReference;
   selected_color: shared_types.RGB;
@@ -61,6 +62,7 @@ class JSColorPicker {
     this.shades_and_tints = $('.shade_AND_tint').first();
     this.searchbar = $('.searchbar').first();
     this.hues = $('.hue').first();
+    this.hue_slider = this.hues.children('.vertical_slider').first();
     this.hue_canvas = $('.hue_canvas').first();
     this.alpha_channel = $('.alpha_channel').first();
 
