@@ -114,7 +114,7 @@ class JSColorPicker {
         });
       }
 
-      // updates the dimensions of the hidden canvases so that they match their component's
+      // updates the dimensions of the hidden canvases so that they match their component's new size
       if (this.hues !== undefined && this.hue_canvas !== undefined) {
         helpers.updateComponentCanvasDimensions(
           this.hues[0],
