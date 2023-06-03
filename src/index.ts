@@ -78,6 +78,11 @@ class JSColorPicker {
     }
 
     this.setSize(300, 200);
+
+    // binds event listeners
+    this.color_picker.on('click', function (this: JSColorPicker, event: JQuery.TriggeredEvent) {
+      
+    }.bind(this));
   };
 
 
