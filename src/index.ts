@@ -109,6 +109,9 @@ class JSColorPicker {
             event.clientY - AC_CONTAINER.offsetTop
           );
         }
+        else if (this.hue_slider !== undefined && this.hue_slider[0] === CLICKED_ELEMENT) {
+          this.component_held = this.hue_slider;
+        }
       }
     }.bind(this));
 
