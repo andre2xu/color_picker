@@ -43,6 +43,8 @@ class JSColorPicker {
         </div>
 
         <div class="hue_AND_transparency">
+          <canvas class="hue_canvas hide" hidden></canvas>
+
           <div class="hue">
             <div class="vertical_slider"></div>
           </div>
