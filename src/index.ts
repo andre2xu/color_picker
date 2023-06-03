@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import helpers from './helpers';
 
 
 
@@ -111,6 +112,14 @@ class JSColorPicker {
         this.searchbar.css({
           fontSize: this.searchbar[0].clientHeight * 0.55
         });
+      }
+
+      // updates the dimensions of the hidden canvases so that they match their component's
+      if (this.hues !== undefined && this.hue_canvas !== undefined) {
+        helpers.updateComponentCanvasDimensions(
+          this.hues[0],
+          this.hue_canvas[0] as HTMLCanvasElement
+        );
       }
     }
   };
