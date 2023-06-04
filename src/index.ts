@@ -129,7 +129,7 @@ class JSColorPicker {
       this.color_picker.css({
         width: w,
         height: h,
-        padding: w * 0.025
+        padding: w * 0.03
       });
 
       // ensures the searchbar's text is responsive to changes in the color picker's size
