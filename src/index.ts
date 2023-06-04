@@ -207,9 +207,11 @@ class JSColorPicker {
 
       // ensures the shade & tint component cursor is responsive to changes in the color picker's size
       if (this.snt_cursor !== undefined) {
+        const SNTC: HTMLElement = this.snt_cursor[0];
+
         helpers.updateSNTCursorSize(
           this.color_picker[0],
-          this.snt_cursor[0]
+          SNTC
         );
       }
     }
