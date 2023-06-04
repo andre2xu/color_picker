@@ -192,6 +192,14 @@ class JSColorPicker {
           this.hue_canvas[0] as HTMLCanvasElement
         );
       }
+
+      // ensures the shade & tint component cursor is responsive to changes in the color picker's size
+      if (this.snt_cursor !== undefined) {
+        helpers.updateSNTCursorSize(
+          this.color_picker[0],
+          this.snt_cursor[0]
+        );
+      }
     }
   };
 
