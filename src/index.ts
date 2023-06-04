@@ -214,6 +214,19 @@ class JSColorPicker {
           this.color_picker[0],
           SNTC
         );
+
+        // ensures the cursor is still in the same spot
+        if (this.shades_and_tints !== undefined) {
+          const SNT_COMPONENT: HTMLElement = this.shades_and_tints[0];
+          const CORRECTED_X: number = this.sntc_position.left * SNT_COMPONENT.offsetWidth;
+          const CORRECTED_Y: number = this.sntc_position.top * SNT_COMPONENT.offsetHeight;
+
+          helpers.moveSNTCursor(
+            SNTC,
+            CORRECTED_X,
+            CORRECTED_Y
+          );
+        }
       }
     }
   };
