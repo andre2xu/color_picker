@@ -66,25 +66,28 @@ function moveSNTCursor(snt_cursor: HTMLElement, x: number, y: number) {
 
   sntc_parent = sntc_parent[0];
 
-  // ensures the cursor stays within the component
-  if (x < 0) {
-    x = 0;
+  const CURSOR_HALF_WIDTH: number = snt_cursor.offsetWidth * 0.5;
+  const CURSOR_HALF_HEIGHT: number = snt_cursor.offsetHeight * 0.5;
+
+  // ensures the cursor stays within the left and right edges
+  if (x < CURSOR_HALF_WIDTH) {
+    x = CURSOR_HALF_WIDTH;
   }
-  else if (x > sntc_parent.offsetWidth - snt_cursor.offsetWidth) {
-    x = sntc_parent.offsetWidth - snt_cursor.offsetWidth;
+  else if (x > sntc_parent.offsetWidth - CURSOR_HALF_WIDTH) {
+    x = sntc_parent.offsetWidth - CURSOR_HALF_WIDTH;
   }
 
-  if (y < 0) {
-    y = 0;
+  // ensures the cursor stays within the top and bottom edges
+  if (y < CURSOR_HALF_HEIGHT) {
+    y = CURSOR_HALF_HEIGHT;
   }
-  else if (y > sntc_parent.offsetHeight - snt_cursor.offsetHeight) {
-    y = sntc_parent.offsetHeight - snt_cursor.offsetHeight;
+  else if (y > sntc_parent.offsetHeight - CURSOR_HALF_HEIGHT) {
+    y = sntc_parent.offsetHeight - CURSOR_HALF_WIDTH;
   }
 
-  // moves the cursor and returns its new position
   SNTC.css({
-    top: y,
-    left: x
+    top: y - CURSOR_HALF_HEIGHT,
+    left: x - CURSOR_HALF_WIDTH
   });
 
   return {
