@@ -68,12 +68,17 @@ function mouseMoveHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
   }
 };
 
+function mouseLeaveHandler(this: JSColorPicker) {
+  this.component_held = undefined;
+};
+
 
 
 const event_handlers = {
   mouseDownHandler,
   mouseUpHandler,
-  mouseMoveHandler
+  mouseMoveHandler,
+  mouseLeaveHandler
 };
 
 export default event_handlers;
