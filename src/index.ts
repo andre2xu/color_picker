@@ -126,13 +126,12 @@ class JSColorPicker {
       if (event.button === 0 && this.component_held !== undefined && event.clientX !== undefined && event.clientY !== undefined) {
         if (this.hue_slider !== undefined && this.component_held[0] === this.hue_slider[0] && this.hues !== undefined) {
           const HUE_COMPONENT: HTMLElement = this.hues[0];
+          const MOUSE_Y: number = event.clientY - HUE_COMPONENT.offsetTop;
 
-          let mouse_y: number = event.clientY - HUE_COMPONENT.offsetTop;
-
-          if (mouse_y <= HUE_COMPONENT.offsetHeight) {
+          if (MOUSE_Y <= HUE_COMPONENT.offsetHeight) {
             helpers.moveVerticalSlider(
               this.hue_slider[0],
-              mouse_y
+              MOUSE_Y
             );
           }
         }
