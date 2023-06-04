@@ -112,9 +112,7 @@ class JSColorPicker {
     // binds event listeners
     this.color_picker.on('mousedown', event_handlers.mouseDownHandler.bind(this));
 
-    this.color_picker.on('mouseup', function (this: JSColorPicker) {
-      this.component_held = undefined;
-    }.bind(this));
+    this.color_picker.on('mouseup', event_handlers.mouseUpHandler.bind(this));
 
     this.color_picker.on('mousemove', function (this: JSColorPicker, event: JQuery.TriggeredEvent) {
       if (event.button === 0 && this.component_held !== undefined && event.clientX !== undefined && event.clientY !== undefined) {
