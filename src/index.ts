@@ -10,6 +10,7 @@ class JSColorPicker {
   container: ComponentReference;
   color_picker: ComponentReference;
   shades_and_tints: ComponentReference;
+  snt_cursor: ComponentReference;
   searchbar: ComponentReference;
   hues: ComponentReference;
   hue_slider: ComponentReference;
@@ -64,6 +65,7 @@ class JSColorPicker {
     // gets the color picker's components
     this.color_picker = $('.jscp').first();
     this.shades_and_tints = $('.shade_AND_tint').first();
+    this.snt_cursor = this.shades_and_tints.children('.cursor').first();
     this.searchbar = $('.searchbar').first();
     this.hues = $('.hue').first();
     this.hue_slider = this.hues.children('.vertical_slider').first();
