@@ -41,11 +41,39 @@ function mouseUpHandler(this: JSColorPicker) {
   this.component_held = undefined;
 };
 
+function mouseMoveHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
+  if (event.button === 0 && this.component_held !== undefined && event.clientX !== undefined && event.clientY !== undefined) {
+    if (this.hue_slider !== undefined && this.component_held[0] === this.hue_slider[0] && this.hues !== undefined) {
+      const HUE_COMPONENT: HTMLElement = this.hues[0];
+      const MOUSE_Y: number = event.clientY - HUE_COMPONENT.offsetTop;
+
+      if (MOUSE_Y <= HUE_COMPONENT.offsetHeight) {
+        helpers.moveVerticalSlider(
+          this.hue_slider[0],
+          MOUSE_Y
+        );
+      }
+    }
+    else if (this.ac_slider !== undefined && this.component_held[0] === this.ac_slider[0] && this.alpha_channel !== undefined) {
+      const AC_CONTAINER: HTMLElement = this.alpha_channel.parent()[0];
+      const MOUSE_Y: number = event.clientY - AC_CONTAINER.offsetTop;
+
+      if (MOUSE_Y <= AC_CONTAINER.offsetHeight) {
+        helpers.moveVerticalSlider(
+          this.ac_slider[0],
+          MOUSE_Y
+        );
+      }
+    }
+  }
+};
+
 
 
 const event_handlers = {
   mouseDownHandler,
-  mouseUpHandler
+  mouseUpHandler,
+  mouseMoveHandler
 };
 
 export default event_handlers;
