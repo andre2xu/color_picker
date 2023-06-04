@@ -58,8 +58,9 @@ function updateSNTCursorSize(color_picker: HTMLElement, snt_cursor: HTMLElement)
 
 function moveSNTCursor(snt_cursor: HTMLElement, x: number, y: number) {
   const SNTC: JQuery<HTMLElement> = $(snt_cursor);
+  const SNTC_PARENT = SNTC.parent();
 
-  if (SNTC.hasClass('cursor') === false || SNTC.parent().hasClass('shade_AND_tint') === false) {
+  if (SNTC.hasClass('cursor') === false || SNTC_PARENT.hasClass('shade_AND_tint') === false) {
     throw ReferenceError('Not a shade and tint component cursor');
   }
 
@@ -70,7 +71,10 @@ function moveSNTCursor(snt_cursor: HTMLElement, x: number, y: number) {
 
   SNTC.css(POSITION);
 
-  return POSITION;
+  return {
+    top: y / SNTC_PARENT[0].offsetHeight,
+    left: x / SNTC_PARENT[0].offsetWidth
+  };
 };
 
 
