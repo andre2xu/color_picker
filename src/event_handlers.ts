@@ -37,10 +37,15 @@ function mouseDownHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
   }
 };
 
+function mouseUpHandler(this: JSColorPicker) {
+  this.component_held = undefined;
+};
+
 
 
 const event_handlers = {
-  mouseDownHandler
+  mouseDownHandler,
+  mouseUpHandler
 };
 
 export default event_handlers;
