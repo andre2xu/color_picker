@@ -84,7 +84,7 @@ function mouseMoveHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
         event.clientY
       );
 
-      helpers.moveSNTCursor(
+      this.sntc_position = helpers.moveSNTCursor(
         this.snt_cursor[0],
         MOUSE_POSITION.x,
         MOUSE_POSITION.y
