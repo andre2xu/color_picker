@@ -16,9 +16,11 @@ class JSColorPicker {
   searchbar: ComponentReference;
   hues: ComponentReference;
   hue_slider: ComponentReference;
+  hue_slider_position: JQuery.Coordinates = {top: 0, left: 0};
   hue_canvas: ComponentReference;
   alpha_channel: ComponentReference;
   ac_slider: ComponentReference;
+  ac_slider_position: JQuery.Coordinates = {top: 0, left: 0};
   selected_color: shared_types.RGB;
   component_held: ComponentReference;
 
