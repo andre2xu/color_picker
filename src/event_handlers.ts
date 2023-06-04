@@ -43,6 +43,9 @@ function mouseDownHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
     else if (this.ac_slider !== undefined && this.ac_slider[0] === CLICKED_ELEMENT) {
       this.component_held = this.ac_slider;
     }
+    else if (this.snt_cursor !== undefined && this.snt_cursor[0] === CLICKED_ELEMENT) {
+      this.component_held = this.snt_cursor;
+    }
   }
 };
 
