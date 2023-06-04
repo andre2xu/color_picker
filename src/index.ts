@@ -100,7 +100,7 @@ class JSColorPicker {
       }
 
       if (this.shades_and_tints !== undefined) {
-        helpers.moveSNTCursor(
+        this.sntc_position = helpers.moveSNTCursor(
           SNTC,
           this.shades_and_tints[0].offsetWidth - SNTC.offsetWidth,
           0
