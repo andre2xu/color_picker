@@ -34,6 +34,8 @@ function moveVerticalSlider(vertical_slider: HTMLElement, y: number) {
   }
 
   VS.css('top', slider_y);
+
+  return slider_y;
 };
 
 function updateSNTCursorSize(color_picker: HTMLElement, snt_cursor: HTMLElement) {
