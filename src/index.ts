@@ -136,6 +136,17 @@ class JSColorPicker {
             );
           }
         }
+        else if (this.ac_slider !== undefined && this.component_held[0] === this.ac_slider[0] && this.alpha_channel !== undefined) {
+          const AC_CONTAINER: HTMLElement = this.alpha_channel.parent()[0];
+          const MOUSE_Y: number = event.clientY - AC_CONTAINER.offsetTop;
+
+          if (MOUSE_Y <= AC_CONTAINER.offsetHeight) {
+            helpers.moveVerticalSlider(
+              this.ac_slider[0],
+              MOUSE_Y
+            );
+          }
+        }
       }
     }.bind(this));
 
