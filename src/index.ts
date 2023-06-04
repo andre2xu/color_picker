@@ -88,11 +88,23 @@ class JSColorPicker {
 
     this.setSize(300, 200);
 
-    if (this.snt_cursor !== undefined && this.color_picker !== undefined) {
-      helpers.updateSNTCursorSize(
-        this.color_picker[0],
-        this.snt_cursor[0]
-      );
+    if (this.snt_cursor !== undefined) {
+      const SNTC: HTMLElement = this.snt_cursor[0];
+
+      if (this.color_picker !== undefined) {
+        helpers.updateSNTCursorSize(
+          this.color_picker[0],
+          SNTC
+        );
+      }
+
+      if (this.shades_and_tints !== undefined) {
+        helpers.moveSNTCursor(
+          SNTC,
+          this.shades_and_tints[0].offsetWidth - SNTC.offsetWidth,
+          0
+        );
+      }
     }
 
     // binds event listeners
