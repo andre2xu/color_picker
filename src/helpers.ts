@@ -56,17 +56,21 @@ function updateSNTCursorSize(color_picker: HTMLElement, snt_cursor: HTMLElement)
   });
 };
 
-function moveSNTCursor(snt_cursor: HTMLElement, x: number, y: number) {
+function moveSNTCursor(snt_cursor: HTMLElement, x: number, y: number): JQuery.Coordinates {
   const SNTC: JQuery<HTMLElement> = $(snt_cursor);
 
   if (SNTC.hasClass('cursor') === false || SNTC.parent().hasClass('shade_AND_tint') === false) {
     throw ReferenceError('Not a shade and tint component cursor');
   }
 
-  SNTC.css({
+  const POSITION = {
     top: y,
     left: x
-  });
+  };
+
+  SNTC.css(POSITION);
+
+  return POSITION;
 };
 
 
