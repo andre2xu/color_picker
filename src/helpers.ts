@@ -56,13 +56,27 @@ function updateSNTCursorSize(color_picker: HTMLElement, snt_cursor: HTMLElement)
   });
 };
 
+function moveSNTCursor(snt_cursor: HTMLElement, x: number, y: number) {
+  const C: JQuery<HTMLElement> = $(snt_cursor);
+
+  if (C.hasClass('cursor') === false || C.parent().hasClass('shade_AND_tint') === false) {
+    throw ReferenceError('Not a shade and tint component cursor');
+  }
+
+  C.css({
+    top: y,
+    left: x
+  });
+};
+
 
 
 const helpers = {
   updateComponentCanvasDimensions,
   getMousePositionRelativeToElement,
   moveVerticalSlider,
-  updateSNTCursorSize
+  updateSNTCursorSize,
+  moveSNTCursor
 };
 
 export default helpers;
