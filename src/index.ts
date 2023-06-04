@@ -88,6 +88,13 @@ class JSColorPicker {
 
     this.setSize(300, 200);
 
+    if (this.snt_cursor !== undefined && this.color_picker !== undefined) {
+      helpers.updateSNTCursorSize(
+        this.color_picker[0],
+        this.snt_cursor[0]
+      );
+    }
+
     // binds event listeners
     this.color_picker.on('mousedown', function (this: JSColorPicker, event: JQuery.TriggeredEvent) {
       const CLICKED_ELEMENT: HTMLElement = event.target;
