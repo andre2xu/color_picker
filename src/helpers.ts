@@ -38,32 +38,32 @@ function moveVerticalSlider(vertical_slider: HTMLElement, y: number) {
 
 function updateSNTCursorSize(color_picker: HTMLElement, snt_cursor: HTMLElement) {
   const CP: JQuery<HTMLElement> = $(color_picker);
-  const C: JQuery<HTMLElement> = $(snt_cursor);
+  const SNTC: JQuery<HTMLElement> = $(snt_cursor);
 
   if (CP.hasClass('jscp') === false) {
     throw ReferenceError('Not a color picker');
   }
 
-  if (C.hasClass('cursor') === false || C.parent().hasClass('shade_AND_tint') === false) {
+  if (SNTC.hasClass('cursor') === false || SNTC.parent().hasClass('shade_AND_tint') === false) {
     throw ReferenceError('Not a shade and tint component cursor');
   }
 
   const CURSOR_SIZE: number = color_picker.offsetWidth * 0.02;
 
-  C.css({
+  SNTC.css({
     width: CURSOR_SIZE,
     height: CURSOR_SIZE
   });
 };
 
 function moveSNTCursor(snt_cursor: HTMLElement, x: number, y: number) {
-  const C: JQuery<HTMLElement> = $(snt_cursor);
+  const SNTC: JQuery<HTMLElement> = $(snt_cursor);
 
-  if (C.hasClass('cursor') === false || C.parent().hasClass('shade_AND_tint') === false) {
+  if (SNTC.hasClass('cursor') === false || SNTC.parent().hasClass('shade_AND_tint') === false) {
     throw ReferenceError('Not a shade and tint component cursor');
   }
 
-  C.css({
+  SNTC.css({
     top: y,
     left: x
   });
