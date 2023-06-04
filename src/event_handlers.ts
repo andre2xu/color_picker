@@ -78,20 +78,17 @@ function mouseMoveHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
       }
     }
     else if (this.snt_cursor !== undefined && this.component_held[0] === this.snt_cursor[0] && this.shades_and_tints !== undefined) {
-      const SNT_COMPONENT: HTMLElement = this.shades_and_tints[0];
       const MOUSE_POSITION = helpers.getMousePositionRelativeToElement(
-        SNT_COMPONENT,
+        this.shades_and_tints[0],
         event.clientX,
         event.clientY
       );
 
-      if (MOUSE_POSITION.x <= SNT_COMPONENT.offsetWidth && MOUSE_POSITION.y <= SNT_COMPONENT.offsetHeight) {
-        helpers.moveSNTCursor(
-          this.snt_cursor[0],
-          MOUSE_POSITION.x,
-          MOUSE_POSITION.y
-        );
-      }
+      helpers.moveSNTCursor(
+        this.snt_cursor[0],
+        MOUSE_POSITION.x,
+        MOUSE_POSITION.y
+      );
     }
   }
 };
