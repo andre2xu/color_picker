@@ -121,7 +121,7 @@ class JSColorPicker {
 
     this.color_picker.on('mousemove', function (this: JSColorPicker, event: JQuery.TriggeredEvent) {
       if (event.button === 0 && this.component_held !== undefined && event.clientX !== undefined && event.clientY !== undefined) {
-        if (this.hues !== undefined && this.hue_slider !== undefined) {
+        if (this.hue_slider !== undefined && this.component_held[0] === this.hue_slider[0] && this.hues !== undefined) {
           const HUE_COMPONENT: HTMLElement = this.hues[0];
 
           let mouse_y: number = event.clientY - HUE_COMPONENT.offsetTop;
