@@ -37,7 +37,9 @@ class JSColorPicker {
       `
       <div class="jscp">
         <div class="shade_AND_tint_AND_searchbar">
-          <div class="shade_AND_tint"></div>
+          <div class="shade_AND_tint">
+            <div class="cursor"></div>
+          </div>
 
           <input type="text" class="searchbar">
         </div>
