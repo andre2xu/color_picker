@@ -56,7 +56,7 @@ function updateSNTCursorSize(color_picker: HTMLElement, snt_cursor: HTMLElement)
   });
 };
 
-function moveSNTCursor(snt_cursor: HTMLElement, x: number, y: number): JQuery.Coordinates {
+function moveSNTCursor(snt_cursor: HTMLElement, x: number, y: number) {
   const SNTC: JQuery<HTMLElement> = $(snt_cursor);
 
   if (SNTC.hasClass('cursor') === false || SNTC.parent().hasClass('shade_AND_tint') === false) {
