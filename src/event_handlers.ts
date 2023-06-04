@@ -28,6 +28,15 @@ function mouseDownHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
         event.clientY - AC_CONTAINER.offsetTop
       );
     }
+    else if (this.shades_and_tints !== undefined && this.shades_and_tints[0] === CLICKED_ELEMENT && this.snt_cursor !== undefined) {
+      const SNTC: HTMLElement = this.snt_cursor[0];
+
+      this.sntc_position = helpers.moveSNTCursor(
+        SNTC,
+        MOUSE_POSITION.x - (SNTC.offsetWidth * 0.4),
+        MOUSE_POSITION.y - (SNTC.offsetHeight * 0.4)
+      );
+    }
     else if (this.hue_slider !== undefined && this.hue_slider[0] === CLICKED_ELEMENT) {
       this.component_held = this.hue_slider;
     }
