@@ -15,7 +15,7 @@ function mouseDownHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
     );
 
     if (this.hues !== undefined && this.hues[0] === CLICKED_ELEMENT && this.hue_slider !== undefined) {
-      helpers.moveVerticalSlider(
+      this.hue_slider_position = helpers.moveVerticalSlider(
         this.hue_slider[0],
         MOUSE_POSITION.y
       );
@@ -23,7 +23,7 @@ function mouseDownHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
     else if (this.alpha_channel !== undefined && this.alpha_channel[0] === CLICKED_ELEMENT && this.ac_slider !== undefined) {
       const AC_CONTAINER: HTMLElement = event.target.parentElement as HTMLElement;
 
-      helpers.moveVerticalSlider(
+      this.ac_slider_position = helpers.moveVerticalSlider(
         this.ac_slider[0],
         event.clientY - AC_CONTAINER.offsetTop
       );
@@ -60,7 +60,7 @@ function mouseMoveHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
       const MOUSE_Y: number = event.clientY - HUE_COMPONENT.offsetTop;
 
       if (MOUSE_Y <= HUE_COMPONENT.offsetHeight) {
-        helpers.moveVerticalSlider(
+        this.hue_slider_position = helpers.moveVerticalSlider(
           this.hue_slider[0],
           MOUSE_Y
         );
@@ -71,7 +71,7 @@ function mouseMoveHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
       const MOUSE_Y: number = event.clientY - AC_CONTAINER.offsetTop;
 
       if (MOUSE_Y <= AC_CONTAINER.offsetHeight) {
-        helpers.moveVerticalSlider(
+        this.ac_slider_position = helpers.moveVerticalSlider(
           this.ac_slider[0],
           MOUSE_Y
         );
