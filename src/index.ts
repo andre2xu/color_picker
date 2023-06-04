@@ -91,6 +91,8 @@ class JSColorPicker {
     this.setSize(300, 200);
 
     if (this.snt_cursor !== undefined) {
+      this.snt_cursor.css('background-color', 'red');
+
       const SNTC: HTMLElement = this.snt_cursor[0];
 
       if (this.color_picker !== undefined) {
