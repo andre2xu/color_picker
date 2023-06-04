@@ -33,8 +33,8 @@ function mouseDownHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
 
       this.sntc_position = helpers.moveSNTCursor(
         SNTC,
-        MOUSE_POSITION.x - (SNTC.offsetWidth * 0.4),
-        MOUSE_POSITION.y - (SNTC.offsetHeight * 0.4)
+        MOUSE_POSITION.x,
+        MOUSE_POSITION.y
       );
     }
     else if (this.hue_slider !== undefined && this.hue_slider[0] === CLICKED_ELEMENT) {
