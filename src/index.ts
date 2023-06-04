@@ -11,6 +11,7 @@ class JSColorPicker {
   color_picker: ComponentReference;
   shades_and_tints: ComponentReference;
   snt_cursor: ComponentReference;
+  sntc_position: JQuery.Coordinates = {top: 0, left: 0};
   searchbar: ComponentReference;
   hues: ComponentReference;
   hue_slider: ComponentReference;
