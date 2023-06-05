@@ -9,6 +9,23 @@ function updateComponentCanvasDimensions(jscp_component: HTMLElement, component_
 
   COMPONENT_CANVAS.width = Math.ceil(COMPONENT_RECT.width);
   COMPONENT_CANVAS.height = Math.ceil(COMPONENT_RECT.height);
+
+  // redraws canvas
+  const COMPONENT = $(jscp_component);
+
+  if (COMPONENT.hasClass('hue')) {
+    const HUE_GRADIENT = component_canvas_context.createLinearGradient(0, 0, 0, COMPONENT_CANVAS.offsetHeight);
+    HUE_GRADIENT.addColorStop(0/6, "red");
+    HUE_GRADIENT.addColorStop(1/6, "orange");
+    HUE_GRADIENT.addColorStop(2/6, "yellow");
+    HUE_GRADIENT.addColorStop(3/6, "greenyellow");
+    HUE_GRADIENT.addColorStop(4/6, "cyan");
+    HUE_GRADIENT.addColorStop(5/6, "blue");
+    HUE_GRADIENT.addColorStop(6/6, "magenta");
+
+    component_canvas_context.fillStyle = HUE_GRADIENT;
+    component_canvas_context.fillRect(0, 0, COMPONENT_CANVAS.offsetWidth, COMPONENT_CANVAS.offsetHeight);
+  }
 };
 
 function getMousePositionRelativeToElement(element: HTMLElement, mouse_x: number, mouse_y: number): shared_types.Coordinates {
