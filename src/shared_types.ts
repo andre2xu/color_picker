@@ -14,10 +14,13 @@ interface Dimensions {
   h: number
 };
 
+type PixelBits = Array<number | []>
+
 
 
 export {
   RGB,
   Coordinates,
-  Dimensions
+  Dimensions,
+  PixelBits
 };
