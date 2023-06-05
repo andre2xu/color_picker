@@ -150,12 +150,12 @@ class JSColorPicker {
 
       // updates the dimensions of the hidden canvases so that they match their component's new size
       if (this.hues !== undefined && this.hue_canvas_context !== null) {
-        const CANVAS_DIMENSIONS = helpers.updateComponentCanvasDimensions(
+        const CANVAS_DIMENSIONS: shared_types.Dimensions = helpers.updateComponentCanvasDimensions(
           this.hues[0],
           this.hue_canvas_context
         );
 
-        this.hcc_image_data = this.hue_canvas_context.getImageData(0, 0, CANVAS_DIMENSIONS.canvas_width, CANVAS_DIMENSIONS.canvas_height);
+        this.hcc_image_data = this.hue_canvas_context.getImageData(0, 0, CANVAS_DIMENSIONS.w, CANVAS_DIMENSIONS.h);
       }
 
       // ensures the shade & tint component cursor is responsive to changes in the color picker's size
