@@ -35,6 +35,19 @@ function updateComponentCanvasDimensions(jscp_component: HTMLElement, component_
   };
 };
 
+function getPixel(canvas_image_data: ImageData, x: number, y: number): Array<number | []> {
+  const PIXELS: Uint8ClampedArray = canvas_image_data.data;
+
+  const INDEX: number = (y * canvas_image_data.width * 4) + (x * 4);
+
+  const R: number = PIXELS[INDEX];
+  const G: number = PIXELS[INDEX + 1];
+  const B: number = PIXELS[INDEX + 2];
+  const A: number = PIXELS[INDEX + 3];
+
+  return [R, G, B, A];
+};
+
 function getMousePositionRelativeToElement(element: HTMLElement, mouse_x: number, mouse_y: number): shared_types.Coordinates {
   return {
     x: mouse_x - element.offsetLeft,
@@ -132,6 +145,7 @@ function moveSNTCursor(snt_cursor: HTMLElement, x: number, y: number) {
 
 const helpers = {
   updateComponentCanvasDimensions,
+  getPixel,
   getMousePositionRelativeToElement,
   moveVerticalSlider,
   updateSNTCursorSize,
