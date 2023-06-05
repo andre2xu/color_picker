@@ -3,7 +3,7 @@ import * as shared_types from './shared_types';
 
 
 
-function updateComponentCanvasDimensions(jscp_component: HTMLElement, component_canvas_context: CanvasRenderingContext2D) {
+function updateComponentCanvasDimensions(jscp_component: HTMLElement, component_canvas_context: CanvasRenderingContext2D): shared_types.Dimensions {
   const COMPONENT_RECT: DOMRect = jscp_component.getBoundingClientRect();
   const ADJUSTED_WIDTH: number = Math.ceil(COMPONENT_RECT.width);
   const ADJUSTED_HEIGHT: number = Math.ceil(COMPONENT_RECT.height);
@@ -30,8 +30,8 @@ function updateComponentCanvasDimensions(jscp_component: HTMLElement, component_
   }
 
   return {
-    canvas_width: ADJUSTED_WIDTH,
-    canvas_height: ADJUSTED_HEIGHT
+    w: ADJUSTED_WIDTH,
+    h: ADJUSTED_HEIGHT
   };
 };
 
