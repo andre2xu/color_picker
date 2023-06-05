@@ -4,8 +4,10 @@ import * as shared_types from './shared_types';
 
 
 function updateComponentCanvasDimensions(jscp_component: HTMLElement, component_canvas: HTMLCanvasElement): void {
-  component_canvas.width = jscp_component.offsetWidth;
-  component_canvas.height = jscp_component.offsetHeight;
+  const COMPONENT_RECT: DOMRect = jscp_component.getBoundingClientRect();
+
+  component_canvas.width = Math.ceil(COMPONENT_RECT.width);
+  component_canvas.height = Math.ceil(COMPONENT_RECT.height);
 };
 
 function getMousePositionRelativeToElement(element: HTMLElement, mouse_x: number, mouse_y: number): shared_types.Coordinates {
