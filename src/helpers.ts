@@ -16,7 +16,7 @@ function updateComponentCanvasDimensions(jscp_component: HTMLElement, component_
   const COMPONENT: JQuery<HTMLElement> = $(jscp_component);
 
   if (COMPONENT.hasClass('hue')) {
-    const HUE_GRADIENT = component_canvas_context.createLinearGradient(0, 0, 0, COMPONENT_CANVAS.offsetHeight);
+    const HUE_GRADIENT = component_canvas_context.createLinearGradient(0, 0, 0, ADJUSTED_HEIGHT);
     HUE_GRADIENT.addColorStop(0/6, "red");
     HUE_GRADIENT.addColorStop(1/6, "orange");
     HUE_GRADIENT.addColorStop(2/6, "yellow");
