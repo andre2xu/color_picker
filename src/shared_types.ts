@@ -1,7 +1,8 @@
-interface RGB {
+interface RGBA {
   r: number,
   g: number,
   b: number,
+  a: number
 };
 
 interface Coordinates {
@@ -19,7 +20,7 @@ type PixelBits = Array<number | []>
 
 
 export {
-  RGB,
+  RGBA,
   Coordinates,
   Dimensions,
   PixelBits
