@@ -3,7 +3,7 @@ import * as shared_types from './shared_types';
 
 
 
-function updateComponentCanvasDimensions(jscp_component: HTMLElement, component_canvas_context: CanvasRenderingContext2D): void {
+function updateComponentCanvasDimensions(jscp_component: HTMLElement, component_canvas_context: CanvasRenderingContext2D) {
   const COMPONENT_RECT: DOMRect = jscp_component.getBoundingClientRect();
   const ADJUSTED_WIDTH: number = Math.ceil(COMPONENT_RECT.width);
   const ADJUSTED_HEIGHT: number = Math.ceil(COMPONENT_RECT.height);
@@ -28,6 +28,11 @@ function updateComponentCanvasDimensions(jscp_component: HTMLElement, component_
     component_canvas_context.fillStyle = HUE_GRADIENT;
     component_canvas_context.fillRect(0, 0, ADJUSTED_WIDTH, ADJUSTED_HEIGHT);
   }
+
+  return {
+    canvas_width: ADJUSTED_WIDTH,
+    canvas_height: ADJUSTED_HEIGHT
+  };
 };
 
 function getMousePositionRelativeToElement(element: HTMLElement, mouse_x: number, mouse_y: number): shared_types.Coordinates {
