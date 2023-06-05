@@ -5,13 +5,15 @@ import * as shared_types from './shared_types';
 
 function updateComponentCanvasDimensions(jscp_component: HTMLElement, component_canvas_context: CanvasRenderingContext2D): void {
   const COMPONENT_RECT: DOMRect = jscp_component.getBoundingClientRect();
-  const COMPONENT_CANVAS = component_canvas_context.canvas;
+  const ADJUSTED_WIDTH: number = Math.ceil(COMPONENT_RECT.width);
+  const ADJUSTED_HEIGHT: number = Math.ceil(COMPONENT_RECT.height);
 
-  COMPONENT_CANVAS.width = Math.ceil(COMPONENT_RECT.width);
-  COMPONENT_CANVAS.height = Math.ceil(COMPONENT_RECT.height);
+  const COMPONENT_CANVAS: HTMLCanvasElement = component_canvas_context.canvas;
+  COMPONENT_CANVAS.width = ADJUSTED_WIDTH;
+  COMPONENT_CANVAS.height = ADJUSTED_HEIGHT;
 
   // redraws canvas
-  const COMPONENT = $(jscp_component);
+  const COMPONENT: JQuery<HTMLElement> = $(jscp_component);
 
   if (COMPONENT.hasClass('hue')) {
     const HUE_GRADIENT = component_canvas_context.createLinearGradient(0, 0, 0, COMPONENT_CANVAS.offsetHeight);
@@ -24,7 +26,7 @@ function updateComponentCanvasDimensions(jscp_component: HTMLElement, component_
     HUE_GRADIENT.addColorStop(6/6, "magenta");
 
     component_canvas_context.fillStyle = HUE_GRADIENT;
-    component_canvas_context.fillRect(0, 0, COMPONENT_CANVAS.offsetWidth, COMPONENT_CANVAS.offsetHeight);
+    component_canvas_context.fillRect(0, 0, ADJUSTED_WIDTH, ADJUSTED_HEIGHT);
   }
 };
 
