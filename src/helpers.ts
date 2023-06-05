@@ -35,7 +35,7 @@ function updateComponentCanvasDimensions(jscp_component: HTMLElement, component_
   };
 };
 
-function getPixel(canvas_image_data: ImageData, x: number, y: number): Array<number | []> {
+function getPixel(canvas_image_data: ImageData, x: number, y: number): shared_types.PixelBits {
   const PIXELS: Uint8ClampedArray = canvas_image_data.data;
 
   const INDEX: number = (y * canvas_image_data.width * 4) + (x * 4);
