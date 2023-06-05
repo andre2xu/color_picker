@@ -9,9 +9,15 @@ interface Coordinates {
   y: number
 };
 
+interface Dimensions {
+  w: number,
+  h: number
+};
+
 
 
 export {
   RGB,
-  Coordinates
+  Coordinates,
+  Dimensions
 };
