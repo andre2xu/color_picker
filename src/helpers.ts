@@ -3,11 +3,12 @@ import * as shared_types from './shared_types';
 
 
 
-function updateComponentCanvasDimensions(jscp_component: HTMLElement, component_canvas: HTMLCanvasElement): void {
+function updateComponentCanvasDimensions(jscp_component: HTMLElement, component_canvas_context: CanvasRenderingContext2D): void {
   const COMPONENT_RECT: DOMRect = jscp_component.getBoundingClientRect();
+  const COMPONENT_CANVAS = component_canvas_context.canvas;
 
-  component_canvas.width = Math.ceil(COMPONENT_RECT.width);
-  component_canvas.height = Math.ceil(COMPONENT_RECT.height);
+  COMPONENT_CANVAS.width = Math.ceil(COMPONENT_RECT.width);
+  COMPONENT_CANVAS.height = Math.ceil(COMPONENT_RECT.height);
 };
 
 function getMousePositionRelativeToElement(element: HTMLElement, mouse_x: number, mouse_y: number): shared_types.Coordinates {

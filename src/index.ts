@@ -151,7 +151,7 @@ class JSColorPicker {
       if (this.hues !== undefined && this.hue_canvas_context !== null) {
         helpers.updateComponentCanvasDimensions(
           this.hues[0],
-          this.hue_canvas_context.canvas
+          this.hue_canvas_context
         );
       }
 
