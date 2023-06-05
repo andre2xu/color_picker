@@ -19,6 +19,10 @@ function mouseDownHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
         this.hue_slider[0],
         MOUSE_POSITION.y
       );
+
+      if (this.hcc_image_data !== undefined) {
+        const COLOR: shared_types.PixelBits = helpers.getPixel(this.hcc_image_data, 0, Math.round(this.hue_slider_position.top));
+      }
     }
     else if (this.alpha_channel !== undefined && this.alpha_channel[0] === CLICKED_ELEMENT && this.ac_slider !== undefined) {
       const AC_CONTAINER: HTMLElement = event.target.parentElement as HTMLElement;
