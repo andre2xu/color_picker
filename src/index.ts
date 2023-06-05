@@ -22,7 +22,7 @@ class JSColorPicker {
   alpha_channel: ComponentReference;
   ac_slider: ComponentReference;
   ac_slider_position: JQuery.Coordinates = {top: 0, left: 0};
-  selected_color: shared_types.RGB;
+  selected_color: shared_types.RGBA;
   component_held: ComponentReference;
 
   constructor (container_id: string) {
@@ -86,11 +86,12 @@ class JSColorPicker {
     this.selected_color = {
       r: 255,
       g: 0,
-      b: 0
+      b: 0,
+      a: 255
     };
 
     if (this.searchbar !== undefined) {
-      const STARTING_COLOR: shared_types.RGB = this.selected_color;
+      const STARTING_COLOR: shared_types.RGBA = this.selected_color;
 
       this.searchbar.val(`rgb(${STARTING_COLOR.r}, ${STARTING_COLOR.g}, ${STARTING_COLOR.b})`);
     }
