@@ -17,7 +17,7 @@ class JSColorPicker {
   hues: ComponentReference;
   hue_slider: ComponentReference;
   hue_slider_position: JQuery.Coordinates = {top: 0, left: 0};
-  hue_canvas: ComponentReference;
+  hue_canvas_context: CanvasRenderingContext2D | null = null;
   alpha_channel: ComponentReference;
   ac_slider: ComponentReference;
   ac_slider_position: JQuery.Coordinates = {top: 0, left: 0};
@@ -73,9 +73,13 @@ class JSColorPicker {
     this.searchbar = $('.searchbar').first();
     this.hues = $('.hue').first();
     this.hue_slider = this.hues.children('.vertical_slider').first();
-    this.hue_canvas = $('.hue_canvas').first();
+    const hue_canvas: ComponentReference = $('.hue_canvas').first();
     this.alpha_channel = $('.alpha_channel').first();
     this.ac_slider = this.alpha_channel.parent().children('.vertical_slider').first();
+
+    if (hue_canvas !== undefined && hue_canvas[0] instanceof HTMLCanvasElement) {
+      this.hue_canvas_context = hue_canvas[0].getContext('2d');
+    }
 
     // initializes defaults
     this.selected_color = {
@@ -144,10 +148,10 @@ class JSColorPicker {
       }
 
       // updates the dimensions of the hidden canvases so that they match their component's new size
-      if (this.hues !== undefined && this.hue_canvas !== undefined) {
+      if (this.hues !== undefined && this.hue_canvas_context !== null) {
         helpers.updateComponentCanvasDimensions(
           this.hues[0],
-          this.hue_canvas[0] as HTMLCanvasElement
+          this.hue_canvas_context.canvas
         );
       }
 
