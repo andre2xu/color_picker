@@ -15,7 +15,7 @@ interface Dimensions {
   h: number
 };
 
-type PixelBits = Array<number | []>
+type PixelBits = Array<number>
 
 
 
