@@ -93,11 +93,11 @@ class JSColorPicker {
     }
 
     if (alpha_channel_canvas !== undefined && alpha_channel_canvas[0] instanceof HTMLCanvasElement) {
-      this.ac_canvas_context = alpha_channel_canvas[0].getContext('2d');
+      this.ac_canvas_context = alpha_channel_canvas[0].getContext('2d', {willReadFrequently: true});
     }
 
     if (snt_canvas !== undefined && snt_canvas[0] instanceof HTMLCanvasElement) {
-      this.snt_canvas_context = snt_canvas[0].getContext('2d');
+      this.snt_canvas_context = snt_canvas[0].getContext('2d', {willReadFrequently: true});
     }
 
     // initializes defaults
