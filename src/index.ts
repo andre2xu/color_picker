@@ -184,6 +184,8 @@ class JSColorPicker {
             b: this.selected_color.b
           }
         );
+
+        this.accc_image_data = this.ac_canvas_context.getImageData(0, 0, CANVAS_DIMENSIONS.w, CANVAS_DIMENSIONS.h);
       }
 
       // ensures the shade & tint component cursor is responsive to changes in the color picker's size
