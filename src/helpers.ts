@@ -13,13 +13,6 @@ function updateComponentCanvasDimensions(jscp_component: HTMLElement, component_
   COMPONENT_CANVAS.width = ADJUSTED_WIDTH;
   COMPONENT_CANVAS.height = ADJUSTED_HEIGHT;
 
-  // redraws canvas
-  const COMPONENT: JQuery<HTMLElement> = $(jscp_component);
-
-  if (COMPONENT.hasClass('alpha_channel')) {
-    
-  }
-
   return {
     w: ADJUSTED_WIDTH,
     h: ADJUSTED_HEIGHT
