@@ -39,7 +39,7 @@ function redrawHueCanvasGradient(hue_canvas_context: CanvasRenderingContext2D) {
   }
 };
 
-function redrawAlphaChannelCanvasGradient(ac_canvas_context: CanvasRenderingContext2D, selected_color: shared_types.RGB) {
+function redrawAlphaChannelCanvasGradient(ac_canvas_context: CanvasRenderingContext2D, selected_color: shared_types.Color) {
   const AC_CANVAS = ac_canvas_context.canvas;
 
   if ($(AC_CANVAS).hasClass('alpha_channel_canvas')) {
@@ -66,7 +66,7 @@ function redrawAlphaChannelCanvasGradient(ac_canvas_context: CanvasRenderingCont
   }
 };
 
-function updateAlphaChannelDisplay(alpha_channel_component: HTMLElement, color: shared_types.RGB) {
+function updateAlphaChannelDisplay(alpha_channel_component: HTMLElement, color: shared_types.Color) {
   const ACC: JQuery<HTMLElement> = $(alpha_channel_component);
 
   if (ACC.hasClass('alpha_channel') === false) {
