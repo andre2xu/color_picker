@@ -45,7 +45,7 @@ function redrawAlphaChannelCanvasGradient(ac_canvas_context: CanvasRenderingCont
   if ($(AC_CANVAS).hasClass('alpha_channel_canvas')) {
     const RGB: string = `${selected_color.r}, ${selected_color.g}, ${selected_color.b}`;
 
-    const ALPHA_CHANNEL_GRADIENT = ac_canvas_context.createLinearGradient(0, 0, 0, AC_CANVAS.height);
+    const ALPHA_CHANNEL_GRADIENT: CanvasGradient = ac_canvas_context.createLinearGradient(0, 0, 0, AC_CANVAS.height);
     ALPHA_CHANNEL_GRADIENT.addColorStop(0.01, `rgba(${RGB}, 1)`);
     ALPHA_CHANNEL_GRADIENT.addColorStop(0.1, `rgba(${RGB}, 0.9)`);
     ALPHA_CHANNEL_GRADIENT.addColorStop(0.2, `rgba(${RGB}, 0.8)`);
