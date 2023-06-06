@@ -1,5 +1,4 @@
 import $ from 'jquery';
-import JSColorPicker from './index';
 import * as shared_types from './shared_types';
 
 
