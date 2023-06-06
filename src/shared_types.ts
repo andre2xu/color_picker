@@ -5,7 +5,7 @@ interface RGBA {
   a: number
 };
 
-interface Hue {
+interface RGB {
   r: number,
   g: number,
   b: number
@@ -27,7 +27,7 @@ type PixelBits = Array<number>
 
 export {
   RGBA,
-  Hue,
+  RGB,
   Coordinates,
   Dimensions,
   PixelBits
