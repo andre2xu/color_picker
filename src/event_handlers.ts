@@ -138,6 +138,23 @@ function mouseMoveHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
 
             this.accc_image_data = this.ac_canvas_context.getImageData(0, 0, AC_CANVAS.width, AC_CANVAS.height);
           }
+
+          if (this.shades_and_tints !== undefined && this.snt_canvas_context !== null) {
+            helpers.updateShadeAndTintDisplay(
+              this.shades_and_tints[0],
+              this.selected_color
+            );
+
+            // updates the shade & tint component's canvas
+            helpers.redrawShadeAndTintCanvasGradient(
+              this.snt_canvas_context,
+              this.selected_color
+            );
+
+            const SNT_CANVAS: HTMLCanvasElement = this.snt_canvas_context.canvas;
+
+            this.sntc_image_data = this.snt_canvas_context.getImageData(0, 0, SNT_CANVAS.width, SNT_CANVAS.height);
+          }
         }
       }
     }
