@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import JSColorPicker from './index';
 import * as shared_types from './shared_types';
 
 
@@ -15,20 +16,7 @@ function updateComponentCanvasDimensions(jscp_component: HTMLElement, component_
   // redraws canvas
   const COMPONENT: JQuery<HTMLElement> = $(jscp_component);
 
-  if (COMPONENT.hasClass('hue')) {
-    const HUE_GRADIENT = component_canvas_context.createLinearGradient(0, 0, 0, ADJUSTED_HEIGHT);
-    HUE_GRADIENT.addColorStop(0.1/6, "red");
-    HUE_GRADIENT.addColorStop(1/6, "orange");
-    HUE_GRADIENT.addColorStop(2/6, "yellow");
-    HUE_GRADIENT.addColorStop(3/6, "greenyellow");
-    HUE_GRADIENT.addColorStop(4/6, "cyan");
-    HUE_GRADIENT.addColorStop(5/6, "blue");
-    HUE_GRADIENT.addColorStop(6/6, "magenta");
-
-    component_canvas_context.fillStyle = HUE_GRADIENT;
-    component_canvas_context.fillRect(0, 0, ADJUSTED_WIDTH, ADJUSTED_HEIGHT);
-  }
-  else if (COMPONENT.hasClass('alpha_channel')) {
+  if (COMPONENT.hasClass('alpha_channel')) {
     const ALPHA_CHANNEL_GRADIENT = component_canvas_context.createLinearGradient(0, 0, 0, ADJUSTED_HEIGHT);
     ALPHA_CHANNEL_GRADIENT.addColorStop(0.1, "rgba(255,0,0,1)");
     ALPHA_CHANNEL_GRADIENT.addColorStop(1, "rgba(255,0,0,0)");
@@ -41,6 +29,27 @@ function updateComponentCanvasDimensions(jscp_component: HTMLElement, component_
     w: ADJUSTED_WIDTH,
     h: ADJUSTED_HEIGHT
   };
+};
+
+function redrawHueCanvasGradient(hue_canvas_context: CanvasRenderingContext2D) {
+  const HUE_CANVAS = hue_canvas_context.canvas;
+
+  if ($(HUE_CANVAS).hasClass('hue_canvas')) {
+    const HUE_GRADIENT = hue_canvas_context.createLinearGradient(0, 0, 0, HUE_CANVAS.height);
+    HUE_GRADIENT.addColorStop(0.1/6, "red");
+    HUE_GRADIENT.addColorStop(1/6, "orange");
+    HUE_GRADIENT.addColorStop(2/6, "yellow");
+    HUE_GRADIENT.addColorStop(3/6, "greenyellow");
+    HUE_GRADIENT.addColorStop(4/6, "cyan");
+    HUE_GRADIENT.addColorStop(5/6, "blue");
+    HUE_GRADIENT.addColorStop(6/6, "magenta");
+
+    hue_canvas_context.fillStyle = HUE_GRADIENT;
+    hue_canvas_context.fillRect(0, 0, HUE_CANVAS.width, HUE_CANVAS.height);
+  }
+  else {
+    throw ReferenceError('Not a hue component canvas');
+  }
 };
 
 function getPixel(canvas_image_data: ImageData, x: number, y: number): shared_types.PixelBits {
@@ -153,6 +162,7 @@ function moveSNTCursor(snt_cursor: HTMLElement, x: number, y: number) {
 
 const helpers = {
   updateComponentCanvasDimensions,
+  redrawHueCanvasGradient,
   getPixel,
   getMousePositionRelativeToElement,
   moveVerticalSlider,
