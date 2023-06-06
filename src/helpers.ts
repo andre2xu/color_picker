@@ -161,6 +161,10 @@ function updateAllDisplaysAndCanvases(jscp: JSColorPicker) {
   if (jscp.snt_cursor !== undefined) {
     jscp.snt_cursor.css('background-color', `rgba(${SELECTED_COLOR})`);
   }
+
+  if (jscp.searchbar !== undefined) {
+    jscp.searchbar.css('background-color', `rgba(${SELECTED_COLOR})`);
+  }
 };
 
 function getPixel(canvas_image_data: ImageData, x: number, y: number): shared_types.PixelBits {
