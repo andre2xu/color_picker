@@ -17,12 +17,7 @@ function updateComponentCanvasDimensions(jscp_component: HTMLElement, component_
   const COMPONENT: JQuery<HTMLElement> = $(jscp_component);
 
   if (COMPONENT.hasClass('alpha_channel')) {
-    const ALPHA_CHANNEL_GRADIENT = component_canvas_context.createLinearGradient(0, 0, 0, ADJUSTED_HEIGHT);
-    ALPHA_CHANNEL_GRADIENT.addColorStop(0.1, "rgba(255,0,0,1)");
-    ALPHA_CHANNEL_GRADIENT.addColorStop(1, "rgba(255,0,0,0)");
-
-    component_canvas_context.fillStyle = ALPHA_CHANNEL_GRADIENT;
-    component_canvas_context.fillRect(0, 0, ADJUSTED_WIDTH, ADJUSTED_HEIGHT);
+    
   }
 
   return {
@@ -49,6 +44,24 @@ function redrawHueCanvasGradient(hue_canvas_context: CanvasRenderingContext2D) {
   }
   else {
     throw ReferenceError('Not a hue component canvas');
+  }
+};
+
+function redrawAlphaChannelCanvasGradient(ac_canvas_context: CanvasRenderingContext2D, selected_hue: shared_types.Hue) {
+  const AC_CANVAS = ac_canvas_context.canvas;
+
+  if ($(AC_CANVAS).hasClass('alpha_channel_canvas')) {
+    const RGB: string = `${selected_hue.r}, ${selected_hue.g}, ${selected_hue.b}`;
+
+    const ALPHA_CHANNEL_GRADIENT = ac_canvas_context.createLinearGradient(0, 0, 0, AC_CANVAS.height);
+    ALPHA_CHANNEL_GRADIENT.addColorStop(0.1, `rgba(${RGB}, 1)`);
+    ALPHA_CHANNEL_GRADIENT.addColorStop(1, `rgba(${RGB},0)`);
+
+    ac_canvas_context.fillStyle = ALPHA_CHANNEL_GRADIENT;
+    ac_canvas_context.fillRect(0, 0, AC_CANVAS.width, AC_CANVAS.height);
+  }
+  else {
+    throw ReferenceError('Not the 2D canvas rendering context of a color picker\'s alpha channel component');
   }
 };
 
@@ -163,6 +176,7 @@ function moveSNTCursor(snt_cursor: HTMLElement, x: number, y: number) {
 const helpers = {
   updateComponentCanvasDimensions,
   redrawHueCanvasGradient,
+  redrawAlphaChannelCanvasGradient,
   getPixel,
   getMousePositionRelativeToElement,
   moveVerticalSlider,
