@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import JSColorPicker from './index';
 import * as shared_types from './shared_types';
 
 
@@ -120,6 +121,42 @@ function updateShadeAndTintDisplay(snt_component: HTMLElement, color: shared_typ
   SNTC.css({'background': `linear-gradient(0deg, black, transparent), linear-gradient(270deg, rgb(${color.r}, ${color.g}, ${color.b}), white)`});
 };
 
+function updateAllDisplaysAndCanvases(jscp: JSColorPicker) {
+  if (jscp.alpha_channel !== undefined && jscp.ac_canvas_context !== null) {
+    updateAlphaChannelDisplay(
+      jscp.alpha_channel[0],
+      jscp.selected_color
+    );
+
+    // updates the alpha channel's canvas
+    redrawAlphaChannelCanvasGradient(
+      jscp.ac_canvas_context,
+      jscp.selected_color
+    );
+
+    const AC_CANVAS: HTMLCanvasElement = jscp.ac_canvas_context.canvas;
+
+    jscp.accc_image_data = jscp.ac_canvas_context.getImageData(0, 0, AC_CANVAS.width, AC_CANVAS.height);
+  }
+
+  if (jscp.shades_and_tints !== undefined && jscp.snt_canvas_context !== null) {
+    updateShadeAndTintDisplay(
+      jscp.shades_and_tints[0],
+      jscp.selected_color
+    );
+
+    // updates the shade & tint component's canvas
+    redrawShadeAndTintCanvasGradient(
+      jscp.snt_canvas_context,
+      jscp.selected_color
+    );
+
+    const SNT_CANVAS: HTMLCanvasElement = jscp.snt_canvas_context.canvas;
+
+    jscp.sntc_image_data = jscp.snt_canvas_context.getImageData(0, 0, SNT_CANVAS.width, SNT_CANVAS.height);
+  }
+};
+
 function getPixel(canvas_image_data: ImageData, x: number, y: number): shared_types.PixelBits {
   const PIXELS: Uint8ClampedArray = canvas_image_data.data;
 
@@ -235,6 +272,7 @@ const helpers = {
   redrawShadeAndTintCanvasGradient,
   updateAlphaChannelDisplay,
   updateShadeAndTintDisplay,
+  updateAllDisplaysAndCanvases,
   getPixel,
   getMousePositionRelativeToElement,
   moveVerticalSlider,
