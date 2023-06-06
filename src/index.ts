@@ -23,6 +23,7 @@ class JSColorPicker {
   ac_slider: ComponentReference;
   ac_slider_position: JQuery.Coordinates = {top: 0, left: 0};
   ac_canvas_context: CanvasRenderingContext2D | null = null;
+  accc_image_data: ImageData | undefined;
   selected_color: shared_types.RGBA;
   component_held: ComponentReference;
 
