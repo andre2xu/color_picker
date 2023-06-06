@@ -17,36 +17,31 @@
   <script src="./dist/color_picker.js"></script>
 
   <script>
-    // HUE CANVAS SIMULATION
-    const hue_canvas = document.getElementById('fake_hue');
-    const hc_ctx = hue_canvas.getContext('2d');
+    // CANVAS SIMULATION
+    const canvas = document.getElementById('fake_hue');
+    const ctx = canvas.getContext('2d');
 
-    let hue_gradient = hc_ctx.createLinearGradient(0, 0, hue_canvas.clientWidth, hue_canvas.clientHeight);
-    hue_gradient.addColorStop(0/6, "red");
-    hue_gradient.addColorStop(1/6, "orange");
-    hue_gradient.addColorStop(2/6, "yellow");
-    hue_gradient.addColorStop(3/6, "greenyellow");
-    hue_gradient.addColorStop(4/6, "cyan");
-    hue_gradient.addColorStop(5/6, "blue");
-    hue_gradient.addColorStop(6/6, "magenta");
+    let gradient = ctx.createLinearGradient(0, 0, canvas.clientWidth, canvas.clientHeight);
+    gradient.addColorStop(0.1, "rgba(255,0,0,1)");
+    gradient.addColorStop(1, "rgba(255,0,0,0)");
 
-    hc_ctx.fillStyle = hue_gradient;
-    hc_ctx.fillRect(0, 0, hue_canvas.clientWidth, hue_canvas.clientHeight);
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, canvas.clientWidth, canvas.clientHeight);
 
     // after resizing...
-    hue_canvas.width = 200;
+    // canvas.width = 200;
 
-    hue_gradient = hc_ctx.createLinearGradient(0, 0, 0, hue_canvas.clientHeight);
-    hue_gradient.addColorStop(0/6, "red");
-    hue_gradient.addColorStop(1/6, "orange");
-    hue_gradient.addColorStop(2/6, "yellow");
-    hue_gradient.addColorStop(3/6, "greenyellow");
-    hue_gradient.addColorStop(4/6, "cyan");
-    hue_gradient.addColorStop(5/6, "blue");
-    hue_gradient.addColorStop(6/6, "magenta");
+    // gradient = ctx.createLinearGradient(0, 0, 0, canvas.clientHeight);
+    // gradient.addColorStop(0/6, "red");
+    // gradient.addColorStop(1/6, "orange");
+    // gradient.addColorStop(2/6, "yellow");
+    // gradient.addColorStop(3/6, "greenyellow");
+    // gradient.addColorStop(4/6, "cyan");
+    // gradient.addColorStop(5/6, "blue");
+    // gradient.addColorStop(6/6, "magenta");
 
-    hc_ctx.fillStyle = hue_gradient;
-    hc_ctx.fillRect(0, 0, hue_canvas.clientWidth, hue_canvas.clientHeight);
+    // ctx.fillStyle = gradient;
+    // ctx.fillRect(0, 0, canvas.clientWidth, canvas.clientHeight);
   </script>
 </body>
 </html>
