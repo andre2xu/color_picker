@@ -45,6 +45,8 @@ class JSColorPicker {
       `
       <div class="jscp">
         <div class="shade_AND_tint_AND_searchbar">
+          <canvas class="snt_canvas hide" hidden></canvas>
+
           <div class="shade_AND_tint">
             <div class="cursor"></div>
           </div>
