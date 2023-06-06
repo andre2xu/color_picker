@@ -188,6 +188,7 @@ const helpers = {
   updateComponentCanvasDimensions,
   redrawHueCanvasGradient,
   redrawAlphaChannelCanvasGradient,
+  updateAlphaChannelDisplay,
   getPixel,
   getMousePositionRelativeToElement,
   moveVerticalSlider,
