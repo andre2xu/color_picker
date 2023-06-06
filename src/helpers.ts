@@ -72,14 +72,14 @@ function redrawShadeAndTintCanvasGradient(snt_canvas_context: CanvasRenderingCon
   if ($(SNT_CANVAS).hasClass('snt_canvas')) {
     const RGB: string = `${selected_color.r}, ${selected_color.g}, ${selected_color.b}`;
 
-    const SNT_TINT_GRADIENT: CanvasGradient = snt_canvas_context.createLinearGradient(SNT_CANVAS.offsetWidth, 0, 0, 0);
+    const SNT_TINT_GRADIENT: CanvasGradient = snt_canvas_context.createLinearGradient(SNT_CANVAS.width, 0, 0, 0);
     SNT_TINT_GRADIENT.addColorStop(0.01, `rgba(${RGB}, 1)`);
     SNT_TINT_GRADIENT.addColorStop(1, 'white');
 
     snt_canvas_context.fillStyle = SNT_TINT_GRADIENT;
     snt_canvas_context.fillRect(0, 0, SNT_CANVAS.width, SNT_CANVAS.height);
 
-    const SNT_SHADE_GRADIENT: CanvasGradient = snt_canvas_context.createLinearGradient(0, SNT_CANVAS.offsetHeight, 0, 0);
+    const SNT_SHADE_GRADIENT: CanvasGradient = snt_canvas_context.createLinearGradient(0, SNT_CANVAS.height, 0, 0);
     SNT_SHADE_GRADIENT.addColorStop(0.01, "rgba(0, 0, 0, 1)");
     SNT_SHADE_GRADIENT.addColorStop(0.1, "rgba(0, 0, 0, 0.9)");
     SNT_SHADE_GRADIENT.addColorStop(0.2, "rgba(0, 0, 0, 0.8)");
