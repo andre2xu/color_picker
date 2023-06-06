@@ -107,6 +107,8 @@ class JSColorPicker {
       a: 255
     };
 
+    const STARTING_COLOR: string = `${this.selected_color.r}, ${this.selected_color.g}, ${this.selected_color.b}`;
+
     if (this.alpha_channel !== undefined) {
       helpers.updateAlphaChannelDisplay(
         this.alpha_channel[0],
@@ -115,15 +117,13 @@ class JSColorPicker {
     }
 
     if (this.searchbar !== undefined) {
-      const STARTING_COLOR: shared_types.RGBA = this.selected_color;
-
-      this.searchbar.val(`rgb(${STARTING_COLOR.r}, ${STARTING_COLOR.g}, ${STARTING_COLOR.b})`);
+      this.searchbar.val(`rgb(${STARTING_COLOR})`);
     }
 
     this.setSize(300, 200);
 
     if (this.snt_cursor !== undefined) {
-      this.snt_cursor.css('background-color', 'red');
+      this.snt_cursor.css('background-color', `rgb(${STARTING_COLOR})`);
 
       const SNTC: HTMLElement = this.snt_cursor[0];
 
