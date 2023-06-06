@@ -13,6 +13,7 @@ class JSColorPicker {
   shades_and_tints: ComponentReference;
   snt_cursor: ComponentReference;
   sntc_position: JQuery.Coordinates = {top: 0, left: 0};
+  snt_canvas_context: CanvasRenderingContext2D | null = null;
   searchbar: ComponentReference;
   hues: ComponentReference;
   hue_slider: ComponentReference;
@@ -77,6 +78,7 @@ class JSColorPicker {
     this.color_picker = $('.jscp').first();
     this.shades_and_tints = $('.shade_AND_tint').first();
     this.snt_cursor = this.shades_and_tints.children('.cursor').first();
+    const snt_canvas: ComponentReference = $('.snt_canvas').first(); 
     this.searchbar = $('.searchbar').first();
     this.hues = $('.hue').first();
     this.hue_slider = this.hues.children('.vertical_slider').first();
@@ -91,6 +93,10 @@ class JSColorPicker {
 
     if (alpha_channel_canvas !== undefined && alpha_channel_canvas[0] instanceof HTMLCanvasElement) {
       this.ac_canvas_context = alpha_channel_canvas[0].getContext('2d');
+    }
+
+    if (snt_canvas !== undefined && snt_canvas[0] instanceof HTMLCanvasElement) {
+      this.snt_canvas_context = snt_canvas[0].getContext('2d');
     }
 
     // initializes defaults
