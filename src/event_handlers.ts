@@ -30,6 +30,23 @@ function mouseDownHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
           b: COLOR[2],
           a: 255
         };
+
+        if (this.alpha_channel !== undefined && this.ac_canvas_context !== null) {
+          helpers.updateAlphaChannelDisplay(
+            this.alpha_channel[0],
+            this.selected_color
+          );
+
+          // updates the alpha channel's canvas
+          helpers.redrawAlphaChannelCanvasGradient(
+            this.ac_canvas_context,
+            this.selected_color
+          );
+
+          const AC_CANVAS = this.ac_canvas_context.canvas;
+
+          this.accc_image_data = this.ac_canvas_context.getImageData(0, 0, AC_CANVAS.width, AC_CANVAS.height);
+        }
       }
     }
     else if (this.alpha_channel !== undefined && this.alpha_channel[0] === CLICKED_ELEMENT && this.ac_slider !== undefined) {
