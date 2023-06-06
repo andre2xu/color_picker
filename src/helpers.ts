@@ -39,11 +39,11 @@ function redrawHueCanvasGradient(hue_canvas_context: CanvasRenderingContext2D) {
   }
 };
 
-function redrawAlphaChannelCanvasGradient(ac_canvas_context: CanvasRenderingContext2D, selected_hue: shared_types.Hue) {
+function redrawAlphaChannelCanvasGradient(ac_canvas_context: CanvasRenderingContext2D, selected_color: shared_types.RGB) {
   const AC_CANVAS = ac_canvas_context.canvas;
 
   if ($(AC_CANVAS).hasClass('alpha_channel_canvas')) {
-    const RGB: string = `${selected_hue.r}, ${selected_hue.g}, ${selected_hue.b}`;
+    const RGB: string = `${selected_color.r}, ${selected_color.g}, ${selected_color.b}`;
 
     const ALPHA_CHANNEL_GRADIENT = ac_canvas_context.createLinearGradient(0, 0, 0, AC_CANVAS.height);
     ALPHA_CHANNEL_GRADIENT.addColorStop(0.1, `rgba(${RGB}, 1)`);
