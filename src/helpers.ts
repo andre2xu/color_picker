@@ -35,7 +35,7 @@ function redrawHueCanvasGradient(hue_canvas_context: CanvasRenderingContext2D) {
     hue_canvas_context.fillRect(0, 0, HUE_CANVAS.width, HUE_CANVAS.height);
   }
   else {
-    throw ReferenceError('Not a hue component canvas');
+    throw ReferenceError('Not the 2D canvas rendering context of a color picker\'s hue component');
   }
 };
 
