@@ -14,6 +14,7 @@ class JSColorPicker {
   snt_cursor: ComponentReference;
   sntc_position: JQuery.Coordinates = {top: 0, left: 0};
   snt_canvas_context: CanvasRenderingContext2D | null = null;
+  sntc_image_data: ImageData | undefined;
   searchbar: ComponentReference;
   hues: ComponentReference;
   hue_slider: ComponentReference;
