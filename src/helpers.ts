@@ -76,6 +76,16 @@ function updateAlphaChannelDisplay(alpha_channel_component: HTMLElement, color: 
   ACC.css({'background': `linear-gradient(rgb(${color.r}, ${color.g}, ${color.b}), transparent)`});
 };
 
+function updateShadeAndTintDisplay(snt_component: HTMLElement, color: shared_types.Color) {
+  const SNTC: JQuery<HTMLElement> = $(snt_component);
+
+  if (SNTC.hasClass('shade_AND_tint') === false) {
+    throw ReferenceError('Not a color picker\'s shade & tint component');
+  }
+
+  SNTC.css({'background': `linear-gradient(0deg, black, transparent), linear-gradient(270deg, rgb(${color.r}, ${color.g}, ${color.b}), white)`});
+};
+
 function getPixel(canvas_image_data: ImageData, x: number, y: number): shared_types.PixelBits {
   const PIXELS: Uint8ClampedArray = canvas_image_data.data;
 
@@ -189,6 +199,7 @@ const helpers = {
   redrawHueCanvasGradient,
   redrawAlphaChannelCanvasGradient,
   updateAlphaChannelDisplay,
+  updateShadeAndTintDisplay,
   getPixel,
   getMousePositionRelativeToElement,
   moveVerticalSlider,
