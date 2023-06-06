@@ -31,39 +31,7 @@ function mouseDownHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
           a: 255
         };
 
-        if (this.alpha_channel !== undefined && this.ac_canvas_context !== null) {
-          helpers.updateAlphaChannelDisplay(
-            this.alpha_channel[0],
-            this.selected_color
-          );
-
-          // updates the alpha channel's canvas
-          helpers.redrawAlphaChannelCanvasGradient(
-            this.ac_canvas_context,
-            this.selected_color
-          );
-
-          const AC_CANVAS: HTMLCanvasElement = this.ac_canvas_context.canvas;
-
-          this.accc_image_data = this.ac_canvas_context.getImageData(0, 0, AC_CANVAS.width, AC_CANVAS.height);
-        }
-
-        if (this.shades_and_tints !== undefined && this.snt_canvas_context !== null) {
-          helpers.updateShadeAndTintDisplay(
-            this.shades_and_tints[0],
-            this.selected_color
-          );
-
-          // updates the shade & tint component's canvas
-          helpers.redrawShadeAndTintCanvasGradient(
-            this.snt_canvas_context,
-            this.selected_color
-          );
-
-          const SNT_CANVAS: HTMLCanvasElement = this.snt_canvas_context.canvas;
-
-          this.sntc_image_data = this.snt_canvas_context.getImageData(0, 0, SNT_CANVAS.width, SNT_CANVAS.height);
-        }
+        helpers.updateAllDisplaysAndCanvases(this);
       }
     }
     else if (this.alpha_channel !== undefined && this.alpha_channel[0] === CLICKED_ELEMENT && this.ac_slider !== undefined) {
@@ -122,39 +90,7 @@ function mouseMoveHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
             a: 255
           };
 
-          if (this.alpha_channel !== undefined && this.ac_canvas_context !== null) {
-            helpers.updateAlphaChannelDisplay(
-              this.alpha_channel[0],
-              this.selected_color
-            );
-
-            // updates the alpha channel's canvas
-            helpers.redrawAlphaChannelCanvasGradient(
-              this.ac_canvas_context,
-              this.selected_color
-            );
-
-            const AC_CANVAS = this.ac_canvas_context.canvas;
-
-            this.accc_image_data = this.ac_canvas_context.getImageData(0, 0, AC_CANVAS.width, AC_CANVAS.height);
-          }
-
-          if (this.shades_and_tints !== undefined && this.snt_canvas_context !== null) {
-            helpers.updateShadeAndTintDisplay(
-              this.shades_and_tints[0],
-              this.selected_color
-            );
-
-            // updates the shade & tint component's canvas
-            helpers.redrawShadeAndTintCanvasGradient(
-              this.snt_canvas_context,
-              this.selected_color
-            );
-
-            const SNT_CANVAS: HTMLCanvasElement = this.snt_canvas_context.canvas;
-
-            this.sntc_image_data = this.snt_canvas_context.getImageData(0, 0, SNT_CANVAS.width, SNT_CANVAS.height);
-          }
+          helpers.updateAllDisplaysAndCanvases(this);
         }
       }
     }
