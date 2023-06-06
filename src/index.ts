@@ -116,6 +116,13 @@ class JSColorPicker {
       );
     }
 
+    if (this.shades_and_tints !== undefined) {
+      helpers.updateShadeAndTintDisplay(
+        this.shades_and_tints[0],
+        this.selected_color
+      );
+    }
+
     if (this.searchbar !== undefined) {
       this.searchbar.val(`rgb(${STARTING_COLOR})`);
     }
