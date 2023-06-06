@@ -46,8 +46,17 @@ function redrawAlphaChannelCanvasGradient(ac_canvas_context: CanvasRenderingCont
     const RGB: string = `${selected_color.r}, ${selected_color.g}, ${selected_color.b}`;
 
     const ALPHA_CHANNEL_GRADIENT = ac_canvas_context.createLinearGradient(0, 0, 0, AC_CANVAS.height);
-    ALPHA_CHANNEL_GRADIENT.addColorStop(0.1, `rgba(${RGB}, 1)`);
-    ALPHA_CHANNEL_GRADIENT.addColorStop(1, `rgba(${RGB},0)`);
+    ALPHA_CHANNEL_GRADIENT.addColorStop(0.01, `rgba(${RGB}, 1)`);
+    ALPHA_CHANNEL_GRADIENT.addColorStop(0.1, `rgba(${RGB}, 0.9)`);
+    ALPHA_CHANNEL_GRADIENT.addColorStop(0.2, `rgba(${RGB}, 0.8)`);
+    ALPHA_CHANNEL_GRADIENT.addColorStop(0.3, `rgba(${RGB}, 0.7)`);
+    ALPHA_CHANNEL_GRADIENT.addColorStop(0.4, `rgba(${RGB}, 0.6)`);
+    ALPHA_CHANNEL_GRADIENT.addColorStop(0.5, `rgba(${RGB}, 0.5)`);
+    ALPHA_CHANNEL_GRADIENT.addColorStop(0.6, `rgba(${RGB}, 0.4)`);
+    ALPHA_CHANNEL_GRADIENT.addColorStop(0.7, `rgba(${RGB}, 0.3)`);
+    ALPHA_CHANNEL_GRADIENT.addColorStop(0.8, `rgba(${RGB}, 0.2)`);
+    ALPHA_CHANNEL_GRADIENT.addColorStop(0.9, `rgba(${RGB}, 0.1)`);
+    ALPHA_CHANNEL_GRADIENT.addColorStop(1.0, `rgba(${RGB}, 0)`);
 
     ac_canvas_context.fillStyle = ALPHA_CHANNEL_GRADIENT;
     ac_canvas_context.fillRect(0, 0, AC_CANVAS.width, AC_CANVAS.height);
