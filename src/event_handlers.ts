@@ -22,6 +22,14 @@ function mouseDownHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
 
       if (this.hcc_image_data !== undefined) {
         const COLOR: shared_types.PixelBits = helpers.getPixel(this.hcc_image_data, 0, Math.round(this.hue_slider_position.top));
+
+        // selects the hue
+        this.selected_color = {
+          r: COLOR[0],
+          g: COLOR[1],
+          b: COLOR[2],
+          a: 255
+        };
       }
     }
     else if (this.alpha_channel !== undefined && this.alpha_channel[0] === CLICKED_ELEMENT && this.ac_slider !== undefined) {
