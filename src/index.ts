@@ -207,6 +207,20 @@ class JSColorPicker {
         this.accc_image_data = this.ac_canvas_context.getImageData(0, 0, CANVAS_DIMENSIONS.w, CANVAS_DIMENSIONS.h);
       }
 
+      if (this.shades_and_tints !== undefined && this.snt_canvas_context !== null) {
+        const CANVAS_DIMENSIONS: shared_types.Dimensions = helpers.updateComponentCanvasDimensions(
+          this.shades_and_tints[0],
+          this.snt_canvas_context
+        );
+
+        helpers.redrawShadeAndTintCanvasGradient(
+          this.snt_canvas_context,
+          this.selected_color
+        );
+
+        this.sntc_image_data = this.snt_canvas_context.getImageData(0, 0, CANVAS_DIMENSIONS.w, CANVAS_DIMENSIONS.h);
+      }
+
       // ensures the shade & tint component cursor is responsive to changes in the color picker's size
       if (this.snt_cursor !== undefined) {
         const SNTC: HTMLElement = this.snt_cursor[0];
