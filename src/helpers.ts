@@ -90,7 +90,7 @@ function redrawShadeAndTintCanvasGradient(snt_canvas_context: CanvasRenderingCon
     SNT_SHADE_GRADIENT.addColorStop(0.7, "rgba(0, 0, 0, 0.3)");
     SNT_SHADE_GRADIENT.addColorStop(0.8, "rgba(0, 0, 0, 0.2)");
     SNT_SHADE_GRADIENT.addColorStop(0.9, "rgba(0, 0, 0, 0.1)");
-    SNT_SHADE_GRADIENT.addColorStop(1, "rgba(0, 0, 0, 0)");
+    SNT_SHADE_GRADIENT.addColorStop(0.99, "rgba(0, 0, 0, 0)");
 
     snt_canvas_context.fillStyle = SNT_SHADE_GRADIENT;
     snt_canvas_context.fillRect(0, 0, SNT_CANVAS.width, SNT_CANVAS.height);
