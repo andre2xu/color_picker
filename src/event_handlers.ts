@@ -93,6 +93,35 @@ function mouseMoveHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
           this.hue_slider[0],
           MOUSE_Y
         );
+
+        if (this.hcc_image_data !== undefined) {
+          const COLOR: shared_types.PixelBits = helpers.getPixel(this.hcc_image_data, 0, Math.round(this.hue_slider_position.top));
+
+          // selects the hue
+          this.selected_color = {
+            r: COLOR[0],
+            g: COLOR[1],
+            b: COLOR[2],
+            a: 255
+          };
+
+          if (this.alpha_channel !== undefined && this.ac_canvas_context !== null) {
+            helpers.updateAlphaChannelDisplay(
+              this.alpha_channel[0],
+              this.selected_color
+            );
+
+            // updates the alpha channel's canvas
+            helpers.redrawAlphaChannelCanvasGradient(
+              this.ac_canvas_context,
+              this.selected_color
+            );
+
+            const AC_CANVAS = this.ac_canvas_context.canvas;
+
+            this.accc_image_data = this.ac_canvas_context.getImageData(0, 0, AC_CANVAS.width, AC_CANVAS.height);
+          }
+        }
       }
     }
     else if (this.ac_slider !== undefined && this.component_held[0] === this.ac_slider[0] && this.alpha_channel !== undefined) {
