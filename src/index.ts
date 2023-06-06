@@ -168,6 +168,13 @@ class JSColorPicker {
         this.hcc_image_data = this.hue_canvas_context.getImageData(0, 0, CANVAS_DIMENSIONS.w, CANVAS_DIMENSIONS.h);
       }
 
+      if (this.alpha_channel !== undefined && this.ac_canvas_context !== null) {
+        const CANVAS_DIMENSIONS: shared_types.Dimensions = helpers.updateComponentCanvasDimensions(
+          this.alpha_channel[0],
+          this.ac_canvas_context
+        );
+      }
+
       // ensures the shade & tint component cursor is responsive to changes in the color picker's size
       if (this.snt_cursor !== undefined) {
         const SNTC: HTMLElement = this.snt_cursor[0];
