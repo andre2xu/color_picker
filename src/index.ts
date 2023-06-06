@@ -165,6 +165,8 @@ class JSColorPicker {
           this.hue_canvas_context
         );
 
+        helpers.redrawHueCanvasGradient(this.hue_canvas_context);
+
         this.hcc_image_data = this.hue_canvas_context.getImageData(0, 0, CANVAS_DIMENSIONS.w, CANVAS_DIMENSIONS.h);
       }
 
