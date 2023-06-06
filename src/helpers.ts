@@ -66,6 +66,16 @@ function redrawAlphaChannelCanvasGradient(ac_canvas_context: CanvasRenderingCont
   }
 };
 
+function updateAlphaChannelDisplay(alpha_channel_component: HTMLElement, color: shared_types.RGB) {
+  const ACC: JQuery<HTMLElement> = $(alpha_channel_component);
+
+  if (ACC.hasClass('alpha_channel') === false) {
+    throw ReferenceError('Not a color picker\'s alpha channel component');
+  }
+
+  ACC.css({'background': `linear-gradient(rgb(${color.r}, ${color.g}, ${color.b}), transparent)`});
+};
+
 function getPixel(canvas_image_data: ImageData, x: number, y: number): shared_types.PixelBits {
   const PIXELS: Uint8ClampedArray = canvas_image_data.data;
 
