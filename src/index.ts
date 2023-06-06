@@ -175,6 +175,15 @@ class JSColorPicker {
           this.alpha_channel[0],
           this.ac_canvas_context
         );
+
+        helpers.redrawAlphaChannelCanvasGradient(
+          this.ac_canvas_context,
+          {
+            r: this.selected_color.r,
+            g: this.selected_color.g,
+            b: this.selected_color.b
+          }
+        );
       }
 
       // ensures the shade & tint component cursor is responsive to changes in the color picker's size
