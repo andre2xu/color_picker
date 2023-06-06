@@ -19,21 +19,28 @@
   <script>
     // CANVAS SIMULATION
     const canvas = document.getElementById('fake_hue');
+    canvas.width = 200;
     const ctx = canvas.getContext('2d');
 
-    let gradient = ctx.createLinearGradient(0, 0, canvas.clientWidth, canvas.clientHeight);
+    let gradient = ctx.createLinearGradient(canvas.offsetWidth, 0, 0, 0);
     gradient.addColorStop(0.1, "rgba(255,0,0,1)");
-    gradient.addColorStop(1, "rgba(255,0,0,0)");
+    gradient.addColorStop(1, "white");
 
     ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, canvas.clientWidth, canvas.clientHeight);
 
-    // after resizing...
-    canvas.width = 200;
-
-    gradient = ctx.createLinearGradient(0, 0, 0, canvas.clientHeight);
-    gradient.addColorStop(0.1, "rgba(255,0,0,1)");
-    gradient.addColorStop(1, "rgba(255,0,0,0)");
+    gradient = ctx.createLinearGradient(0, canvas.offsetHeight, 0, 0);
+    gradient.addColorStop(0.01, "rgba(0, 0, 0, 1)");
+    gradient.addColorStop(0.1, "rgba(0, 0, 0, 0.9)");
+    gradient.addColorStop(0.2, "rgba(0, 0, 0, 0.8)");
+    gradient.addColorStop(0.3, "rgba(0, 0, 0, 0.7)");
+    gradient.addColorStop(0.4, "rgba(0, 0, 0, 0.6)");
+    gradient.addColorStop(0.5, "rgba(0, 0, 0, 0.5)");
+    gradient.addColorStop(0.6, "rgba(0, 0, 0, 0.4)");
+    gradient.addColorStop(0.7, "rgba(0, 0, 0, 0.3)");
+    gradient.addColorStop(0.8, "rgba(0, 0, 0, 0.2)");
+    gradient.addColorStop(0.9, "rgba(0, 0, 0, 0.1)");
+    gradient.addColorStop(1, "rgba(0,0,0,0)");
 
     ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, canvas.clientWidth, canvas.clientHeight);
