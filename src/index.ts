@@ -99,6 +99,17 @@ class JSColorPicker {
       a: 255
     };
 
+    if (this.alpha_channel !== undefined) {
+      helpers.updateAlphaChannelDisplay(
+        this.alpha_channel[0],
+        {
+          r:this.selected_color.r,
+          g: this.selected_color.g,
+          b: this.selected_color.b
+        }
+      );
+    }
+
     if (this.searchbar !== undefined) {
       const STARTING_COLOR: shared_types.RGBA = this.selected_color;
 
