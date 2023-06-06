@@ -28,6 +28,14 @@ function updateComponentCanvasDimensions(jscp_component: HTMLElement, component_
     component_canvas_context.fillStyle = HUE_GRADIENT;
     component_canvas_context.fillRect(0, 0, ADJUSTED_WIDTH, ADJUSTED_HEIGHT);
   }
+  else if (COMPONENT.hasClass('alpha_channel')) {
+    const ALPHA_CHANNEL_GRADIENT = component_canvas_context.createLinearGradient(0, 0, 0, ADJUSTED_HEIGHT);
+    ALPHA_CHANNEL_GRADIENT.addColorStop(0.1, "rgba(255,0,0,1)");
+    ALPHA_CHANNEL_GRADIENT.addColorStop(1, "rgba(255,0,0,0)");
+
+    component_canvas_context.fillStyle = ALPHA_CHANNEL_GRADIENT;
+    component_canvas_context.fillRect(0, 0, ADJUSTED_WIDTH, ADJUSTED_HEIGHT);
+  }
 
   return {
     w: ADJUSTED_WIDTH,
