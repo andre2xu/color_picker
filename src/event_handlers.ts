@@ -149,6 +149,38 @@ function mouseMoveHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
         MOUSE_POSITION.x,
         MOUSE_POSITION.y
       );
+
+      const SNT_COMPONENT: HTMLElement = this.shades_and_tints[0];
+
+      const CURSOR_X: number = Math.round(this.sntc_position.left * SNT_COMPONENT.offsetWidth);
+      const CURSOR_Y: number = Math.round(this.sntc_position.top * SNT_COMPONENT.offsetHeight);
+
+      if (this.sntc_image_data !== undefined && this.searchbar !== undefined && this.alpha_channel !== undefined) {
+        const COLOR: shared_types.PixelBits = helpers.getPixel(this.sntc_image_data, CURSOR_X, CURSOR_Y);
+
+        // selects the shade or tint
+        this.selected_color = {
+          r: COLOR[0],
+          g: COLOR[1],
+          b: COLOR[2],
+          a: 255
+        };
+
+        helpers.updateSNTCursorBackground(
+          this.snt_cursor[0],
+          this.selected_color
+        );
+
+        helpers.updateSearchbarBackground(
+          this.searchbar[0],
+          this.selected_color
+        );
+
+        helpers.updateAlphaChannelDisplay(
+          this.alpha_channel[0],
+          this.selected_color
+        );
+      }
     }
   }
 };
