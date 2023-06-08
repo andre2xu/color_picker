@@ -102,7 +102,7 @@ class JSColorPicker {
     this.ac_slider = this.alpha_channel.parent().children('.vertical_slider').first();
 
     if (hue_canvas !== undefined && hue_canvas[0] instanceof HTMLCanvasElement) {
-      this.hue_canvas_context = hue_canvas[0].getContext('2d');
+      this.hue_canvas_context = hue_canvas[0].getContext('2d', {willReadFrequently: true});
     }
 
     if (alpha_channel_canvas !== undefined && alpha_channel_canvas[0] instanceof HTMLCanvasElement) {
