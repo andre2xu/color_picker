@@ -121,6 +121,16 @@ function updateShadeAndTintDisplay(snt_component: HTMLElement, color: shared_typ
   SNTC.css({'background': `linear-gradient(0deg, black, transparent), linear-gradient(270deg, rgb(${color.r}, ${color.g}, ${color.b}), white)`});
 };
 
+function updateSNTCursorBackground(snt_cursor: HTMLElement, color: shared_types.RGBA) {
+  const SNTC: JQuery<HTMLElement> = $(snt_cursor);
+
+  if (SNTC.hasClass('cursor') === false || SNTC.parent().hasClass('shade_AND_tint') === false) {
+    throw ReferenceError('Not a shade & tint component cursor');
+  }
+
+  SNTC.css('background-color', `rgb(${color.r}, ${color.g}, ${color.b})`);
+};
+
 function updateAllDisplaysAndCanvases(jscp: JSColorPicker) {
   if (jscp.alpha_channel !== undefined && jscp.ac_canvas_context !== null) {
     updateAlphaChannelDisplay(
@@ -282,6 +292,7 @@ const helpers = {
   redrawShadeAndTintCanvasGradient,
   updateAlphaChannelDisplay,
   updateShadeAndTintDisplay,
+  updateSNTCursorBackground,
   updateAllDisplaysAndCanvases,
   getPixel,
   getMousePositionRelativeToElement,
