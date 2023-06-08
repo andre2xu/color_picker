@@ -141,6 +141,27 @@ function updateColorDisplay(color_display: HTMLElement, color: shared_types.RGBA
   CD.css('background-color', `rgb(${color.r}, ${color.g}, ${color.b})`);
 };
 
+function updateSearchbarColor(searchbar: HTMLElement, color: shared_types.RGBA, format: string) {
+  const SEARCHBAR: JQuery<HTMLElement> = $(searchbar);
+
+  if (SEARCHBAR.hasClass('searchbar') === false) {
+    throw ReferenceError('Not a color picker\'s searchbar');
+  }
+
+  format = format.toLowerCase();
+
+  if (format !== 'rgb') {
+    throw Error('Only the following formats are allowed: rgb');
+  }
+
+  switch (format) {
+    case 'rgb':
+      SEARCHBAR.val(`rgba(${color.r}, ${color.g}, ${color.b}, ${color.a})`);
+      break;
+    default:
+  }
+};
+
 function updateAllCanvases(jscp: JSColorPicker) {
   if (jscp.ac_canvas_context !== null) {
     redrawAlphaChannelCanvasGradient(
@@ -296,6 +317,7 @@ const helpers = {
   updateShadeAndTintDisplay,
   updateSNTCursorBackground,
   updateColorDisplay,
+  updateSearchbarColor,
   updateAllCanvases,
   getPixel,
   getMousePositionRelativeToElement,
