@@ -20,18 +20,57 @@ function mouseDownHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
         MOUSE_POSITION.y
       );
 
-      if (this.hcc_image_data !== undefined) {
-        const COLOR: shared_types.PixelBits = helpers.getPixel(this.hcc_image_data, 0, Math.round(this.hue_slider_position.top));
+      if (this.hcc_image_data !== undefined && this.shades_and_tints !== undefined && this.snt_cursor !== undefined && this.sntc_image_data !== undefined && this.alpha_channel !== undefined && this.searchbar !== undefined) {
+        const HUE_PIXEL: shared_types.PixelBits = helpers.getPixel(this.hcc_image_data, 0, Math.round(this.hue_slider_position.top));
 
         // selects the hue
         this.selected_color = {
-          r: COLOR[0],
-          g: COLOR[1],
-          b: COLOR[2],
+          r: HUE_PIXEL[0],
+          g: HUE_PIXEL[1],
+          b: HUE_PIXEL[2],
           a: 255
         };
 
-        helpers.updateAllDisplaysAndCanvases(this);
+        helpers.updateAllCanvases(this);
+
+        helpers.updateShadeAndTintDisplay(
+          this.shades_and_tints[0],
+          this.selected_color
+        );
+
+        // selects the shade or tint (depends on the S&T cursor's current position)
+        const SNTC_COORDINATES: shared_types.Coordinates = helpers.getSNTCursorAbsoluteCoordinates(
+          this.snt_cursor[0],
+          this.sntc_position
+        );
+
+        const SNT_PIXEL: shared_types.PixelBits = helpers.getPixel(
+          this.sntc_image_data,
+          SNTC_COORDINATES.x,
+          SNTC_COORDINATES.y
+        );
+
+        this.selected_color = {
+          r: SNT_PIXEL[0],
+          g: SNT_PIXEL[1],
+          b: SNT_PIXEL[2],
+          a: 255
+        };
+
+        helpers.updateAlphaChannelDisplay(
+          this.alpha_channel[0],
+          this.selected_color
+        );
+
+        helpers.updateSNTCursorBackground(
+          this.snt_cursor[0],
+          this.selected_color
+        );
+
+        helpers.updateSearchbarBackground(
+          this.searchbar[0],
+          this.selected_color
+        );
       }
     }
     else if (this.alpha_channel !== undefined && this.alpha_channel[0] === CLICKED_ELEMENT && this.ac_slider !== undefined) {
@@ -126,7 +165,7 @@ function mouseMoveHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
             a: 255
           };
 
-          helpers.updateAllDisplaysAndCanvases(this);
+          helpers.updateAllCanvases(this);
         }
       }
     }
