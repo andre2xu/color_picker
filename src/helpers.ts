@@ -40,7 +40,7 @@ function redrawHueCanvasGradient(hue_canvas_context: CanvasRenderingContext2D) {
   }
 };
 
-function redrawAlphaChannelCanvasGradient(ac_canvas_context: CanvasRenderingContext2D, selected_color: shared_types.Color) {
+function redrawAlphaChannelCanvasGradient(ac_canvas_context: CanvasRenderingContext2D, selected_color: shared_types.RGBA) {
   const AC_CANVAS = ac_canvas_context.canvas;
 
   if ($(AC_CANVAS).hasClass('alpha_channel_canvas')) {
@@ -67,7 +67,7 @@ function redrawAlphaChannelCanvasGradient(ac_canvas_context: CanvasRenderingCont
   }
 };
 
-function redrawShadeAndTintCanvasGradient(snt_canvas_context: CanvasRenderingContext2D, selected_color: shared_types.Color) {
+function redrawShadeAndTintCanvasGradient(snt_canvas_context: CanvasRenderingContext2D, selected_color: shared_types.RGBA) {
   const SNT_CANVAS = snt_canvas_context.canvas;
 
   if ($(SNT_CANVAS).hasClass('snt_canvas')) {
@@ -101,7 +101,7 @@ function redrawShadeAndTintCanvasGradient(snt_canvas_context: CanvasRenderingCon
   }
 };
 
-function updateAlphaChannelDisplay(alpha_channel_component: HTMLElement, color: shared_types.Color) {
+function updateAlphaChannelDisplay(alpha_channel_component: HTMLElement, color: shared_types.RGBA) {
   const ACC: JQuery<HTMLElement> = $(alpha_channel_component);
 
   if (ACC.hasClass('alpha_channel') === false) {
@@ -111,7 +111,7 @@ function updateAlphaChannelDisplay(alpha_channel_component: HTMLElement, color: 
   ACC.css({'background': `linear-gradient(rgb(${color.r}, ${color.g}, ${color.b}), transparent)`});
 };
 
-function updateShadeAndTintDisplay(snt_component: HTMLElement, color: shared_types.Color) {
+function updateShadeAndTintDisplay(snt_component: HTMLElement, color: shared_types.RGBA) {
   const SNT_COMPONENT: JQuery<HTMLElement> = $(snt_component);
 
   if (SNT_COMPONENT.hasClass('shade_AND_tint') === false) {
