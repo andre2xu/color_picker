@@ -176,14 +176,18 @@ function updateAllDisplaysAndCanvases(jscp: JSColorPicker) {
     jscp.sntc_image_data = jscp.snt_canvas_context.getImageData(0, 0, SNT_CANVAS.width, SNT_CANVAS.height);
   }
 
-  const SELECTED_COLOR: string = `${jscp.selected_color.r}, ${jscp.selected_color.g}, ${jscp.selected_color.b}, ${jscp.selected_color.a}`;
-
   if (jscp.snt_cursor !== undefined) {
-    jscp.snt_cursor.css('background-color', `rgba(${SELECTED_COLOR})`);
+    updateSNTCursorBackground(
+      jscp.snt_cursor[0],
+      jscp.selected_color
+    );
   }
 
   if (jscp.searchbar !== undefined) {
-    jscp.searchbar.css('background-color', `rgba(${SELECTED_COLOR})`);
+    updateSearchbarBackground(
+      jscp.searchbar[0],
+      jscp.selected_color
+    );
   }
 };
 
