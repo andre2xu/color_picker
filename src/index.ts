@@ -55,7 +55,9 @@ class JSColorPicker {
             <div class="cursor"></div>
           </div>
 
-          <input type="text" class="searchbar">
+          <div class="searchbar_container">
+            <input type="text" class="searchbar">
+          </div>
         </div>
 
         <div class="hue_AND_transparency">
