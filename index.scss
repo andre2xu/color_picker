@@ -58,7 +58,31 @@
         width: 100%;
         margin-top: auto;
         display: flex;
+        position: relative;
         @include checkboardBackground();
+
+        .arrow_button {
+          position: absolute;
+          top: 50%;
+          cursor: pointer;
+          border-style: solid;
+          width: 8px;
+          height: 8px;
+          border-width: 1.5px;
+          border-color: #000;
+          border-right: none;
+          border-bottom: none;
+
+          &.left {
+            left: 3%;
+            transform: translateY(-50%) rotate(-45deg);
+          }
+
+          &.right {
+            right: 3%;
+            transform: translateY(-50%) rotate(135deg);
+          }
+        }
 
         .searchbar {
           width: 100%;
