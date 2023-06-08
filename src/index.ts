@@ -205,6 +205,20 @@ class JSColorPicker {
         });
       }
 
+      // ensures the searchbar buttons are responsive to changes in the color picker's size
+      if (this.searchbar_buttons !== undefined) {
+        const SEARCHBAR_CONTAINER: HTMLElement = this.searchbar_buttons.parent()[0];
+
+        const BUTTON_SIZE: number = SEARCHBAR_CONTAINER.offsetHeight * 0.3;
+        const BUTTON_THICKNESS: number = SEARCHBAR_CONTAINER.offsetHeight * 0.1;
+
+        this.searchbar_buttons.css({
+          height: BUTTON_SIZE,
+          width: BUTTON_SIZE,
+          borderWidth: BUTTON_THICKNESS
+        });
+      }
+
       // updates the dimensions of the hidden canvases so that they match their component's new size
       if (this.hues !== undefined && this.hue_canvas_context !== null) {
         const CANVAS_DIMENSIONS: shared_types.Dimensions = helpers.updateComponentCanvasDimensions(
