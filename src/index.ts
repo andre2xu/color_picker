@@ -88,7 +88,8 @@ class JSColorPicker {
     this.shades_and_tints = this.container.find('.shade_AND_tint').first();
     this.snt_cursor = this.shades_and_tints.children('.cursor').first();
     const snt_canvas: ComponentReference = this.container.find('.snt_canvas').first(); 
-    this.searchbar = this.container.find('.searchbar').first();
+    const searchbar_container = this.container.find('.searchbar_container').first();
+    this.searchbar = searchbar_container.children('.searchbar').first();
     this.hues = this.container.find('.hue').first();
     this.hue_slider = this.hues.children('.vertical_slider').first();
     const hue_canvas: ComponentReference = this.container.find('.hue_canvas').first();
