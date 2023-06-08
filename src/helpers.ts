@@ -112,13 +112,13 @@ function updateAlphaChannelDisplay(alpha_channel_component: HTMLElement, color: 
 };
 
 function updateShadeAndTintDisplay(snt_component: HTMLElement, color: shared_types.Color) {
-  const SNTC: JQuery<HTMLElement> = $(snt_component);
+  const SNT_COMPONENT: JQuery<HTMLElement> = $(snt_component);
 
-  if (SNTC.hasClass('shade_AND_tint') === false) {
+  if (SNT_COMPONENT.hasClass('shade_AND_tint') === false) {
     throw ReferenceError('Not a color picker\'s shade & tint component');
   }
 
-  SNTC.css({'background': `linear-gradient(0deg, black, transparent), linear-gradient(270deg, rgb(${color.r}, ${color.g}, ${color.b}), white)`});
+  SNT_COMPONENT.css({'background': `linear-gradient(0deg, black, transparent), linear-gradient(270deg, rgb(${color.r}, ${color.g}, ${color.b}), white)`});
 };
 
 function updateSNTCursorBackground(snt_cursor: HTMLElement, color: shared_types.RGBA) {
