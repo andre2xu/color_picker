@@ -135,6 +135,13 @@ class JSColorPicker {
       );
     }
 
+    if (this.color_display !== undefined) {
+      helpers.updateColorDisplay(
+        this.color_display[0],
+        this.selected_color
+      );
+    }
+
     if (this.searchbar !== undefined) {
       
     }
