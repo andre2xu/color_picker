@@ -15,6 +15,7 @@ class JSColorPicker {
   sntc_position: JQuery.Coordinates = {top: 0, left: 0};
   snt_canvas_context: CanvasRenderingContext2D | null = null;
   sntc_image_data: ImageData | undefined;
+  color_display: ComponentReference;
   searchbar: ComponentReference;
   hues: ComponentReference;
   hue_slider: ComponentReference;
@@ -89,6 +90,7 @@ class JSColorPicker {
     this.snt_cursor = this.shades_and_tints.children('.cursor').first();
     const snt_canvas: ComponentReference = this.container.find('.snt_canvas').first(); 
     const searchbar_container = this.container.find('.searchbar_container').first();
+    this.color_display = searchbar_container.children('.color_display').first();
     this.searchbar = searchbar_container.children('.searchbar').first();
     this.hues = this.container.find('.hue').first();
     this.hue_slider = this.hues.children('.vertical_slider').first();
