@@ -66,6 +66,11 @@ function mouseDownHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
           b: COLOR[2],
           a: 255
         };
+
+        helpers.updateSNTCursorBackground(
+          this.snt_cursor[0],
+          this.selected_color
+        );
       }
     }
     else if (this.hue_slider !== undefined && this.hue_slider[0] === CLICKED_ELEMENT) {
