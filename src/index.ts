@@ -76,16 +76,16 @@ class JSColorPicker {
     );
 
     // gets the color picker's components
-    this.color_picker = $('.jscp').first();
-    this.shades_and_tints = $('.shade_AND_tint').first();
+    this.color_picker = this.container.children('.jscp').first();
+    this.shades_and_tints = this.container.find('.shade_AND_tint').first();
     this.snt_cursor = this.shades_and_tints.children('.cursor').first();
-    const snt_canvas: ComponentReference = $('.snt_canvas').first(); 
-    this.searchbar = $('.searchbar').first();
-    this.hues = $('.hue').first();
+    const snt_canvas: ComponentReference = this.container.find('.snt_canvas').first(); 
+    this.searchbar = this.container.find('.searchbar').first();
+    this.hues = this.container.find('.hue').first();
     this.hue_slider = this.hues.children('.vertical_slider').first();
-    const hue_canvas: ComponentReference = $('.hue_canvas').first();
-    this.alpha_channel = $('.alpha_channel').first();
-    const alpha_channel_canvas: ComponentReference = $('.alpha_channel_canvas').first();
+    const hue_canvas: ComponentReference = this.container.find('.hue_canvas').first();
+    this.alpha_channel = this.container.find('.alpha_channel').first();
+    const alpha_channel_canvas: ComponentReference = this.container.find('.alpha_channel_canvas').first();
     this.ac_slider = this.alpha_channel.parent().children('.vertical_slider').first();
 
     if (hue_canvas !== undefined && hue_canvas[0] instanceof HTMLCanvasElement) {
