@@ -143,7 +143,11 @@ class JSColorPicker {
     }
 
     if (this.searchbar !== undefined) {
-      
+      helpers.updateSearchbarColor(
+        this.searchbar[0],
+        this.selected_color,
+        'rgb'
+      );
     }
 
     this.setSize(300, 200);
