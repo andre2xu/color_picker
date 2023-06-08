@@ -141,14 +141,8 @@ function updateSearchbarBackground(searchbar: HTMLElement, color: shared_types.R
   SEARCHBAR.css('background-color', `rgb(${color.r}, ${color.g}, ${color.b})`);
 };
 
-function updateAllDisplaysAndCanvases(jscp: JSColorPicker) {
-  if (jscp.alpha_channel !== undefined && jscp.ac_canvas_context !== null) {
-    updateAlphaChannelDisplay(
-      jscp.alpha_channel[0],
-      jscp.selected_color
-    );
-
-    // updates the alpha channel's canvas
+function updateAllCanvases(jscp: JSColorPicker) {
+  if (jscp.ac_canvas_context !== null) {
     redrawAlphaChannelCanvasGradient(
       jscp.ac_canvas_context,
       jscp.selected_color
@@ -159,13 +153,7 @@ function updateAllDisplaysAndCanvases(jscp: JSColorPicker) {
     jscp.accc_image_data = jscp.ac_canvas_context.getImageData(0, 0, AC_CANVAS.width, AC_CANVAS.height);
   }
 
-  if (jscp.shades_and_tints !== undefined && jscp.snt_canvas_context !== null) {
-    updateShadeAndTintDisplay(
-      jscp.shades_and_tints[0],
-      jscp.selected_color
-    );
-
-    // updates the shade & tint component's canvas
+  if (jscp.snt_canvas_context !== null) {
     redrawShadeAndTintCanvasGradient(
       jscp.snt_canvas_context,
       jscp.selected_color
@@ -174,20 +162,6 @@ function updateAllDisplaysAndCanvases(jscp: JSColorPicker) {
     const SNT_CANVAS: HTMLCanvasElement = jscp.snt_canvas_context.canvas;
 
     jscp.sntc_image_data = jscp.snt_canvas_context.getImageData(0, 0, SNT_CANVAS.width, SNT_CANVAS.height);
-  }
-
-  if (jscp.snt_cursor !== undefined) {
-    updateSNTCursorBackground(
-      jscp.snt_cursor[0],
-      jscp.selected_color
-    );
-  }
-
-  if (jscp.searchbar !== undefined) {
-    updateSearchbarBackground(
-      jscp.searchbar[0],
-      jscp.selected_color
-    );
   }
 };
 
@@ -322,7 +296,7 @@ const helpers = {
   updateShadeAndTintDisplay,
   updateSNTCursorBackground,
   updateSearchbarBackground,
-  updateAllDisplaysAndCanvases,
+  updateAllCanvases,
   getPixel,
   getMousePositionRelativeToElement,
   getSNTCursorAbsoluteCoordinates,
