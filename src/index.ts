@@ -133,9 +133,7 @@ class JSColorPicker {
     }
 
     if (this.searchbar !== undefined) {
-      this.searchbar.css('background-color', `rgba(${STARTING_COLOR}, 1)`);
-
-      this.searchbar.val(`rgb(${STARTING_COLOR})`);
+      
     }
 
     this.setSize(300, 200);
