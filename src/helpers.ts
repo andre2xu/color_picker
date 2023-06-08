@@ -131,14 +131,14 @@ function updateSNTCursorBackground(snt_cursor: HTMLElement, color: shared_types.
   SNTC.css('background-color', `rgb(${color.r}, ${color.g}, ${color.b})`);
 };
 
-function updateSearchbarBackground(searchbar: HTMLElement, color: shared_types.RGBA) {
-  const SEARCHBAR: JQuery<HTMLElement> = $(searchbar);
+function updateColorDisplay(color_display: HTMLElement, color: shared_types.RGBA) {
+  const CD: JQuery<HTMLElement> = $(color_display);
 
-  if (SEARCHBAR.hasClass('searchbar') === false || SEARCHBAR.parent().parent().hasClass('jscp') === false) {
-    throw ReferenceError('Not a color picker\'s searchbar');
+  if (CD.hasClass('color_display') === false) {
+    throw ReferenceError('Not a color picker\'s color display');
   }
 
-  SEARCHBAR.css('background-color', `rgb(${color.r}, ${color.g}, ${color.b})`);
+  CD.css('background-color', `rgb(${color.r}, ${color.g}, ${color.b})`);
 };
 
 function updateAllCanvases(jscp: JSColorPicker) {
@@ -295,7 +295,7 @@ const helpers = {
   updateAlphaChannelDisplay,
   updateShadeAndTintDisplay,
   updateSNTCursorBackground,
-  updateSearchbarBackground,
+  updateColorDisplay,
   updateAllCanvases,
   getPixel,
   getMousePositionRelativeToElement,
