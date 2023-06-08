@@ -61,6 +61,12 @@
         position: relative;
         @include checkboardBackground();
 
+        .color_display {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+        }
+
         .arrow_button {
           position: absolute;
           top: 50%;
@@ -85,9 +91,11 @@
         }
 
         .searchbar {
-          width: 100%;
+          width: 70%;
           border: none;
           text-align: center;
+          z-index: 2;
+          margin: 0 auto;
 
           &:focus {
             outline: none;
