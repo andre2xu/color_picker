@@ -56,7 +56,9 @@ class JSColorPicker {
           </div>
 
           <div class="searchbar_container">
+            <div class="arrow_button left"></div>
             <input type="text" class="searchbar">
+            <div class="arrow_button right"></div>
           </div>
         </div>
 
