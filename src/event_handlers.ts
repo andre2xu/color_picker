@@ -51,13 +51,17 @@ function mouseDownHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
         MOUSE_POSITION.y
       );
 
-      const SNT_COMPONENT: HTMLElement = this.shades_and_tints[0];
-
-      const CURSOR_X: number = Math.round(this.sntc_position.left * SNT_COMPONENT.offsetWidth);
-      const CURSOR_Y: number = Math.round(this.sntc_position.top * SNT_COMPONENT.offsetHeight);
+      const SNTC_COORDINATES: shared_types.Coordinates = helpers.getSNTCursorAbsoluteCoordinates(
+        SNTC,
+        this.sntc_position
+      );
 
       if (this.sntc_image_data !== undefined && this.searchbar !== undefined && this.alpha_channel !== undefined) {
-        const COLOR: shared_types.PixelBits = helpers.getPixel(this.sntc_image_data, CURSOR_X, CURSOR_Y);
+        const COLOR: shared_types.PixelBits = helpers.getPixel(
+          this.sntc_image_data,
+          SNTC_COORDINATES.x,
+          SNTC_COORDINATES.y
+        );
 
         // selects the shade or tint
         this.selected_color = {
@@ -144,19 +148,25 @@ function mouseMoveHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
         event.clientY
       );
 
+      const SNTC: HTMLElement = this.snt_cursor[0]; 
+
       this.sntc_position = helpers.moveSNTCursor(
-        this.snt_cursor[0],
+        SNTC,
         MOUSE_POSITION.x,
         MOUSE_POSITION.y
       );
 
-      const SNT_COMPONENT: HTMLElement = this.shades_and_tints[0];
-
-      const CURSOR_X: number = Math.round(this.sntc_position.left * SNT_COMPONENT.offsetWidth);
-      const CURSOR_Y: number = Math.round(this.sntc_position.top * SNT_COMPONENT.offsetHeight);
+      const SNTC_COORDINATES: shared_types.Coordinates = helpers.getSNTCursorAbsoluteCoordinates(
+        SNTC,
+        this.sntc_position
+      );
 
       if (this.sntc_image_data !== undefined && this.searchbar !== undefined && this.alpha_channel !== undefined) {
-        const COLOR: shared_types.PixelBits = helpers.getPixel(this.sntc_image_data, CURSOR_X, CURSOR_Y);
+        const COLOR: shared_types.PixelBits = helpers.getPixel(
+          this.sntc_image_data,
+          SNTC_COORDINATES.x,
+          SNTC_COORDINATES.y
+        );
 
         // selects the shade or tint
         this.selected_color = {
