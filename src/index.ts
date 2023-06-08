@@ -43,6 +43,8 @@ class JSColorPicker {
     // builds color picker
     this.container.addClass('jscp_container');
 
+    this.container.empty();
+
     this.container.html(
       `
       <div class="jscp">
