@@ -1,12 +1,14 @@
 @mixin checkboardBackground() {
+  $gray_square: #e1e1e1;
+
   background-color: #fff;
   background-repeat: repeat;
   background-size: 12.5px 12.5px;
   background-image:
-    linear-gradient(45deg, #b1b1b1 25%, transparent 25%),
-    linear-gradient(135deg, #b1b1b1 25%, transparent 25%),
-    linear-gradient(45deg, transparent 75%, #b1b1b1 75%),
-    linear-gradient(135deg, transparent 75%, #b1b1b1 75%);
+    linear-gradient(45deg, $gray_square 25%, transparent 25%),
+    linear-gradient(135deg, $gray_square 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, $gray_square 75%),
+    linear-gradient(135deg, transparent 75%, $gray_square 75%);
   background-position: 6.25px 0px, 0px 0px, 0px 6.25px, -6.25px -6.25px;
 }
 
