@@ -211,6 +211,20 @@ function getMousePositionRelativeToElement(element: HTMLElement, mouse_x: number
   };
 };
 
+function getSNTCursorAbsoluteCoordinates(snt_cursor: HTMLElement, relative_position: JQuery.Coordinates): shared_types.Coordinates {
+  const SNTC: JQuery<HTMLElement> = $(snt_cursor);
+  const SNTC_PARENT: JQuery<HTMLElement> = SNTC.parent();
+
+  if (SNTC.hasClass('cursor') === false || SNTC_PARENT.hasClass('shade_AND_tint') === false) {
+    throw ReferenceError('Not a shade and tint component cursor');
+  }
+
+  return {
+    x: Math.round(relative_position.left * SNTC_PARENT[0].offsetWidth),
+    y: Math.round(relative_position.top * SNTC_PARENT[0].offsetHeight)
+  };
+};
+
 function moveVerticalSlider(vertical_slider: HTMLElement, y: number) {
   const VS: JQuery<HTMLElement> = $(vertical_slider);
   const VS_PARENT = VS.parent()[0];
@@ -311,6 +325,7 @@ const helpers = {
   updateAllDisplaysAndCanvases,
   getPixel,
   getMousePositionRelativeToElement,
+  getSNTCursorAbsoluteCoordinates,
   moveVerticalSlider,
   updateSNTCursorSize,
   moveSNTCursor
