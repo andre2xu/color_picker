@@ -56,7 +56,7 @@ function mouseDownHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
       const CURSOR_X: number = Math.round(this.sntc_position.left * SNT_COMPONENT.offsetWidth);
       const CURSOR_Y: number = Math.round(this.sntc_position.top * SNT_COMPONENT.offsetHeight);
 
-      if (this.sntc_image_data !== undefined) {
+      if (this.sntc_image_data !== undefined && this.searchbar !== undefined) {
         const COLOR: shared_types.PixelBits = helpers.getPixel(this.sntc_image_data, CURSOR_X, CURSOR_Y);
 
         // selects the shade or tint
@@ -69,6 +69,11 @@ function mouseDownHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
 
         helpers.updateSNTCursorBackground(
           this.snt_cursor[0],
+          this.selected_color
+        );
+
+        helpers.updateSearchbarBackground(
+          this.searchbar[0],
           this.selected_color
         );
       }
