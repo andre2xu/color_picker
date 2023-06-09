@@ -73,13 +73,21 @@ function mouseDownHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
         );
       }
     }
-    else if (this.alpha_channel !== undefined && this.alpha_channel[0] === CLICKED_ELEMENT && this.ac_slider !== undefined) {
+    else if (this.alpha_channel !== undefined && this.alpha_channel[0] === CLICKED_ELEMENT && this.ac_slider !== undefined && this.accc_image_data !== undefined) {
       const AC_CONTAINER: HTMLElement = event.target.parentElement as HTMLElement;
 
       this.ac_slider_position = helpers.moveVerticalSlider(
         this.ac_slider[0],
         event.clientY - AC_CONTAINER.offsetTop
       );
+
+      const ALPHA: number = helpers.getPixel(
+        this.accc_image_data,
+        this.ac_slider_position.left,
+        this.ac_slider_position.top
+      )[3];
+
+      this.selected_color.a = ALPHA;
     }
     else if (this.shades_and_tints !== undefined && this.shades_and_tints[0] === CLICKED_ELEMENT && this.snt_cursor !== undefined) {
       const SNTC: HTMLElement = this.snt_cursor[0];
