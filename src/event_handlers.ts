@@ -216,7 +216,7 @@ function mouseMoveHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
         }
       }
     }
-    else if (this.ac_slider !== undefined && this.component_held[0] === this.ac_slider[0] && this.alpha_channel !== undefined) {
+    else if (this.ac_slider !== undefined && this.component_held[0] === this.ac_slider[0] && this.alpha_channel !== undefined && this.accc_image_data !== undefined) {
       const AC_CONTAINER: HTMLElement = this.alpha_channel.parent()[0];
       const MOUSE_Y: number = event.clientY - AC_CONTAINER.offsetTop;
 
@@ -225,6 +225,14 @@ function mouseMoveHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
           this.ac_slider[0],
           MOUSE_Y
         );
+
+        const ALPHA: number = helpers.getPixel(
+          this.accc_image_data,
+          this.ac_slider_position.left,
+          this.ac_slider_position.top
+        )[3];
+
+        this.selected_color.a = ALPHA;
       }
     }
     else if (this.snt_cursor !== undefined && this.component_held[0] === this.snt_cursor[0] && this.shades_and_tints !== undefined) {
