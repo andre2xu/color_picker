@@ -330,6 +330,8 @@ function mouseMoveHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
           this.selected_color,
           this.color_format
         );
+
+        helpers.adjustSearchbarColorContrast(this);
       }
     }
   }
