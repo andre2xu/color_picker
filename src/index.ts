@@ -28,6 +28,7 @@ class JSColorPicker {
   ac_slider_position: JQuery.Coordinates = {top: 0, left: 0};
   selected_color: shared_types.RGBA;
   component_held: ComponentReference;
+  color_format: string; // rgb, hex, hsv, hsl
 
   constructor (container_id: string) {
     const CONTAINER: HTMLElement | null = document.getElementById(container_id);
@@ -111,6 +112,8 @@ class JSColorPicker {
       b: 0,
       a: 1
     };
+
+    this.color_format = 'rgb';
 
     if (this.alpha_channel !== undefined) {
       helpers.updateAlphaChannelDisplay(
