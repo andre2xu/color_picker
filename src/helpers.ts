@@ -40,33 +40,6 @@ function redrawHueCanvasGradient(hue_canvas_context: CanvasRenderingContext2D) {
   }
 };
 
-function redrawAlphaChannelCanvasGradient(ac_canvas_context: CanvasRenderingContext2D, selected_color: shared_types.RGBA) {
-  const AC_CANVAS = ac_canvas_context.canvas;
-
-  if ($(AC_CANVAS).hasClass('alpha_channel_canvas')) {
-    const RGB: string = `${selected_color.r}, ${selected_color.g}, ${selected_color.b}`;
-
-    const ALPHA_CHANNEL_GRADIENT: CanvasGradient = ac_canvas_context.createLinearGradient(0, 0, 0, AC_CANVAS.height);
-    ALPHA_CHANNEL_GRADIENT.addColorStop(0.01, `rgba(${RGB}, 1)`);
-    ALPHA_CHANNEL_GRADIENT.addColorStop(0.1, `rgba(${RGB}, 0.9)`);
-    ALPHA_CHANNEL_GRADIENT.addColorStop(0.2, `rgba(${RGB}, 0.8)`);
-    ALPHA_CHANNEL_GRADIENT.addColorStop(0.3, `rgba(${RGB}, 0.7)`);
-    ALPHA_CHANNEL_GRADIENT.addColorStop(0.4, `rgba(${RGB}, 0.6)`);
-    ALPHA_CHANNEL_GRADIENT.addColorStop(0.5, `rgba(${RGB}, 0.5)`);
-    ALPHA_CHANNEL_GRADIENT.addColorStop(0.6, `rgba(${RGB}, 0.4)`);
-    ALPHA_CHANNEL_GRADIENT.addColorStop(0.7, `rgba(${RGB}, 0.3)`);
-    ALPHA_CHANNEL_GRADIENT.addColorStop(0.8, `rgba(${RGB}, 0.2)`);
-    ALPHA_CHANNEL_GRADIENT.addColorStop(0.9, `rgba(${RGB}, 0.1)`);
-    ALPHA_CHANNEL_GRADIENT.addColorStop(1.0, `rgba(${RGB}, 0)`);
-
-    ac_canvas_context.fillStyle = ALPHA_CHANNEL_GRADIENT;
-    ac_canvas_context.fillRect(0, 0, AC_CANVAS.width, AC_CANVAS.height);
-  }
-  else {
-    throw ReferenceError('Not the 2D canvas rendering context of a color picker\'s alpha channel component');
-  }
-};
-
 function redrawShadeAndTintCanvasGradient(snt_canvas_context: CanvasRenderingContext2D, selected_color: shared_types.RGBA) {
   const SNT_CANVAS = snt_canvas_context.canvas;
 
@@ -163,17 +136,6 @@ function updateSearchbarColor(searchbar: HTMLElement, color: shared_types.RGBA, 
 };
 
 function updateAllCanvases(jscp: JSColorPicker) {
-  if (jscp.ac_canvas_context !== null) {
-    redrawAlphaChannelCanvasGradient(
-      jscp.ac_canvas_context,
-      jscp.selected_color
-    );
-
-    const AC_CANVAS: HTMLCanvasElement = jscp.ac_canvas_context.canvas;
-
-    jscp.accc_image_data = jscp.ac_canvas_context.getImageData(0, 0, AC_CANVAS.width, AC_CANVAS.height);
-  }
-
   if (jscp.snt_canvas_context !== null) {
     redrawShadeAndTintCanvasGradient(
       jscp.snt_canvas_context,
@@ -343,7 +305,6 @@ function moveSNTCursor(snt_cursor: HTMLElement, x: number, y: number) {
 const helpers = {
   updateComponentCanvasDimensions,
   redrawHueCanvasGradient,
-  redrawAlphaChannelCanvasGradient,
   redrawShadeAndTintCanvasGradient,
   updateAlphaChannelDisplay,
   updateShadeAndTintDisplay,

@@ -237,11 +237,6 @@ class JSColorPicker {
           this.ac_canvas_context
         );
 
-        helpers.redrawAlphaChannelCanvasGradient(
-          this.ac_canvas_context,
-          this.selected_color
-        );
-
         this.accc_image_data = this.ac_canvas_context.getImageData(0, 0, CANVAS_DIMENSIONS.w, CANVAS_DIMENSIONS.h);
       }
 
