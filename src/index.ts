@@ -170,6 +170,8 @@ class JSColorPicker {
       }
     }
 
+    helpers.adjustSearchbarColorContrast(this);
+
     // binds event listeners
     this.color_picker.on('mousedown', event_handlers.mouseDownHandler.bind(this));
 
