@@ -209,6 +209,16 @@ function updateSNTCursorSize(color_picker: HTMLElement, snt_cursor: HTMLElement)
 function getPixel(canvas_image_data: ImageData, x: number, y: number): shared_types.PixelBits {
   const PIXELS: Uint8ClampedArray = canvas_image_data.data;
 
+  // prevents the coordinates from going out of bounds
+  if (x >= canvas_image_data.width) {
+    x = canvas_image_data.width - 1;
+  }
+
+  if (y >= canvas_image_data.height) {
+    y = canvas_image_data.height - 1;
+  }
+
+  // gets the index of the pixel at a given coordinate
   const INDEX: number = (y * canvas_image_data.width * 4) + (x * 4);
 
   const R: number = PIXELS[INDEX];
