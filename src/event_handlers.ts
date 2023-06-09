@@ -117,7 +117,10 @@ function mouseDownHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
           r: COLOR[0],
           g: COLOR[1],
           b: COLOR[2],
-          a: 255
+          a: helpers.getAlpha(
+            this.alpha_channel[0],
+            this.ac_slider_position
+          )
         };
 
         helpers.updateSNTCursorBackground(
