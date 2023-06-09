@@ -229,6 +229,20 @@ function getPixel(canvas_image_data: ImageData, x: number, y: number): shared_ty
   return [R, G, B, A];
 };
 
+function getAlpha(alpha_channel_component: HTMLElement, vertical_slider_position: JQuery.Coordinates): number {
+  if ($(alpha_channel_component).hasClass('alpha_channel') === false) {
+    throw ReferenceError('Not a color picker\'s alpha channel component');
+  }
+
+  const ALPHA_CHANNEL_HEIGHT: number = alpha_channel_component.offsetHeight;
+
+  let alpha: number = (ALPHA_CHANNEL_HEIGHT - vertical_slider_position.top) / ALPHA_CHANNEL_HEIGHT;
+
+  alpha = parseFloat((alpha).toFixed(2));
+
+  return alpha;
+};
+
 function getMousePositionRelativeToElement(element: HTMLElement, mouse_x: number, mouse_y: number): shared_types.Coordinates {
   return {
     x: mouse_x - element.offsetLeft,
@@ -338,6 +352,7 @@ const helpers = {
   updateSearchbarColor,
   updateAllCanvases,
   getPixel,
+  getAlpha,
   getMousePositionRelativeToElement,
   getSNTCursorAbsoluteCoordinates,
   moveVerticalSlider,
