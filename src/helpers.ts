@@ -258,6 +258,14 @@ function moveVerticalSlider(vertical_slider: HTMLElement, y: number) {
     throw ReferenceError('Not a vertical slider');
   }
 
+  // ensures the cursor stays within the top and bottom edges
+  if (y < 0) {
+    y = 0;
+  }
+  else if (y > VS_PARENT.offsetHeight) {
+    y = VS_PARENT.offsetHeight;
+  }
+
   let slider_y: number = y - (vertical_slider.offsetHeight * 0.5);
 
   // ensures the vertical slider stays inside of its component
