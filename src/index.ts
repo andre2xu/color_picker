@@ -109,7 +109,7 @@ class JSColorPicker {
       r: 255,
       g: 0,
       b: 0,
-      a: 255
+      a: 1
     };
 
     const STARTING_COLOR: string = `${this.selected_color.r}, ${this.selected_color.g}, ${this.selected_color.b}`;
