@@ -155,6 +155,8 @@ function mouseDownHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
           this.selected_color,
           this.color_format
         );
+
+        helpers.adjustSearchbarColorContrast(this);
       }
     }
     else if (this.hue_slider !== undefined && this.hue_slider[0] === CLICKED_ELEMENT) {
