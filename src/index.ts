@@ -140,7 +140,7 @@ class JSColorPicker {
       helpers.updateSearchbarColor(
         this.searchbar[0],
         this.selected_color,
-        'rgb'
+        this.color_format
       );
     }
 
