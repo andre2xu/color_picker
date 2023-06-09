@@ -27,7 +27,6 @@ class JSColorPicker {
   ac_slider: ComponentReference;
   ac_slider_position: JQuery.Coordinates = {top: 0, left: 0};
   ac_canvas_context: CanvasRenderingContext2D | null = null;
-  accc_image_data: ImageData | undefined;
   selected_color: shared_types.RGBA;
   component_held: ComponentReference;
 
@@ -236,8 +235,6 @@ class JSColorPicker {
           this.alpha_channel[0],
           this.ac_canvas_context
         );
-
-        this.accc_image_data = this.ac_canvas_context.getImageData(0, 0, CANVAS_DIMENSIONS.w, CANVAS_DIMENSIONS.h);
       }
 
       if (this.shades_and_tints !== undefined && this.snt_canvas_context !== null) {
