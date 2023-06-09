@@ -292,7 +292,7 @@ function mouseMoveHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
         this.sntc_position
       );
 
-      if (this.sntc_image_data !== undefined && this.color_display !== undefined && this.alpha_channel !== undefined) {
+      if (this.sntc_image_data !== undefined && this.color_display !== undefined && this.alpha_channel !== undefined && this.searchbar !== undefined) {
         const COLOR: shared_types.PixelBits = helpers.getPixel(
           this.sntc_image_data,
           SNTC_COORDINATES.x,
@@ -323,6 +323,12 @@ function mouseMoveHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
         helpers.updateAlphaChannelDisplay(
           this.alpha_channel[0],
           this.selected_color
+        );
+
+        helpers.updateSearchbarColor(
+          this.searchbar[0],
+          this.selected_color,
+          this.color_format
         );
       }
     }
