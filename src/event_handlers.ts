@@ -270,6 +270,8 @@ function mouseMoveHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
           this.selected_color,
           this.color_format
         );
+
+        helpers.adjustSearchbarColorContrast(this);
       }
     }
     else if (this.snt_cursor !== undefined && this.component_held[0] === this.snt_cursor[0] && this.shades_and_tints !== undefined) {
