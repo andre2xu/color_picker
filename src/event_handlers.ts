@@ -175,7 +175,7 @@ function mouseMoveHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
             r: HUE_PIXEL[0],
             g: HUE_PIXEL[1],
             b: HUE_PIXEL[2],
-            a: 255
+            a: this.selected_color.a
           };
 
           helpers.updateAllCanvases(this);
@@ -201,7 +201,7 @@ function mouseMoveHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
             r: SNT_PIXEL[0],
             g: SNT_PIXEL[1],
             b: SNT_PIXEL[2],
-            a: 255
+            a: this.selected_color.a
           };
 
           helpers.updateAlphaChannelDisplay(
