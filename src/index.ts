@@ -94,7 +94,6 @@ class JSColorPicker {
     this.hue_slider = this.hues.children('.vertical_slider').first();
     const hue_canvas: ComponentReference = this.container.find('.hue_canvas').first();
     this.alpha_channel = this.container.find('.alpha_channel').first();
-    const alpha_channel_canvas: ComponentReference = this.container.find('.alpha_channel_canvas').first();
     this.ac_slider = this.alpha_channel.parent().children('.vertical_slider').first();
 
     if (hue_canvas !== undefined && hue_canvas[0] instanceof HTMLCanvasElement) {
