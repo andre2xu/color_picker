@@ -71,8 +71,6 @@ class JSColorPicker {
             <div class="vertical_slider"></div>
           </div>
 
-          <canvas class="alpha_channel_canvas hide" hidden></canvas>
-
           <div class="transparency">
             <div class="alpha_channel"></div>
 
