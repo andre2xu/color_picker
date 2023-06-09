@@ -138,7 +138,7 @@ function updateColorDisplay(color_display: HTMLElement, color: shared_types.RGBA
     throw ReferenceError('Not a color picker\'s color display');
   }
 
-  CD.css('background-color', `rgb(${color.r}, ${color.g}, ${color.b})`);
+  CD.css('background-color', `rgba(${color.r}, ${color.g}, ${color.b}, ${color.a})`);
 };
 
 function updateSearchbarColor(searchbar: HTMLElement, color: shared_types.RGBA, format: string) {
