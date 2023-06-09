@@ -216,7 +216,7 @@ function mouseMoveHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
         }
       }
     }
-    else if (this.ac_slider !== undefined && this.component_held[0] === this.ac_slider[0] && this.alpha_channel !== undefined && this.accc_image_data !== undefined) {
+    else if (this.ac_slider !== undefined && this.component_held[0] === this.ac_slider[0] && this.alpha_channel !== undefined && this.accc_image_data !== undefined && this.color_display !== undefined) {
       const AC_CONTAINER: HTMLElement = this.alpha_channel.parent()[0];
       const MOUSE_Y: number = event.clientY - AC_CONTAINER.offsetTop;
 
@@ -233,6 +233,11 @@ function mouseMoveHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
         )[3];
 
         this.selected_color.a = ALPHA;
+
+        helpers.updateColorDisplay(
+          this.color_display[0],
+          this.selected_color
+        );
       }
     }
     else if (this.snt_cursor !== undefined && this.component_held[0] === this.snt_cursor[0] && this.shades_and_tints !== undefined) {
