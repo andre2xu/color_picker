@@ -26,7 +26,6 @@ class JSColorPicker {
   alpha_channel: ComponentReference;
   ac_slider: ComponentReference;
   ac_slider_position: JQuery.Coordinates = {top: 0, left: 0};
-  ac_canvas_context: CanvasRenderingContext2D | null = null;
   selected_color: shared_types.RGBA;
   component_held: ComponentReference;
 
@@ -102,10 +101,6 @@ class JSColorPicker {
 
     if (hue_canvas !== undefined && hue_canvas[0] instanceof HTMLCanvasElement) {
       this.hue_canvas_context = hue_canvas[0].getContext('2d', {willReadFrequently: true});
-    }
-
-    if (alpha_channel_canvas !== undefined && alpha_channel_canvas[0] instanceof HTMLCanvasElement) {
-      this.ac_canvas_context = alpha_channel_canvas[0].getContext('2d', {willReadFrequently: true});
     }
 
     if (snt_canvas !== undefined && snt_canvas[0] instanceof HTMLCanvasElement) {
@@ -228,13 +223,6 @@ class JSColorPicker {
         helpers.redrawHueCanvasGradient(this.hue_canvas_context);
 
         this.hcc_image_data = this.hue_canvas_context.getImageData(0, 0, CANVAS_DIMENSIONS.w, CANVAS_DIMENSIONS.h);
-      }
-
-      if (this.alpha_channel !== undefined && this.ac_canvas_context !== null) {
-        const CANVAS_DIMENSIONS: shared_types.Dimensions = helpers.updateComponentCanvasDimensions(
-          this.alpha_channel[0],
-          this.ac_canvas_context
-        );
       }
 
       if (this.shades_and_tints !== undefined && this.snt_canvas_context !== null) {
