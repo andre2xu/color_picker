@@ -271,7 +271,7 @@ function moveVerticalSlider(vertical_slider: HTMLElement, y: number) {
   VS.css('top', slider_y);
 
   return {
-    top: slider_y,
+    top: y,
     left: 0
   };
 };
