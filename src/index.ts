@@ -112,8 +112,6 @@ class JSColorPicker {
       a: 1
     };
 
-    const STARTING_COLOR: string = `${this.selected_color.r}, ${this.selected_color.g}, ${this.selected_color.b}`;
-
     if (this.alpha_channel !== undefined) {
       helpers.updateAlphaChannelDisplay(
         this.alpha_channel[0],
