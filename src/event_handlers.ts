@@ -185,7 +185,7 @@ function mouseMoveHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
           MOUSE_Y
         );
 
-        if (this.hcc_image_data !== undefined && this.shades_and_tints !== undefined && this.snt_cursor !== undefined && this.sntc_image_data !== undefined && this.alpha_channel !== undefined && this.color_display !== undefined) {
+        if (this.hcc_image_data !== undefined && this.shades_and_tints !== undefined && this.snt_cursor !== undefined && this.sntc_image_data !== undefined && this.alpha_channel !== undefined && this.color_display !== undefined && this.searchbar !== undefined) {
           const HUE_PIXEL: shared_types.PixelBits = helpers.getPixel(this.hcc_image_data, 0, Math.round(this.hue_slider_position.top));
 
           // selects the hue
@@ -235,6 +235,12 @@ function mouseMoveHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
           helpers.updateColorDisplay(
             this.color_display[0],
             this.selected_color
+          );
+
+          helpers.updateSearchbarColor(
+            this.searchbar[0],
+            this.selected_color,
+            this.color_format
           );
         }
       }
