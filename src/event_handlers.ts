@@ -81,13 +81,10 @@ function mouseDownHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
         event.clientY - AC_CONTAINER.offsetTop
       );
 
-      const ALPHA: number = helpers.getPixel(
-        this.accc_image_data,
-        this.ac_slider_position.left,
-        this.ac_slider_position.top
-      )[3];
-
-      this.selected_color.a = ALPHA;
+      this.selected_color.a = this.selected_color.a = helpers.getAlpha(
+        this.alpha_channel[0],
+        this.ac_slider_position
+      );
 
       helpers.updateColorDisplay(
         this.color_display[0],
@@ -231,13 +228,10 @@ function mouseMoveHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
           MOUSE_Y
         );
 
-        const ALPHA: number = helpers.getPixel(
-          this.accc_image_data,
-          this.ac_slider_position.left,
-          this.ac_slider_position.top
-        )[3];
-
-        this.selected_color.a = ALPHA;
+        this.selected_color.a = helpers.getAlpha(
+          this.alpha_channel[0],
+          this.ac_slider_position
+        );
 
         helpers.updateColorDisplay(
           this.color_display[0],
