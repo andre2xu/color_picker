@@ -73,7 +73,7 @@ function mouseDownHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
         );
       }
     }
-    else if (this.alpha_channel !== undefined && this.alpha_channel[0] === CLICKED_ELEMENT && this.ac_slider !== undefined && this.accc_image_data !== undefined && this.color_display !== undefined) {
+    else if (this.alpha_channel !== undefined && this.alpha_channel[0] === CLICKED_ELEMENT && this.ac_slider !== undefined && this.color_display !== undefined) {
       const AC_CONTAINER: HTMLElement = event.target.parentElement as HTMLElement;
 
       this.ac_slider_position = helpers.moveVerticalSlider(
@@ -218,7 +218,7 @@ function mouseMoveHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
         }
       }
     }
-    else if (this.ac_slider !== undefined && this.component_held[0] === this.ac_slider[0] && this.alpha_channel !== undefined && this.accc_image_data !== undefined && this.color_display !== undefined) {
+    else if (this.ac_slider !== undefined && this.component_held[0] === this.ac_slider[0] && this.alpha_channel !== undefined && this.color_display !== undefined) {
       const AC_CONTAINER: HTMLElement = this.alpha_channel.parent()[0];
       const MOUSE_Y: number = event.clientY - AC_CONTAINER.offsetTop;
 
