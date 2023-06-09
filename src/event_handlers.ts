@@ -79,7 +79,7 @@ function mouseDownHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
         );
       }
     }
-    else if (this.alpha_channel !== undefined && this.alpha_channel[0] === CLICKED_ELEMENT && this.ac_slider !== undefined && this.color_display !== undefined) {
+    else if (this.alpha_channel !== undefined && this.alpha_channel[0] === CLICKED_ELEMENT && this.ac_slider !== undefined && this.color_display !== undefined && this.searchbar !== undefined) {
       const AC_CONTAINER: HTMLElement = event.target.parentElement as HTMLElement;
 
       this.ac_slider_position = helpers.moveVerticalSlider(
@@ -95,6 +95,12 @@ function mouseDownHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
       helpers.updateColorDisplay(
         this.color_display[0],
         this.selected_color
+      );
+
+      helpers.updateSearchbarColor(
+        this.searchbar[0],
+        this.selected_color,
+        this.color_format
       );
     }
     else if (this.shades_and_tints !== undefined && this.shades_and_tints[0] === CLICKED_ELEMENT && this.snt_cursor !== undefined) {
