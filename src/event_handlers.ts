@@ -73,7 +73,7 @@ function mouseDownHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
         );
       }
     }
-    else if (this.alpha_channel !== undefined && this.alpha_channel[0] === CLICKED_ELEMENT && this.ac_slider !== undefined && this.accc_image_data !== undefined) {
+    else if (this.alpha_channel !== undefined && this.alpha_channel[0] === CLICKED_ELEMENT && this.ac_slider !== undefined && this.accc_image_data !== undefined && this.color_display !== undefined) {
       const AC_CONTAINER: HTMLElement = event.target.parentElement as HTMLElement;
 
       this.ac_slider_position = helpers.moveVerticalSlider(
@@ -88,6 +88,11 @@ function mouseDownHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
       )[3];
 
       this.selected_color.a = ALPHA;
+
+      helpers.updateColorDisplay(
+        this.color_display[0],
+        this.selected_color
+      );
     }
     else if (this.shades_and_tints !== undefined && this.shades_and_tints[0] === CLICKED_ELEMENT && this.snt_cursor !== undefined) {
       const SNTC: HTMLElement = this.snt_cursor[0];
