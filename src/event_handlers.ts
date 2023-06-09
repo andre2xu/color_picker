@@ -102,6 +102,8 @@ function mouseDownHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
         this.selected_color,
         this.color_format
       );
+
+      helpers.adjustSearchbarColorContrast(this);
     }
     else if (this.shades_and_tints !== undefined && this.shades_and_tints[0] === CLICKED_ELEMENT && this.snt_cursor !== undefined) {
       const SNTC: HTMLElement = this.snt_cursor[0];
