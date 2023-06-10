@@ -86,17 +86,19 @@ function updateSearchbarColor(color_picker: JSColorPicker) {
   }
 };
 
-function updateAllCanvases(jscp: JSColorPicker) {
-  if (jscp.snt_canvas_context !== null) {
-    redrawShadeAndTintCanvasGradient(
-      jscp.snt_canvas_context,
-      jscp.selected_color
-    );
-
-    const SNT_CANVAS: HTMLCanvasElement = jscp.snt_canvas_context.canvas;
-
-    jscp.sntc_image_data = jscp.snt_canvas_context.getImageData(0, 0, SNT_CANVAS.width, SNT_CANVAS.height);
+function updateAllCanvases(color_picker: JSColorPicker) {
+  if (color_picker.snt_canvas_context === null) {
+    throw ReferenceError();
   }
+
+  redrawShadeAndTintCanvasGradient(
+    color_picker.snt_canvas_context,
+    color_picker.selected_color
+  );
+
+  const SNT_CANVAS: HTMLCanvasElement = color_picker.snt_canvas_context.canvas;
+
+  color_picker.sntc_image_data = color_picker.snt_canvas_context.getImageData(0, 0, SNT_CANVAS.width, SNT_CANVAS.height);
 };
 
 function updateSNTCursorSize(color_picker: JSColorPicker) {
