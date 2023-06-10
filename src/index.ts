@@ -206,24 +206,23 @@ class JSColorPicker {
       }
 
       // ensures the shade & tint component cursor is responsive to changes in the color picker's size
-      if (this.snt_cursor !== undefined) {
-        const SNTC: HTMLElement = this.snt_cursor[0];
+      helpers.updateSNTCursorSize(this);
 
-        helpers.updateSNTCursorSize(this);
+      // ensures the cursor is still in the same spot
+      if (this.shades_and_tints !== undefined && this.snt_cursor !== undefined) {
+        const SNT_COMPONENT: HTMLElement = this.shades_and_tints[0];
+        const CORRECTED_X: number = this.sntc_position.left * SNT_COMPONENT.offsetWidth;
+        const CORRECTED_Y: number = this.sntc_position.top * SNT_COMPONENT.offsetHeight;
 
-        // ensures the cursor is still in the same spot
-        if (this.shades_and_tints !== undefined) {
-          const SNT_COMPONENT: HTMLElement = this.shades_and_tints[0];
-          const CORRECTED_X: number = this.sntc_position.left * SNT_COMPONENT.offsetWidth;
-          const CORRECTED_Y: number = this.sntc_position.top * SNT_COMPONENT.offsetHeight;
-
-          helpers.moveSNTCursor(
-            SNTC,
-            CORRECTED_X,
-            CORRECTED_Y
-          );
-        }
+        helpers.moveSNTCursor(
+          this.snt_cursor[0],
+          CORRECTED_X,
+          CORRECTED_Y
+        );
       }
+    }
+    else {
+      throw ReferenceError();
     }
   };
 
