@@ -122,22 +122,15 @@ class JSColorPicker {
 
     this.setSize(300, 200);
 
-    if (this.snt_cursor !== undefined) {
-      helpers.updateSNTCursorBackground(this);
+    helpers.updateSNTCursorBackground(this);
+    helpers.updateSNTCursorSize(this);
 
-      const SNTC: HTMLElement = this.snt_cursor[0];
-
-      if (this.color_picker !== undefined) {
-        helpers.updateSNTCursorSize(this);
-      }
-
-      if (this.shades_and_tints !== undefined) {
-        this.sntc_position = helpers.moveSNTCursor(
-          SNTC,
-          this.shades_and_tints[0].offsetWidth,
-          0
-        );
-      }
+    if (this.shades_and_tints !== undefined) {
+      this.sntc_position = helpers.moveSNTCursor(
+        this.snt_cursor[0],
+        this.shades_and_tints[0].offsetWidth,
+        0
+      );
     }
 
     helpers.adjustSearchbarColorContrast(this);
