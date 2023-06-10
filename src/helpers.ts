@@ -69,6 +69,7 @@ function updateSearchbarColor(color_picker: JSColorPicker) {
       color_picker.searchbar.val(generateRGBAString(color_picker.selected_color));
       break;
     case 'hex':
+      color_picker.searchbar.val(RGBtoHex(color_picker.selected_color));
       break;
     case 'hsv':
       break;
@@ -315,7 +316,29 @@ function moveSNTCursor(snt_cursor: HTMLElement, x: number, y: number) {
 // COLOR FORMATTING
 
 function RGBtoHex(rgba: shared_types.RGBA) {
-  
+  let r: string = rgba.r.toString(16);
+  let g: string = rgba.g.toString(16);
+  let b: string = rgba.b.toString(16);
+  let a: string = Math.round(rgba.a * 255).toString(16);
+
+  // adds zero padding to single hex digits
+  if (r.length === 1) {
+    r = `0${r}`;
+  }
+
+  if (g.length === 1) {
+    g = `0${g}`;
+  }
+
+  if (b.length === 1) {
+    b = `0${b}`;
+  }
+
+  if (a.length === 1) {
+    a = `0${a}`;
+  }
+
+  return `${r}${g}${b}${a}`;
 };
 
 
