@@ -41,14 +41,14 @@ function updateShadeAndTintDisplay(color_picker: JSColorPicker) {
   color_picker.shades_and_tints.css({'background': `linear-gradient(0deg, black, transparent), linear-gradient(270deg, rgb(${SELECTED_COLOR.r}, ${SELECTED_COLOR.g}, ${SELECTED_COLOR.b}), white)`});
 };
 
-function updateSNTCursorBackground(snt_cursor: HTMLElement, color: shared_types.RGBA) {
-  const SNTC: JQuery<HTMLElement> = $(snt_cursor);
-
-  if (SNTC.hasClass('cursor') === false || SNTC.parent().hasClass('shade_AND_tint') === false) {
-    throw ReferenceError('Not a shade & tint component cursor');
+function updateSNTCursorBackground(color_picker: JSColorPicker) {
+  if (color_picker.snt_cursor === undefined) {
+    throw ReferenceError();
   }
 
-  SNTC.css('background-color', `rgb(${color.r}, ${color.g}, ${color.b})`);
+  const SELECTED_COLOR: shared_types.RGBA = color_picker.selected_color;
+
+  color_picker.snt_cursor.css('background-color', `rgb(${SELECTED_COLOR.r}, ${SELECTED_COLOR.g}, ${SELECTED_COLOR.b})`);
 };
 
 function updateColorDisplay(color_display: HTMLElement, color: shared_types.RGBA) {
