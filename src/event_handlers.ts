@@ -31,7 +31,7 @@ function mouseDownHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
           a: this.selected_color.a
         };
 
-        helpers.updateAllCanvases(this);
+        helpers.updateShadeAndTintCanvas(this);
 
         helpers.updateShadeAndTintDisplay(this);
 
@@ -166,7 +166,7 @@ function mouseMoveHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
           a: this.selected_color.a
         };
 
-        helpers.updateAllCanvases(this);
+        helpers.updateShadeAndTintCanvas(this);
 
         helpers.updateShadeAndTintDisplay(this);
 
