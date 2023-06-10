@@ -51,14 +51,14 @@ function updateSNTCursorBackground(color_picker: JSColorPicker) {
   color_picker.snt_cursor.css('background-color', `rgb(${SELECTED_COLOR.r}, ${SELECTED_COLOR.g}, ${SELECTED_COLOR.b})`);
 };
 
-function updateColorDisplay(color_display: HTMLElement, color: shared_types.RGBA) {
-  const CD: JQuery<HTMLElement> = $(color_display);
-
-  if (CD.hasClass('color_display') === false) {
-    throw ReferenceError('Not a color picker\'s color display');
+function updateColorDisplay(color_picker: JSColorPicker) {
+  if (color_picker.color_display === undefined) {
+    throw ReferenceError();
   }
 
-  CD.css('background-color', `rgba(${color.r}, ${color.g}, ${color.b}, ${color.a})`);
+  const SELECTED_COLOR: shared_types.RGBA = color_picker.selected_color;
+
+  color_picker.color_display.css('background-color', `rgba(${SELECTED_COLOR.r}, ${SELECTED_COLOR.g}, ${SELECTED_COLOR.b}, ${SELECTED_COLOR.a})`);
 };
 
 function updateSearchbarColor(searchbar: HTMLElement, color: shared_types.RGBA, format: string) {
