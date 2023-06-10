@@ -61,22 +61,26 @@ function updateColorDisplay(color_picker: JSColorPicker) {
   color_picker.color_display.css('background-color', `rgba(${SELECTED_COLOR.r}, ${SELECTED_COLOR.g}, ${SELECTED_COLOR.b}, ${SELECTED_COLOR.a})`);
 };
 
-function updateSearchbarColor(searchbar: HTMLElement, color: shared_types.RGBA, format: string) {
-  const SEARCHBAR: JQuery<HTMLElement> = $(searchbar);
+function updateSearchbarColor(color_picker: JSColorPicker) {
+  const COLOR_FORMAT: string = color_picker.color_format;
 
-  if (SEARCHBAR.hasClass('searchbar') === false) {
-    throw ReferenceError('Not a color picker\'s searchbar');
+  if (COLOR_FORMAT === undefined) {
+    throw ReferenceError();
   }
 
-  format = format.toLowerCase();
+  if (color_picker.searchbar === undefined) {
+    throw ReferenceError();
+  }
 
-  if (format !== 'rgb') {
+  if (COLOR_FORMAT !== 'rgb') {
     throw Error('Only the following formats are allowed: rgb');
   }
 
-  switch (format) {
+  const SELECTED_COLOR: shared_types.RGBA = color_picker.selected_color;
+
+  switch (COLOR_FORMAT) {
     case 'rgb':
-      SEARCHBAR.val(`rgba(${color.r}, ${color.g}, ${color.b}, ${color.a})`);
+      color_picker.searchbar.val(`rgba(${SELECTED_COLOR.r}, ${SELECTED_COLOR.g}, ${SELECTED_COLOR.b}, ${SELECTED_COLOR.a})`);
       break;
     default:
   }
