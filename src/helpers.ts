@@ -347,6 +347,10 @@ function generateRGBString(selected_color: shared_types.RGBA) {
   return `rgb(${selected_color.r}, ${selected_color.g}, ${selected_color.b})`;
 };
 
+function generateRGBAString(selected_color: shared_types.RGBA) {
+  return `rgba(${selected_color.r}, ${selected_color.g}, ${selected_color.b}, ${selected_color.a})`;
+};
+
 
 
 const helpers = {
