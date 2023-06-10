@@ -26,9 +26,7 @@ function updateAlphaChannelDisplay(color_picker: JSColorPicker) {
     throw ReferenceError();
   }
 
-  const SELECTED_COLOR: shared_types.RGBA = color_picker.selected_color;
-
-  color_picker.alpha_channel.css({'background': `linear-gradient(rgb(${SELECTED_COLOR.r}, ${SELECTED_COLOR.g}, ${SELECTED_COLOR.b}), transparent)`});
+  color_picker.alpha_channel.css({'background': `linear-gradient(${generateRGBString(color_picker.selected_color)}, transparent)`});
 };
 
 function updateShadeAndTintDisplay(color_picker: JSColorPicker) {
