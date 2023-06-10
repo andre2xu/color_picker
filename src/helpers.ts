@@ -64,11 +64,9 @@ function updateSearchbarColor(color_picker: JSColorPicker) {
     throw ReferenceError();
   }
 
-  const SELECTED_COLOR: shared_types.RGBA = color_picker.selected_color;
-
   switch (COLOR_FORMAT) {
     case 'rgb':
-      color_picker.searchbar.val(`rgba(${SELECTED_COLOR.r}, ${SELECTED_COLOR.g}, ${SELECTED_COLOR.b}, ${SELECTED_COLOR.a})`);
+      color_picker.searchbar.val(generateRGBAString(color_picker.selected_color));
       break;
     case 'hex':
       break;
