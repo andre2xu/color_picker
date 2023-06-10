@@ -21,14 +21,14 @@ function updateComponentCanvasDimensions(jscp_component: HTMLElement, component_
   };
 };
 
-function updateAlphaChannelDisplay(alpha_channel_component: HTMLElement, color: shared_types.RGBA) {
-  const ACC: JQuery<HTMLElement> = $(alpha_channel_component);
-
-  if (ACC.hasClass('alpha_channel') === false) {
-    throw ReferenceError('Not a color picker\'s alpha channel component');
+function updateAlphaChannelDisplay(color_picker: JSColorPicker) {
+  if (color_picker.alpha_channel === undefined) {
+    throw ReferenceError();
   }
 
-  ACC.css({'background': `linear-gradient(rgb(${color.r}, ${color.g}, ${color.b}), transparent)`});
+  const SELECTED_COLOR: shared_types.RGBA = color_picker.selected_color;
+
+  color_picker.alpha_channel.css({'background': `linear-gradient(rgb(${SELECTED_COLOR.r}, ${SELECTED_COLOR.g}, ${SELECTED_COLOR.b}), transparent)`});
 };
 
 function updateShadeAndTintDisplay(snt_component: HTMLElement, color: shared_types.RGBA) {
