@@ -50,9 +50,7 @@ function updateColorDisplay(color_picker: JSColorPicker) {
     throw ReferenceError();
   }
 
-  const SELECTED_COLOR: shared_types.RGBA = color_picker.selected_color;
-
-  color_picker.color_display.css('background-color', `rgba(${SELECTED_COLOR.r}, ${SELECTED_COLOR.g}, ${SELECTED_COLOR.b}, ${SELECTED_COLOR.a})`);
+  color_picker.color_display.css('background-color', generateRGBAString(color_picker.selected_color));
 };
 
 function updateSearchbarColor(color_picker: JSColorPicker) {
