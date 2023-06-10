@@ -312,6 +312,14 @@ function moveSNTCursor(snt_cursor: HTMLElement, x: number, y: number) {
 
 
 
+// COLOR FORMATTING
+
+function RGBtoHex(rgba: shared_types.RGBA) {
+  
+};
+
+
+
 // MISCELLANEOUS
 
 function adjustSearchbarColorContrast(color_picker: JSColorPicker) {
