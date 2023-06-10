@@ -154,7 +154,11 @@ function mouseMoveHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
         );
 
         if (this.hcc_image_data !== undefined && this.shades_and_tints !== undefined && this.snt_cursor !== undefined && this.sntc_image_data !== undefined && this.alpha_channel !== undefined && this.color_display !== undefined && this.searchbar !== undefined) {
-          const HUE_PIXEL: shared_types.PixelBits = helpers.getPixel(this.hcc_image_data, 0, Math.round(this.hue_slider_position.top));
+          const HUE_PIXEL: shared_types.PixelBits = helpers.getPixel(
+            this.hcc_image_data,
+            0,
+            Math.round(this.hue_slider_position.top)
+          );
 
           // selects the hue
           this.selected_color = {
