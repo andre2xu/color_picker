@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import JSColorPicker from './index';
 import helpers from './helpers';
 import * as shared_types from './shared_types';
@@ -137,8 +138,41 @@ function mouseDownHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
   }
 };
 
-function mouseUpHandler(this: JSColorPicker) {
+function mouseUpHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
   this.component_held = undefined;
+
+  const ELEMENT_CLICKED: JQuery<HTMLElement> = $(event.target);
+
+  if (ELEMENT_CLICKED.hasClass('arrow_button')) {
+    const COLOR_FORMATS: Array<string> = [
+      'rgb',
+      'hex',
+      'hsv',
+      'hsl'
+    ];
+
+    // starts with the index of the currently selected format
+    let index: number = COLOR_FORMATS.indexOf(this.color_format);
+
+    if (ELEMENT_CLICKED.hasClass('left')) {
+      index -= 1;
+
+      if (index < 0) {
+        index = COLOR_FORMATS.length - 1;
+      }
+    }
+    else if (ELEMENT_CLICKED.hasClass('right')) {
+      index += 1;
+
+      if (index >= COLOR_FORMATS.length) {
+        index = 0;
+      }
+    }
+
+    this.color_format = COLOR_FORMATS[index];
+
+    helpers.updateSearchbarColor(this);
+  }
 };
 
 function mouseMoveHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
