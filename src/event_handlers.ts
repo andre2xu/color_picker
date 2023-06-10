@@ -20,7 +20,7 @@ function mouseDownHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
         MOUSE_POSITION.y
       );
 
-      if (this.hcc_image_data !== undefined && this.shades_and_tints !== undefined && this.snt_cursor !== undefined && this.sntc_image_data !== undefined && this.alpha_channel !== undefined && this.color_display !== undefined && this.searchbar !== undefined) {
+      if (this.hcc_image_data !== undefined && this.snt_cursor !== undefined && this.sntc_image_data !== undefined) {
         const HUE_PIXEL: shared_types.PixelBits = helpers.getPixel(this.hcc_image_data, 0, Math.round(this.hue_slider_position.top));
 
         // selects the hue
@@ -63,7 +63,7 @@ function mouseDownHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
         helpers.updateSearchbarColor(this);
       }
     }
-    else if (this.alpha_channel !== undefined && this.alpha_channel[0] === CLICKED_ELEMENT && this.ac_slider !== undefined && this.color_display !== undefined && this.searchbar !== undefined) {
+    else if (this.alpha_channel !== undefined && this.alpha_channel[0] === CLICKED_ELEMENT && this.ac_slider !== undefined) {
       const AC_CONTAINER: HTMLElement = event.target.parentElement as HTMLElement;
 
       this.ac_slider_position = helpers.moveVerticalSlider(
