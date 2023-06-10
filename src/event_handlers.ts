@@ -60,11 +60,7 @@ function mouseDownHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
 
         helpers.updateColorDisplay(this);
 
-        helpers.updateSearchbarColor(
-          this.searchbar[0],
-          this.selected_color,
-          this.color_format
-        );
+        helpers.updateSearchbarColor(this);
       }
     }
     else if (this.alpha_channel !== undefined && this.alpha_channel[0] === CLICKED_ELEMENT && this.ac_slider !== undefined && this.color_display !== undefined && this.searchbar !== undefined) {
@@ -82,11 +78,7 @@ function mouseDownHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
 
       helpers.updateColorDisplay(this);
 
-      helpers.updateSearchbarColor(
-        this.searchbar[0],
-        this.selected_color,
-        this.color_format
-      );
+      helpers.updateSearchbarColor(this);
 
       helpers.adjustSearchbarColorContrast(this);
     }
@@ -128,11 +120,7 @@ function mouseDownHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
 
         helpers.updateAlphaChannelDisplay(this);
 
-        helpers.updateSearchbarColor(
-          this.searchbar[0],
-          this.selected_color,
-          this.color_format
-        );
+        helpers.updateSearchbarColor(this);
 
         helpers.adjustSearchbarColorContrast(this);
       }
@@ -205,11 +193,7 @@ function mouseMoveHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
 
           helpers.updateColorDisplay(this);
 
-          helpers.updateSearchbarColor(
-            this.searchbar[0],
-            this.selected_color,
-            this.color_format
-          );
+          helpers.updateSearchbarColor(this);
         }
       }
     }
@@ -230,11 +214,7 @@ function mouseMoveHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
 
         helpers.updateColorDisplay(this);
 
-        helpers.updateSearchbarColor(
-          this.searchbar[0],
-          this.selected_color,
-          this.color_format
-        );
+        helpers.updateSearchbarColor(this);
 
         helpers.adjustSearchbarColorContrast(this);
       }
@@ -283,11 +263,7 @@ function mouseMoveHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
 
         helpers.updateAlphaChannelDisplay(this);
 
-        helpers.updateSearchbarColor(
-          this.searchbar[0],
-          this.selected_color,
-          this.color_format
-        );
+        helpers.updateSearchbarColor(this);
 
         helpers.adjustSearchbarColorContrast(this);
       }
