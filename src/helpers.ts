@@ -86,7 +86,7 @@ function updateSearchbarColor(color_picker: JSColorPicker) {
   }
 };
 
-function updateAllCanvases(color_picker: JSColorPicker) {
+function updateShadeAndTintCanvas(color_picker: JSColorPicker) {
   if (color_picker.snt_canvas_context === null) {
     throw ReferenceError();
   }
@@ -345,7 +345,7 @@ const helpers = {
   updateSNTCursorBackground,
   updateColorDisplay,
   updateSearchbarColor,
-  updateAllCanvases,
+  updateShadeAndTintCanvas,
   getPixel,
   getAlpha,
   getMousePositionRelativeToElement,
