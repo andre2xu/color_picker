@@ -58,10 +58,7 @@ function mouseDownHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
 
         helpers.updateSNTCursorBackground(this);
 
-        helpers.updateColorDisplay(
-          this.color_display[0],
-          this.selected_color
-        );
+        helpers.updateColorDisplay(this);
 
         helpers.updateSearchbarColor(
           this.searchbar[0],
@@ -83,10 +80,7 @@ function mouseDownHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
         this.ac_slider_position
       );
 
-      helpers.updateColorDisplay(
-        this.color_display[0],
-        this.selected_color
-      );
+      helpers.updateColorDisplay(this);
 
       helpers.updateSearchbarColor(
         this.searchbar[0],
@@ -130,10 +124,7 @@ function mouseDownHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
 
         helpers.updateSNTCursorBackground(this);
 
-        helpers.updateColorDisplay(
-          this.color_display[0],
-          this.selected_color
-        );
+        helpers.updateColorDisplay(this);
 
         helpers.updateAlphaChannelDisplay(this);
 
@@ -212,10 +203,7 @@ function mouseMoveHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
 
           helpers.updateSNTCursorBackground(this);
 
-          helpers.updateColorDisplay(
-            this.color_display[0],
-            this.selected_color
-          );
+          helpers.updateColorDisplay(this);
 
           helpers.updateSearchbarColor(
             this.searchbar[0],
@@ -240,10 +228,7 @@ function mouseMoveHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
           this.ac_slider_position
         );
 
-        helpers.updateColorDisplay(
-          this.color_display[0],
-          this.selected_color
-        );
+        helpers.updateColorDisplay(this);
 
         helpers.updateSearchbarColor(
           this.searchbar[0],
@@ -294,10 +279,7 @@ function mouseMoveHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
 
         helpers.updateSNTCursorBackground(this);
 
-        helpers.updateColorDisplay(
-          this.color_display[0],
-          this.selected_color
-        );
+        helpers.updateColorDisplay(this);
 
         helpers.updateAlphaChannelDisplay(this);
 
