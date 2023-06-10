@@ -341,6 +341,64 @@ function RGBtoHex(rgba: shared_types.RGBA) {
   return `${r}${g}${b}${a}`;
 };
 
+function RGBtoHSL(rgba: shared_types.RGBA) {
+  const R: number = rgba.r / 255;
+  const G: number = rgba.g / 255;
+  const B: number = rgba.b / 255;
+
+  const MAX: number = Math.max(R, G, B);
+  const MIN: number = Math.min(R, G, B);
+  const CHROMA: number = MAX - MIN;
+
+  const HSL: shared_types.HSL = {
+    h: 0,
+    s: 0,
+    l: 0
+  };
+
+  // gets hue
+  let hue: number = 0;
+
+  if (MAX === R) {
+    hue = ((G - B) / CHROMA) % 6;
+  }
+  else if (MAX === G) {
+    hue = ((B - R) / CHROMA) + 2;
+  }
+  else if (MAX === B) {
+    hue = ((R - G) / CHROMA) + 4;
+  }
+
+  HSL.h = hue;
+
+  // gets lightness
+  HSL.l = (MAX + MIN) / 2;
+
+  // gets saturation
+  if (HSL.l === 0 || HSL.l === 1) {
+    HSL.s = 0;
+  }
+  else {
+    HSL.s = CHROMA / (1 - Math.abs((2 * HSL.l) - 1));
+  }
+
+  // converting to whole number percentages
+  HSL.h = Math.round(HSL.h * 100);
+  HSL.s = Math.round(HSL.s * 100);
+  HSL.l = Math.round(HSL.l * 100);
+
+  if (HSL.h < 0) {
+    // less than zero means that the hue angle rotated anticlockwise <= 360
+    HSL.h = 360 - Math.abs(HSL.h);
+  }
+  else if (HSL.h > 360) {
+    // greater than 360 means that the hue angle rotated clockwise >= 0
+    HSL.h = HSL.h - 360;
+  }
+
+  return HSL;
+};
+
 
 
 // MISCELLANEOUS
