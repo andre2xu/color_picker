@@ -33,10 +33,7 @@ function mouseDownHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
 
         helpers.updateAllCanvases(this);
 
-        helpers.updateShadeAndTintDisplay(
-          this.shades_and_tints[0],
-          this.selected_color
-        );
+        helpers.updateShadeAndTintDisplay(this);
 
         // selects the shade or tint (depends on the S&T cursor's current position)
         const SNTC_COORDINATES: shared_types.Coordinates = helpers.getSNTCursorAbsoluteCoordinates(
@@ -196,10 +193,7 @@ function mouseMoveHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
 
           helpers.updateAllCanvases(this);
 
-          helpers.updateShadeAndTintDisplay(
-            this.shades_and_tints[0],
-            this.selected_color
-          );
+          helpers.updateShadeAndTintDisplay(this);
 
           // selects the shade or tint (depends on the S&T cursor's current position)
           const SNTC_COORDINATES: shared_types.Coordinates = helpers.getSNTCursorAbsoluteCoordinates(

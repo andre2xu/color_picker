@@ -119,12 +119,7 @@ class JSColorPicker {
       helpers.updateAlphaChannelDisplay(this);
     }
 
-    if (this.shades_and_tints !== undefined) {
-      helpers.updateShadeAndTintDisplay(
-        this.shades_and_tints[0],
-        this.selected_color
-      );
-    }
+    helpers.updateShadeAndTintDisplay(this);
 
     if (this.color_display !== undefined) {
       helpers.updateColorDisplay(
