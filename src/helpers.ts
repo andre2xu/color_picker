@@ -72,10 +72,6 @@ function updateSearchbarColor(color_picker: JSColorPicker) {
     throw ReferenceError();
   }
 
-  if (COLOR_FORMAT !== 'rgb' && COLOR_FORMAT !== 'hex' && COLOR_FORMAT !== 'hsv' && COLOR_FORMAT !== 'hsl') {
-    throw Error('Invalid color format');
-  }
-
   const SELECTED_COLOR: shared_types.RGBA = color_picker.selected_color;
 
   switch (COLOR_FORMAT) {
@@ -83,6 +79,7 @@ function updateSearchbarColor(color_picker: JSColorPicker) {
       color_picker.searchbar.val(`rgba(${SELECTED_COLOR.r}, ${SELECTED_COLOR.g}, ${SELECTED_COLOR.b}, ${SELECTED_COLOR.a})`);
       break;
     default:
+      throw Error('Invalid color format');
   }
 };
 
