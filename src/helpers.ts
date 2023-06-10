@@ -42,9 +42,7 @@ function updateSNTCursorBackground(color_picker: JSColorPicker) {
     throw ReferenceError();
   }
 
-  const SELECTED_COLOR: shared_types.RGBA = color_picker.selected_color;
-
-  color_picker.snt_cursor.css('background-color', `rgb(${SELECTED_COLOR.r}, ${SELECTED_COLOR.g}, ${SELECTED_COLOR.b})`);
+  color_picker.snt_cursor.css('background-color', generateRGBString(color_picker.selected_color));
 };
 
 function updateColorDisplay(color_picker: JSColorPicker) {
