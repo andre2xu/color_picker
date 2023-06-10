@@ -128,10 +128,7 @@ class JSColorPicker {
       const SNTC: HTMLElement = this.snt_cursor[0];
 
       if (this.color_picker !== undefined) {
-        helpers.updateSNTCursorSize(
-          this.color_picker[0],
-          SNTC
-        );
+        helpers.updateSNTCursorSize(this);
       }
 
       if (this.shades_and_tints !== undefined) {
@@ -219,10 +216,7 @@ class JSColorPicker {
       if (this.snt_cursor !== undefined) {
         const SNTC: HTMLElement = this.snt_cursor[0];
 
-        helpers.updateSNTCursorSize(
-          this.color_picker[0],
-          SNTC
-        );
+        helpers.updateSNTCursorSize(this);
 
         // ensures the cursor is still in the same spot
         if (this.shades_and_tints !== undefined) {
