@@ -144,61 +144,58 @@ function mouseUpHandler(this: JSColorPicker) {
 function mouseMoveHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
   if (event.button === 0 && this.component_held !== undefined && event.clientX !== undefined && event.clientY !== undefined) {
     if (this.hue_slider !== undefined && this.component_held[0] === this.hue_slider[0] && this.hues !== undefined) {
-      const HUE_COMPONENT: HTMLElement = this.hues[0];
-      const MOUSE_Y: number = event.clientY - HUE_COMPONENT.offsetTop;
+      const MOUSE_Y: number = event.clientY - this.hues[0].offsetTop;
 
-      if (MOUSE_Y <= HUE_COMPONENT.offsetHeight) {
-        this.hue_slider_position = helpers.moveVerticalSlider(
-          this.hue_slider[0],
-          MOUSE_Y
+      this.hue_slider_position = helpers.moveVerticalSlider(
+        this.hue_slider[0],
+        MOUSE_Y
+      );
+
+      if (this.hcc_image_data !== undefined && this.snt_cursor !== undefined && this.sntc_image_data !== undefined) {
+        const HUE_PIXEL: shared_types.PixelBits = helpers.getPixel(
+          this.hcc_image_data,
+          0,
+          Math.round(this.hue_slider_position.top)
         );
 
-        if (this.hcc_image_data !== undefined && this.snt_cursor !== undefined && this.sntc_image_data !== undefined) {
-          const HUE_PIXEL: shared_types.PixelBits = helpers.getPixel(
-            this.hcc_image_data,
-            0,
-            Math.round(this.hue_slider_position.top)
-          );
+        // selects the hue
+        this.selected_color = {
+          r: HUE_PIXEL[0],
+          g: HUE_PIXEL[1],
+          b: HUE_PIXEL[2],
+          a: this.selected_color.a
+        };
 
-          // selects the hue
-          this.selected_color = {
-            r: HUE_PIXEL[0],
-            g: HUE_PIXEL[1],
-            b: HUE_PIXEL[2],
-            a: this.selected_color.a
-          };
+        helpers.updateAllCanvases(this);
 
-          helpers.updateAllCanvases(this);
+        helpers.updateShadeAndTintDisplay(this);
 
-          helpers.updateShadeAndTintDisplay(this);
+        // selects the shade or tint (depends on the S&T cursor's current position)
+        const SNTC_COORDINATES: shared_types.Coordinates = helpers.getSNTCursorAbsoluteCoordinates(
+          this.snt_cursor[0],
+          this.sntc_position
+        );
 
-          // selects the shade or tint (depends on the S&T cursor's current position)
-          const SNTC_COORDINATES: shared_types.Coordinates = helpers.getSNTCursorAbsoluteCoordinates(
-            this.snt_cursor[0],
-            this.sntc_position
-          );
+        const SNT_PIXEL: shared_types.PixelBits = helpers.getPixel(
+          this.sntc_image_data,
+          SNTC_COORDINATES.x,
+          SNTC_COORDINATES.y
+        );
 
-          const SNT_PIXEL: shared_types.PixelBits = helpers.getPixel(
-            this.sntc_image_data,
-            SNTC_COORDINATES.x,
-            SNTC_COORDINATES.y
-          );
+        this.selected_color = {
+          r: SNT_PIXEL[0],
+          g: SNT_PIXEL[1],
+          b: SNT_PIXEL[2],
+          a: this.selected_color.a
+        };
 
-          this.selected_color = {
-            r: SNT_PIXEL[0],
-            g: SNT_PIXEL[1],
-            b: SNT_PIXEL[2],
-            a: this.selected_color.a
-          };
+        helpers.updateAlphaChannelDisplay(this);
 
-          helpers.updateAlphaChannelDisplay(this);
+        helpers.updateSNTCursorBackground(this);
 
-          helpers.updateSNTCursorBackground(this);
+        helpers.updateColorDisplay(this);
 
-          helpers.updateColorDisplay(this);
-
-          helpers.updateSearchbarColor(this);
-        }
+        helpers.updateSearchbarColor(this);
       }
     }
     else if (this.ac_slider !== undefined && this.component_held[0] === this.ac_slider[0] && this.alpha_channel !== undefined) {
