@@ -34,9 +34,7 @@ function updateShadeAndTintDisplay(color_picker: JSColorPicker) {
     throw ReferenceError();
   }
 
-  const SELECTED_COLOR: shared_types.RGBA = color_picker.selected_color;
-
-  color_picker.shades_and_tints.css({'background': `linear-gradient(0deg, black, transparent), linear-gradient(270deg, rgb(${SELECTED_COLOR.r}, ${SELECTED_COLOR.g}, ${SELECTED_COLOR.b}), white)`});
+  color_picker.shades_and_tints.css({'background': `linear-gradient(0deg, black, transparent), linear-gradient(270deg, ${generateRGBString(color_picker.selected_color)}, white)`});
 };
 
 function updateSNTCursorBackground(color_picker: JSColorPicker) {
