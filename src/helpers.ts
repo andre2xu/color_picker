@@ -4,6 +4,8 @@ import * as shared_types from './shared_types';
 
 
 
+// UPDATES COLOR PICKERS
+
 function updateComponentCanvasDimensions(jscp_component: HTMLElement, component_canvas_context: CanvasRenderingContext2D): shared_types.Dimensions {
   const COMPONENT_RECT: DOMRect = jscp_component.getBoundingClientRect();
   const ADJUSTED_WIDTH: number = Math.ceil(COMPONENT_RECT.width);
@@ -115,6 +117,8 @@ function updateSNTCursorSize(color_picker: HTMLElement, snt_cursor: HTMLElement)
 
 
 
+// GETTERS
+
 function getPixel(canvas_image_data: ImageData, x: number, y: number): shared_types.PixelBits {
   const PIXELS: Uint8ClampedArray = canvas_image_data.data;
 
@@ -175,6 +179,8 @@ function getSNTCursorAbsoluteCoordinates(snt_cursor: HTMLElement, relative_posit
 
 
 
+// REDRAWS CANVASES
+
 function redrawHueCanvasGradient(hue_canvas_context: CanvasRenderingContext2D) {
   const HUE_CANVAS = hue_canvas_context.canvas;
 
@@ -231,6 +237,8 @@ function redrawShadeAndTintCanvasGradient(snt_canvas_context: CanvasRenderingCon
 };
 
 
+
+// MOVES COMPONENTS
 
 function moveVerticalSlider(vertical_slider: HTMLElement, y: number) {
   const VS: JQuery<HTMLElement> = $(vertical_slider);
@@ -307,6 +315,8 @@ function moveSNTCursor(snt_cursor: HTMLElement, x: number, y: number) {
 };
 
 
+
+// MISCELLANEOUS
 
 function adjustSearchbarColorContrast(jscp: JSColorPicker) {
   if (jscp.searchbar !== undefined && jscp.searchbar_buttons !== undefined) {
