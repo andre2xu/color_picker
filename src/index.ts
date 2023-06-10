@@ -34,7 +34,7 @@ class JSColorPicker {
     const CONTAINER: HTMLElement | null = document.getElementById(container_id);
 
     if (CONTAINER === null) {
-      throw ReferenceError('No element with that id exists');
+      throw ReferenceError("No element with that id exists");
     }
 
 

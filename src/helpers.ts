@@ -147,7 +147,7 @@ function getPixel(canvas_image_data: ImageData, x: number, y: number): shared_ty
 
 function getAlpha(alpha_channel_component: HTMLElement, vertical_slider_position: JQuery.Coordinates): number {
   if ($(alpha_channel_component).hasClass('alpha_channel') === false) {
-    throw ReferenceError('Not a color picker\'s alpha channel component');
+    throw ReferenceError("Not a color picker's alpha channel component");
   }
 
   const ALPHA_CHANNEL_HEIGHT: number = alpha_channel_component.offsetHeight;
@@ -171,7 +171,7 @@ function getSNTCursorAbsoluteCoordinates(snt_cursor: HTMLElement, relative_posit
   const SNTC_PARENT: JQuery<HTMLElement> = SNTC.parent();
 
   if (SNTC.hasClass('cursor') === false || SNTC_PARENT.hasClass('shade_AND_tint') === false) {
-    throw ReferenceError('Not a shade and tint component cursor');
+    throw ReferenceError("Not a shade and tint component cursor");
   }
 
   return {
@@ -201,7 +201,7 @@ function redrawHueCanvasGradient(hue_canvas_context: CanvasRenderingContext2D) {
     hue_canvas_context.fillRect(0, 0, HUE_CANVAS.width, HUE_CANVAS.height);
   }
   else {
-    throw ReferenceError('Not the 2D canvas rendering context of a color picker\'s hue component');
+    throw ReferenceError("Not the 2D canvas rendering context of a color picker's hue component");
   }
 };
 
@@ -235,7 +235,7 @@ function redrawShadeAndTintCanvasGradient(snt_canvas_context: CanvasRenderingCon
     snt_canvas_context.fillRect(0, 0, SNT_CANVAS.width, SNT_CANVAS.height);
   }
   else {
-    throw ReferenceError('Not the 2D canvas rendering context of a color picker\'s shade & tint component');
+    throw ReferenceError("Not the 2D canvas rendering context of a color picker's shade & tint component");
   }
 };
 
@@ -248,7 +248,7 @@ function moveVerticalSlider(vertical_slider: HTMLElement, y: number) {
   const VS_PARENT = VS.parent()[0];
 
   if (VS.hasClass('vertical_slider') === false) {
-    throw ReferenceError('Not a vertical slider');
+    throw ReferenceError("Not a vertical slider");
   }
 
   // ensures the cursor stays within the top and bottom edges
@@ -282,7 +282,7 @@ function moveSNTCursor(snt_cursor: HTMLElement, x: number, y: number) {
   let sntc_parent: JQuery<HTMLElement> | HTMLElement = SNTC.parent();
 
   if (SNTC.hasClass('cursor') === false || sntc_parent.hasClass('shade_AND_tint') === false) {
-    throw ReferenceError('Not a shade and tint component cursor');
+    throw ReferenceError("Not a shade and tint component cursor");
   }
 
   sntc_parent = sntc_parent[0];
