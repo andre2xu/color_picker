@@ -78,6 +78,12 @@ function updateSearchbarColor(color_picker: JSColorPicker) {
     case 'rgb':
       color_picker.searchbar.val(`rgba(${SELECTED_COLOR.r}, ${SELECTED_COLOR.g}, ${SELECTED_COLOR.b}, ${SELECTED_COLOR.a})`);
       break;
+    case 'hex':
+      break;
+    case 'hsv':
+      break;
+    case 'hsl':
+      break;
     default:
       throw Error('Invalid color format');
   }
