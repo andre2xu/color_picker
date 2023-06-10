@@ -56,10 +56,7 @@ function mouseDownHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
 
         helpers.updateAlphaChannelDisplay(this);
 
-        helpers.updateSNTCursorBackground(
-          this.snt_cursor[0],
-          this.selected_color
-        );
+        helpers.updateSNTCursorBackground(this);
 
         helpers.updateColorDisplay(
           this.color_display[0],
@@ -131,10 +128,7 @@ function mouseDownHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
           )
         };
 
-        helpers.updateSNTCursorBackground(
-          this.snt_cursor[0],
-          this.selected_color
-        );
+        helpers.updateSNTCursorBackground(this);
 
         helpers.updateColorDisplay(
           this.color_display[0],
@@ -216,10 +210,7 @@ function mouseMoveHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
 
           helpers.updateAlphaChannelDisplay(this);
 
-          helpers.updateSNTCursorBackground(
-            this.snt_cursor[0],
-            this.selected_color
-          );
+          helpers.updateSNTCursorBackground(this);
 
           helpers.updateColorDisplay(
             this.color_display[0],
@@ -301,10 +292,7 @@ function mouseMoveHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
           )
         };
 
-        helpers.updateSNTCursorBackground(
-          this.snt_cursor[0],
-          this.selected_color
-        );
+        helpers.updateSNTCursorBackground(this);
 
         helpers.updateColorDisplay(
           this.color_display[0],

@@ -136,10 +136,7 @@ class JSColorPicker {
     this.setSize(300, 200);
 
     if (this.snt_cursor !== undefined) {
-      helpers.updateSNTCursorBackground(
-        this.snt_cursor[0],
-        this.selected_color
-      );
+      helpers.updateSNTCursorBackground(this);
 
       const SNTC: HTMLElement = this.snt_cursor[0];
 
