@@ -116,10 +116,7 @@ class JSColorPicker {
     this.color_format = 'rgb';
 
     if (this.alpha_channel !== undefined) {
-      helpers.updateAlphaChannelDisplay(
-        this.alpha_channel[0],
-        this.selected_color
-      );
+      helpers.updateAlphaChannelDisplay(this);
     }
 
     if (this.shades_and_tints !== undefined) {
