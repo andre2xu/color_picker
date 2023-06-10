@@ -153,7 +153,7 @@ function mouseMoveHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
           MOUSE_Y
         );
 
-        if (this.hcc_image_data !== undefined && this.shades_and_tints !== undefined && this.snt_cursor !== undefined && this.sntc_image_data !== undefined && this.alpha_channel !== undefined && this.color_display !== undefined && this.searchbar !== undefined) {
+        if (this.hcc_image_data !== undefined && this.snt_cursor !== undefined && this.sntc_image_data !== undefined) {
           const HUE_PIXEL: shared_types.PixelBits = helpers.getPixel(
             this.hcc_image_data,
             0,
@@ -201,7 +201,7 @@ function mouseMoveHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
         }
       }
     }
-    else if (this.ac_slider !== undefined && this.component_held[0] === this.ac_slider[0] && this.alpha_channel !== undefined && this.color_display !== undefined && this.searchbar !== undefined) {
+    else if (this.ac_slider !== undefined && this.component_held[0] === this.ac_slider[0] && this.alpha_channel !== undefined) {
       const AC_CONTAINER: HTMLElement = this.alpha_channel.parent()[0];
       const MOUSE_Y: number = event.clientY - AC_CONTAINER.offsetTop;
 
@@ -243,7 +243,7 @@ function mouseMoveHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
         this.sntc_position
       );
 
-      if (this.sntc_image_data !== undefined && this.color_display !== undefined && this.alpha_channel !== undefined && this.searchbar !== undefined) {
+      if (this.sntc_image_data !== undefined && this.alpha_channel !== undefined) {
         const COLOR: shared_types.PixelBits = helpers.getPixel(
           this.sntc_image_data,
           SNTC_COORDINATES.x,
