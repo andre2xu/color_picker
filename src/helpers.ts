@@ -99,21 +99,18 @@ function updateAllCanvases(jscp: JSColorPicker) {
   }
 };
 
-function updateSNTCursorSize(color_picker: HTMLElement, snt_cursor: HTMLElement) {
-  const CP: JQuery<HTMLElement> = $(color_picker);
-  const SNTC: JQuery<HTMLElement> = $(snt_cursor);
-
-  if (CP.hasClass('jscp') === false) {
-    throw ReferenceError('Not a color picker');
+function updateSNTCursorSize(color_picker: JSColorPicker) {
+  if (color_picker.color_picker === undefined) {
+    throw ReferenceError();
   }
 
-  if (SNTC.hasClass('cursor') === false || SNTC.parent().hasClass('shade_AND_tint') === false) {
-    throw ReferenceError('Not a shade and tint component cursor');
+  if (color_picker.snt_cursor === undefined) {
+    throw ReferenceError();
   }
 
-  const CURSOR_SIZE: number = color_picker.offsetWidth * 0.02;
+  const CURSOR_SIZE: number = color_picker.color_picker[0].offsetWidth * 0.02;
 
-  SNTC.css({
+  color_picker.snt_cursor.css({
     width: CURSOR_SIZE,
     height: CURSOR_SIZE
   });
