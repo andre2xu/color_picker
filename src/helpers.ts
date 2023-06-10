@@ -321,16 +321,22 @@ function moveSNTCursor(snt_cursor: HTMLElement, x: number, y: number) {
 
 // MISCELLANEOUS
 
-function adjustSearchbarColorContrast(jscp: JSColorPicker) {
-  if (jscp.searchbar !== undefined && jscp.searchbar_buttons !== undefined) {
-    if (jscp.selected_color.a > 0.5 && (jscp.sntc_position.top > 0.5 || jscp.sntc_position.left > 0.4)) {
-      jscp.searchbar.css('color', 'white');
-      jscp.searchbar_buttons.css('border-color', 'white');
-    }
-    else {
-      jscp.searchbar.css('color', 'black');
-      jscp.searchbar_buttons.css('border-color', 'black');
-    }
+function adjustSearchbarColorContrast(color_picker: JSColorPicker) {
+  if (color_picker.searchbar === undefined) {
+    throw ReferenceError();
+  }
+
+  if (color_picker.searchbar_buttons === undefined) {
+    throw ReferenceError();
+  }
+
+  if (color_picker.selected_color.a > 0.5 && (color_picker.sntc_position.top > 0.5 || color_picker.sntc_position.left > 0.4)) {
+    color_picker.searchbar.css('color', 'white');
+    color_picker.searchbar_buttons.css('border-color', 'white');
+  }
+  else {
+    color_picker.searchbar.css('color', 'black');
+    color_picker.searchbar_buttons.css('border-color', 'black');
   }
 };
 
