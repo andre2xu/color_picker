@@ -19,61 +19,6 @@ function updateComponentCanvasDimensions(jscp_component: HTMLElement, component_
   };
 };
 
-function redrawHueCanvasGradient(hue_canvas_context: CanvasRenderingContext2D) {
-  const HUE_CANVAS = hue_canvas_context.canvas;
-
-  if ($(HUE_CANVAS).hasClass('hue_canvas')) {
-    const HUE_GRADIENT = hue_canvas_context.createLinearGradient(0, 0, 0, HUE_CANVAS.height);
-    HUE_GRADIENT.addColorStop(0.1/6, "red");
-    HUE_GRADIENT.addColorStop(1/6, "orange");
-    HUE_GRADIENT.addColorStop(2/6, "yellow");
-    HUE_GRADIENT.addColorStop(3/6, "greenyellow");
-    HUE_GRADIENT.addColorStop(4/6, "cyan");
-    HUE_GRADIENT.addColorStop(5/6, "blue");
-    HUE_GRADIENT.addColorStop(6/6, "magenta");
-
-    hue_canvas_context.fillStyle = HUE_GRADIENT;
-    hue_canvas_context.fillRect(0, 0, HUE_CANVAS.width, HUE_CANVAS.height);
-  }
-  else {
-    throw ReferenceError('Not the 2D canvas rendering context of a color picker\'s hue component');
-  }
-};
-
-function redrawShadeAndTintCanvasGradient(snt_canvas_context: CanvasRenderingContext2D, selected_color: shared_types.RGBA) {
-  const SNT_CANVAS = snt_canvas_context.canvas;
-
-  if ($(SNT_CANVAS).hasClass('snt_canvas')) {
-    const RGB: string = `${selected_color.r}, ${selected_color.g}, ${selected_color.b}`;
-
-    const SNT_TINT_GRADIENT: CanvasGradient = snt_canvas_context.createLinearGradient(SNT_CANVAS.width, 0, 0, 0);
-    SNT_TINT_GRADIENT.addColorStop(0.01, `rgba(${RGB}, 1)`);
-    SNT_TINT_GRADIENT.addColorStop(1, 'white');
-
-    snt_canvas_context.fillStyle = SNT_TINT_GRADIENT;
-    snt_canvas_context.fillRect(0, 0, SNT_CANVAS.width, SNT_CANVAS.height);
-
-    const SNT_SHADE_GRADIENT: CanvasGradient = snt_canvas_context.createLinearGradient(0, SNT_CANVAS.height, 0, 0);
-    SNT_SHADE_GRADIENT.addColorStop(0.01, "rgba(0, 0, 0, 1)");
-    SNT_SHADE_GRADIENT.addColorStop(0.1, "rgba(0, 0, 0, 0.9)");
-    SNT_SHADE_GRADIENT.addColorStop(0.2, "rgba(0, 0, 0, 0.8)");
-    SNT_SHADE_GRADIENT.addColorStop(0.3, "rgba(0, 0, 0, 0.7)");
-    SNT_SHADE_GRADIENT.addColorStop(0.4, "rgba(0, 0, 0, 0.6)");
-    SNT_SHADE_GRADIENT.addColorStop(0.5, "rgba(0, 0, 0, 0.5)");
-    SNT_SHADE_GRADIENT.addColorStop(0.6, "rgba(0, 0, 0, 0.4)");
-    SNT_SHADE_GRADIENT.addColorStop(0.7, "rgba(0, 0, 0, 0.3)");
-    SNT_SHADE_GRADIENT.addColorStop(0.8, "rgba(0, 0, 0, 0.2)");
-    SNT_SHADE_GRADIENT.addColorStop(0.9, "rgba(0, 0, 0, 0.1)");
-    SNT_SHADE_GRADIENT.addColorStop(0.99, "rgba(0, 0, 0, 0)");
-
-    snt_canvas_context.fillStyle = SNT_SHADE_GRADIENT;
-    snt_canvas_context.fillRect(0, 0, SNT_CANVAS.width, SNT_CANVAS.height);
-  }
-  else {
-    throw ReferenceError('Not the 2D canvas rendering context of a color picker\'s shade & tint component');
-  }
-};
-
 function updateAlphaChannelDisplay(alpha_channel_component: HTMLElement, color: shared_types.RGBA) {
   const ACC: JQuery<HTMLElement> = $(alpha_channel_component);
 
@@ -168,6 +113,8 @@ function updateSNTCursorSize(color_picker: HTMLElement, snt_cursor: HTMLElement)
   });
 };
 
+
+
 function getPixel(canvas_image_data: ImageData, x: number, y: number): shared_types.PixelBits {
   const PIXELS: Uint8ClampedArray = canvas_image_data.data;
 
@@ -225,6 +172,65 @@ function getSNTCursorAbsoluteCoordinates(snt_cursor: HTMLElement, relative_posit
     y: Math.round(relative_position.top * SNTC_PARENT[0].offsetHeight)
   };
 };
+
+
+
+function redrawHueCanvasGradient(hue_canvas_context: CanvasRenderingContext2D) {
+  const HUE_CANVAS = hue_canvas_context.canvas;
+
+  if ($(HUE_CANVAS).hasClass('hue_canvas')) {
+    const HUE_GRADIENT = hue_canvas_context.createLinearGradient(0, 0, 0, HUE_CANVAS.height);
+    HUE_GRADIENT.addColorStop(0.1/6, "red");
+    HUE_GRADIENT.addColorStop(1/6, "orange");
+    HUE_GRADIENT.addColorStop(2/6, "yellow");
+    HUE_GRADIENT.addColorStop(3/6, "greenyellow");
+    HUE_GRADIENT.addColorStop(4/6, "cyan");
+    HUE_GRADIENT.addColorStop(5/6, "blue");
+    HUE_GRADIENT.addColorStop(6/6, "magenta");
+
+    hue_canvas_context.fillStyle = HUE_GRADIENT;
+    hue_canvas_context.fillRect(0, 0, HUE_CANVAS.width, HUE_CANVAS.height);
+  }
+  else {
+    throw ReferenceError('Not the 2D canvas rendering context of a color picker\'s hue component');
+  }
+};
+
+function redrawShadeAndTintCanvasGradient(snt_canvas_context: CanvasRenderingContext2D, selected_color: shared_types.RGBA) {
+  const SNT_CANVAS = snt_canvas_context.canvas;
+
+  if ($(SNT_CANVAS).hasClass('snt_canvas')) {
+    const RGB: string = `${selected_color.r}, ${selected_color.g}, ${selected_color.b}`;
+
+    const SNT_TINT_GRADIENT: CanvasGradient = snt_canvas_context.createLinearGradient(SNT_CANVAS.width, 0, 0, 0);
+    SNT_TINT_GRADIENT.addColorStop(0.01, `rgba(${RGB}, 1)`);
+    SNT_TINT_GRADIENT.addColorStop(1, 'white');
+
+    snt_canvas_context.fillStyle = SNT_TINT_GRADIENT;
+    snt_canvas_context.fillRect(0, 0, SNT_CANVAS.width, SNT_CANVAS.height);
+
+    const SNT_SHADE_GRADIENT: CanvasGradient = snt_canvas_context.createLinearGradient(0, SNT_CANVAS.height, 0, 0);
+    SNT_SHADE_GRADIENT.addColorStop(0.01, "rgba(0, 0, 0, 1)");
+    SNT_SHADE_GRADIENT.addColorStop(0.1, "rgba(0, 0, 0, 0.9)");
+    SNT_SHADE_GRADIENT.addColorStop(0.2, "rgba(0, 0, 0, 0.8)");
+    SNT_SHADE_GRADIENT.addColorStop(0.3, "rgba(0, 0, 0, 0.7)");
+    SNT_SHADE_GRADIENT.addColorStop(0.4, "rgba(0, 0, 0, 0.6)");
+    SNT_SHADE_GRADIENT.addColorStop(0.5, "rgba(0, 0, 0, 0.5)");
+    SNT_SHADE_GRADIENT.addColorStop(0.6, "rgba(0, 0, 0, 0.4)");
+    SNT_SHADE_GRADIENT.addColorStop(0.7, "rgba(0, 0, 0, 0.3)");
+    SNT_SHADE_GRADIENT.addColorStop(0.8, "rgba(0, 0, 0, 0.2)");
+    SNT_SHADE_GRADIENT.addColorStop(0.9, "rgba(0, 0, 0, 0.1)");
+    SNT_SHADE_GRADIENT.addColorStop(0.99, "rgba(0, 0, 0, 0)");
+
+    snt_canvas_context.fillStyle = SNT_SHADE_GRADIENT;
+    snt_canvas_context.fillRect(0, 0, SNT_CANVAS.width, SNT_CANVAS.height);
+  }
+  else {
+    throw ReferenceError('Not the 2D canvas rendering context of a color picker\'s shade & tint component');
+  }
+};
+
+
 
 function moveVerticalSlider(vertical_slider: HTMLElement, y: number) {
   const VS: JQuery<HTMLElement> = $(vertical_slider);
@@ -299,6 +305,8 @@ function moveSNTCursor(snt_cursor: HTMLElement, x: number, y: number) {
     left: x / sntc_parent.offsetWidth
   };
 };
+
+
 
 function adjustSearchbarColorContrast(jscp: JSColorPicker) {
   if (jscp.searchbar !== undefined && jscp.searchbar_buttons !== undefined) {
