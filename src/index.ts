@@ -118,14 +118,7 @@ class JSColorPicker {
     helpers.updateAlphaChannelDisplay(this);
     helpers.updateShadeAndTintDisplay(this);
     helpers.updateColorDisplay(this);
-
-    if (this.searchbar !== undefined) {
-      helpers.updateSearchbarColor(
-        this.searchbar[0],
-        this.selected_color,
-        this.color_format
-      );
-    }
+    helpers.updateSearchbarColor(this);
 
     this.setSize(300, 200);
 
