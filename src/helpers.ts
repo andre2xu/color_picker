@@ -31,14 +31,14 @@ function updateAlphaChannelDisplay(color_picker: JSColorPicker) {
   color_picker.alpha_channel.css({'background': `linear-gradient(rgb(${SELECTED_COLOR.r}, ${SELECTED_COLOR.g}, ${SELECTED_COLOR.b}), transparent)`});
 };
 
-function updateShadeAndTintDisplay(snt_component: HTMLElement, color: shared_types.RGBA) {
-  const SNT_COMPONENT: JQuery<HTMLElement> = $(snt_component);
-
-  if (SNT_COMPONENT.hasClass('shade_AND_tint') === false) {
-    throw ReferenceError('Not a color picker\'s shade & tint component');
+function updateShadeAndTintDisplay(color_picker: JSColorPicker) {
+  if (color_picker.shades_and_tints === undefined) {
+    throw ReferenceError();
   }
 
-  SNT_COMPONENT.css({'background': `linear-gradient(0deg, black, transparent), linear-gradient(270deg, rgb(${color.r}, ${color.g}, ${color.b}), white)`});
+  const SELECTED_COLOR: shared_types.RGBA = color_picker.selected_color;
+
+  color_picker.shades_and_tints.css({'background': `linear-gradient(0deg, black, transparent), linear-gradient(270deg, rgb(${SELECTED_COLOR.r}, ${SELECTED_COLOR.g}, ${SELECTED_COLOR.b}), white)`});
 };
 
 function updateSNTCursorBackground(snt_cursor: HTMLElement, color: shared_types.RGBA) {
