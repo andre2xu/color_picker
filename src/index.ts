@@ -143,6 +143,8 @@ class JSColorPicker {
     this.color_picker.on('mousemove', event_handlers.mouseMoveHandler.bind(this));
 
     this.color_picker.on('mouseleave', event_handlers.mouseLeaveHandler.bind(this));
+
+    this.searchbar.on('change', event_handlers.searchbarInputHandler.bind(this));
   };
 
 
