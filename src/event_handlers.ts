@@ -312,6 +312,27 @@ function mouseLeaveHandler(this: JSColorPicker) {
 
 function searchbarInputHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
   const SEARCHBAR: JQuery<HTMLInputElement> = $(event.target);
+  const INPUT = SEARCHBAR.val();
+
+  if (INPUT !== undefined && typeof INPUT === 'string') {
+    let is_valid_color: boolean = false;
+
+    if (/^rgba\(((0|[1-255]{1,3}),[ ]?){2}(0|[1-255]{1,3}),[ ]?(0|1(\.0)?|0\.[0-9]+)\)$/g.test(INPUT)) {
+      const RGBA_values: Array<string> = INPUT.substring(
+        INPUT.indexOf('(') + 1,
+        INPUT.indexOf(')')
+      ).replace(/ /g, '').split(',');
+
+      this.selected_color = {
+        r: parseInt(RGBA_values[0]),
+        g: parseInt(RGBA_values[1]),
+        b: parseInt(RGBA_values[2]),
+        a: parseFloat(RGBA_values[3]),
+      };
+
+      is_valid_color = true;
+    }
+  }
 };
 
 
