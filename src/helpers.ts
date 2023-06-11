@@ -403,6 +403,64 @@ function RGBtoHSL(rgba: shared_types.RGBA) {
   return HSL;
 };
 
+function RGBtoHSV(rgba: shared_types.RGBA) {
+  const R: number = rgba.r / 255;
+  const G: number = rgba.g / 255;
+  const B: number = rgba.b / 255;
+
+  const MAX: number = Math.max(R, G, B);
+  const MIN: number = Math.min(R, G, B);
+  const CHROMA: number = MAX - MIN;
+
+  const HSV: shared_types.HSV = {
+    h: 0,
+    s: 0,
+    v: 0
+  };
+
+  // gets hue
+  let hue: number = 0;
+
+  if (MAX === R) {
+    hue = ((G - B) / CHROMA) % 6;
+  }
+  else if (MAX === G) {
+    hue = ((B - R) / CHROMA) + 2;
+  }
+  else if (MAX === B) {
+    hue = ((R - G) / CHROMA) + 4;
+  }
+
+  HSV.h = hue * 60;
+
+  // gets value (brightness)
+  HSV.v = MAX;
+
+  // gets saturation
+  if (HSV.v === 0) {
+    HSV.s = 0;
+  }
+  else {
+    HSV.s = CHROMA / HSV.v;
+  }
+
+  // converting to whole number percentages
+  HSV.h = Math.round(HSV.h);
+  HSV.s = Math.round(HSV.s * 100);
+  HSV.v = Math.round(HSV.v * 100);
+
+  if (HSV.h < 0) {
+    // less than zero means that the hue angle rotated anticlockwise <= 360
+    HSV.h = 360 - Math.abs(HSV.h);
+  }
+  else if (HSV.h > 360) {
+    // greater than 360 means that the hue angle rotated clockwise >= 0
+    HSV.h = HSV.h - 360;
+  }
+
+  return HSV;
+};
+
 
 
 // MISCELLANEOUS
