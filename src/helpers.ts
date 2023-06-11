@@ -184,6 +184,35 @@ function getSNTCursorAbsoluteCoordinates(snt_cursor: HTMLElement, relative_posit
   };
 };
 
+function getPointWithSameHueAndChroma(hue: number, chroma: number) {
+  const H_PRIME = hue / 60;
+
+  const INTERMEDIATE: number = chroma * (1 - Math.abs(H_PRIME % 2 - 1));
+
+  let point: Array<number> = [];
+
+  if (H_PRIME >= 0 && H_PRIME < 1) {
+    point = [chroma, INTERMEDIATE, 0];
+  }
+  else if (H_PRIME >= 1 && H_PRIME < 2) {
+    point = [INTERMEDIATE, chroma, 0];
+  }
+  else if (H_PRIME >= 2 && H_PRIME < 3) {
+    point = [0, chroma, INTERMEDIATE];
+  }
+  else if (H_PRIME >= 3 && H_PRIME < 4) {
+    point = [0, INTERMEDIATE, chroma];
+  }
+  else if (H_PRIME >= 4 && H_PRIME < 5) {
+    point = [INTERMEDIATE, 0, chroma];
+  }
+  else if (H_PRIME >= 5 && H_PRIME < 6) {
+    point = [chroma, 0, INTERMEDIATE];
+  }
+
+  return point;
+};
+
 
 
 // REDRAWS CANVASES
@@ -516,6 +545,7 @@ const helpers = {
   getAlpha,
   getMousePositionRelativeToElement,
   getSNTCursorAbsoluteCoordinates,
+  getPointWithSameHueAndChroma,
   moveVerticalSlider,
   updateSNTCursorSize,
   moveSNTCursor,
