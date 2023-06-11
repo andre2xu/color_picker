@@ -110,7 +110,15 @@
       justify-content: right;
 
       .hue {
-        background: linear-gradient(red, orange, yellow, greenyellow, cyan, blue, magenta, red);
+        background: linear-gradient(
+          hsl(0, 100%, 50%),
+          hsl(60, 100%, 50%),
+          hsl(120, 100%, 50%),
+          hsl(180, 100%, 50%),
+          hsl(240, 100%, 50%),
+          hsl(300, 100%, 50%),
+          hsl(0, 100%, 50%),
+        );
         height: 100%;
         width: 40%;
         position: relative;
