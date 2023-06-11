@@ -342,6 +342,21 @@ function searchbarInputHandler(this: JSColorPicker, event: JQuery.TriggeredEvent
         is_valid_color = true;
       }
     }
+    else if (/^#([0-9a-f]){8}$/g.test(INPUT.toLowerCase())) {
+      const R: string = `${INPUT[1]}${INPUT[2]}`;
+      const G: string = `${INPUT[3]}${INPUT[4]}`;
+      const B: string = `${INPUT[5]}${INPUT[6]}`;
+      const A: string = `${INPUT[7]}${INPUT[8]}`;
+
+      this.selected_color = {
+        r: parseInt(R, 16),
+        g: parseInt(G, 16),
+        b: parseInt(B, 16),
+        a: parseFloat((parseInt(A, 16) / 255).toFixed(2))
+      };
+
+      is_valid_color = true;
+    }
     else if (/^hsva\((0|[0-9]{1,3})\u00B0?,[ ]?((0|[0-9]{1,3})\u0025?,[ ]?){2}(0|1(\.0)?|0\.[0-9]+)\)$/g.test(INPUT)) {
       const HSVA_values: Array<string> = INPUT.substring(
         INPUT.indexOf('(') + 1,
