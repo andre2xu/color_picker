@@ -187,14 +187,13 @@ function redrawHueCanvasGradient(hue_canvas_context: CanvasRenderingContext2D) {
 
   if ($(HUE_CANVAS).hasClass('hue_canvas')) {
     const HUE_GRADIENT = hue_canvas_context.createLinearGradient(0, 0, 0, HUE_CANVAS.height);
-    HUE_GRADIENT.addColorStop(0.1/7, "red");
-    HUE_GRADIENT.addColorStop(1/7, "orange");
-    HUE_GRADIENT.addColorStop(2/7, "yellow");
-    HUE_GRADIENT.addColorStop(3/7, "greenyellow");
-    HUE_GRADIENT.addColorStop(4/7, "cyan");
-    HUE_GRADIENT.addColorStop(5/7, "blue");
-    HUE_GRADIENT.addColorStop(6/7, "magenta");
-    HUE_GRADIENT.addColorStop(7/7, "red");
+    HUE_GRADIENT.addColorStop(0.01, 'rgb(255, 0, 0)');
+    HUE_GRADIENT.addColorStop(60/360, 'rgb(255, 255, 0)');
+    HUE_GRADIENT.addColorStop(120/360, 'rgb(0, 255, 0)');
+    HUE_GRADIENT.addColorStop(180/360, 'rgb(0, 255, 255)');
+    HUE_GRADIENT.addColorStop(240/360, 'rgb(0, 0, 255)');
+    HUE_GRADIENT.addColorStop(300/360, 'rgb(255, 0, 255)');
+    HUE_GRADIENT.addColorStop(0.99, 'rgb(255, 0, 0)');
 
     hue_canvas_context.fillStyle = HUE_GRADIENT;
     hue_canvas_context.fillRect(0, 0, HUE_CANVAS.width, HUE_CANVAS.height);
