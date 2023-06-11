@@ -360,38 +360,15 @@ function searchbarInputHandler(this: JSColorPicker, event: JQuery.TriggeredEvent
       if (H_IS_VALID && S_IS_VALID && V_IS_VALID) {
         const CHROMA: number = V * S;
 
-        const H_PRIME = H / 60;
+        const POINT_ON_RGB_CUBE: Array<number> = helpers.getPointWithSameHueAndChroma(H, CHROMA);
 
-        const INTERMEDIATE: number = CHROMA * (1 - Math.abs(H_PRIME % 2 - 1));
-
-        let rgb_cube_point: Array<number> = [];
-
-        if (H_PRIME >= 0 && H_PRIME < 1) {
-          rgb_cube_point = [CHROMA, INTERMEDIATE, 0];
-        }
-        else if (H_PRIME >= 1 && H_PRIME < 2) {
-          rgb_cube_point = [INTERMEDIATE, CHROMA, 0];
-        }
-        else if (H_PRIME >= 2 && H_PRIME < 3) {
-          rgb_cube_point = [0, CHROMA, INTERMEDIATE];
-        }
-        else if (H_PRIME >= 3 && H_PRIME < 4) {
-          rgb_cube_point = [0, INTERMEDIATE, CHROMA];
-        }
-        else if (H_PRIME >= 4 && H_PRIME < 5) {
-          rgb_cube_point = [INTERMEDIATE, 0, CHROMA];
-        }
-        else if (H_PRIME >= 5 && H_PRIME < 6) {
-          rgb_cube_point = [CHROMA, 0, INTERMEDIATE];
-        }
-
-        if (rgb_cube_point.length > 0) {
+        if (POINT_ON_RGB_CUBE.length > 0) {
           const MATCH: number = V - CHROMA;
 
           this.selected_color = {
-            r: Math.round((rgb_cube_point[0] + MATCH) * 255),
-            g: Math.round((rgb_cube_point[1] + MATCH) * 255),
-            b: Math.round((rgb_cube_point[2] + MATCH) * 255),
+            r: Math.round((POINT_ON_RGB_CUBE[0] + MATCH) * 255),
+            g: Math.round((POINT_ON_RGB_CUBE[1] + MATCH) * 255),
+            b: Math.round((POINT_ON_RGB_CUBE[2] + MATCH) * 255),
             a: A
           };
 
@@ -417,38 +394,15 @@ function searchbarInputHandler(this: JSColorPicker, event: JQuery.TriggeredEvent
       if (H_IS_VALID && S_IS_VALID && L_IS_VALID) {
         const CHROMA: number = (1 - Math.abs(2 * L - 1)) * S;
 
-        const H_PRIME = H / 60;
+        const POINT_ON_RGB_CUBE: Array<number> = helpers.getPointWithSameHueAndChroma(H, CHROMA);
 
-        const INTERMEDIATE: number = CHROMA * (1 - Math.abs(H_PRIME % 2 - 1));
-
-        let rgb_cube_point: Array<number> = [];
-
-        if (H_PRIME >= 0 && H_PRIME < 1) {
-          rgb_cube_point = [CHROMA, INTERMEDIATE, 0];
-        }
-        else if (H_PRIME >= 1 && H_PRIME < 2) {
-          rgb_cube_point = [INTERMEDIATE, CHROMA, 0];
-        }
-        else if (H_PRIME >= 2 && H_PRIME < 3) {
-          rgb_cube_point = [0, CHROMA, INTERMEDIATE];
-        }
-        else if (H_PRIME >= 3 && H_PRIME < 4) {
-          rgb_cube_point = [0, INTERMEDIATE, CHROMA];
-        }
-        else if (H_PRIME >= 4 && H_PRIME < 5) {
-          rgb_cube_point = [INTERMEDIATE, 0, CHROMA];
-        }
-        else if (H_PRIME >= 5 && H_PRIME < 6) {
-          rgb_cube_point = [CHROMA, 0, INTERMEDIATE];
-        }
-
-        if (rgb_cube_point.length > 0) {
+        if (POINT_ON_RGB_CUBE.length > 0) {
           const MATCH: number = L - (CHROMA / 2);
 
           this.selected_color = {
-            r: Math.round((rgb_cube_point[0] + MATCH) * 255),
-            g: Math.round((rgb_cube_point[1] + MATCH) * 255),
-            b: Math.round((rgb_cube_point[2] + MATCH) * 255),
+            r: Math.round((POINT_ON_RGB_CUBE[0] + MATCH) * 255),
+            g: Math.round((POINT_ON_RGB_CUBE[1] + MATCH) * 255),
+            b: Math.round((POINT_ON_RGB_CUBE[2] + MATCH) * 255),
             a: A
           };
 
