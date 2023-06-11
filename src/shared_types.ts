@@ -11,6 +11,12 @@ interface HSL {
   l: number
 };
 
+interface HSV {
+  h: number,
+  s: number,
+  v: number
+};
+
 interface Coordinates {
   x: number,
   y: number
@@ -28,6 +34,7 @@ type PixelBits = Array<number>
 export {
   RGBA,
   HSL,
+  HSV,
   Coordinates,
   Dimensions,
   PixelBits
