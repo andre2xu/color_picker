@@ -83,6 +83,7 @@ function updateSearchbarColor(color_picker: JSColorPicker) {
 
       color_picker.searchbar.val(`hsl(${HSL.h}°, ${HSL
       .s}%, ${HSL.l}%)`);
+
       break;
     default:
       throw Error('Invalid color format');
