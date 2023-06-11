@@ -69,7 +69,7 @@ function updateSearchbarColor(color_picker: JSColorPicker) {
       color_picker.searchbar.val(generateRGBAString(color_picker.selected_color));
       break;
     case 'hex':
-      color_picker.searchbar.val(RGBtoHex(color_picker.selected_color));
+      color_picker.searchbar.val(`#${RGBtoHex(color_picker.selected_color)}`);
       break;
     case 'hsv':
       const HSV: shared_types.HSV = RGBtoHSV(color_picker.selected_color);
