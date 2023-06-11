@@ -342,6 +342,63 @@ function searchbarInputHandler(this: JSColorPicker, event: JQuery.TriggeredEvent
         is_valid_color = true;
       }
     }
+    else if (/^hsva\((0|[0-9]{1,3})\u00B0?,[ ]?((0|[0-9]{1,3})\u0025?,[ ]?){2}(0|1(\.0)?|0\.[0-9]+)\)$/g.test(INPUT)) {
+      const HSVA_values: Array<string> = INPUT.substring(
+        INPUT.indexOf('(') + 1,
+        INPUT.indexOf(')')
+      ).replace(/ /g, '').split(',');
+
+      const H: number = parseInt(HSVA_values[0]);
+      const S: number = parseInt(HSVA_values[1]) / 100;
+      const V: number = parseInt(HSVA_values[2]) / 100;
+      const A: number = parseInt(HSVA_values[3]);
+
+      const H_IS_VALID: boolean = H >= 0 && H <= 360;
+      const S_IS_VALID: boolean = S >= 0 && S <= 100;
+      const V_IS_VALID: boolean = V >= 0 && V <= 100;
+
+      if (H_IS_VALID && S_IS_VALID && V_IS_VALID) {
+        const CHROMA: number = V * S;
+
+        const H_PRIME = H / 60;
+
+        const INTERMEDIATE: number = CHROMA * (1 - Math.abs(H_PRIME % 2 - 1));
+
+        let rgb_points: Array<number> = [];
+
+        if (H_PRIME >= 0 && H_PRIME < 1) {
+          rgb_points = [CHROMA, INTERMEDIATE, 0];
+        }
+        else if (H_PRIME >= 1 && H_PRIME < 2) {
+          rgb_points = [INTERMEDIATE, CHROMA, 0];
+        }
+        else if (H_PRIME >= 2 && H_PRIME < 3) {
+          rgb_points = [0, CHROMA, INTERMEDIATE];
+        }
+        else if (H_PRIME >= 3 && H_PRIME < 4) {
+          rgb_points = [0, INTERMEDIATE, CHROMA];
+        }
+        else if (H_PRIME >= 4 && H_PRIME < 5) {
+          rgb_points = [INTERMEDIATE, 0, CHROMA];
+        }
+        else if (H_PRIME >= 5 && H_PRIME < 6) {
+          rgb_points = [CHROMA, 0, INTERMEDIATE];
+        }
+
+        if (rgb_points.length > 0) {
+          const MATCH: number = V - CHROMA;
+
+          this.selected_color = {
+            r: Math.round((rgb_points[0] + MATCH) * 255),
+            g: Math.round((rgb_points[1] + MATCH) * 255),
+            b: Math.round((rgb_points[2] + MATCH) * 255),
+            a: A
+          };
+
+          is_valid_color = true;
+        }
+      }
+    }
   }
 };
 
