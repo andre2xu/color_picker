@@ -310,13 +310,18 @@ function mouseLeaveHandler(this: JSColorPicker) {
   this.component_held = undefined;
 };
 
+function searchbarInputHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
+  const SEARCHBAR: JQuery<HTMLInputElement> = $(event.target);
+};
+
 
 
 const event_handlers = {
   mouseDownHandler,
   mouseUpHandler,
   mouseMoveHandler,
-  mouseLeaveHandler
+  mouseLeaveHandler,
+  searchbarInputHandler
 };
 
 export default event_handlers;
