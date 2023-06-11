@@ -480,7 +480,9 @@ function adjustSearchbarColorContrast(color_picker: JSColorPicker) {
     throw ReferenceError();
   }
 
-  if (color_picker.selected_color.a > 0.5 && (color_picker.sntc_position.top > 0.5 || color_picker.sntc_position.left > 0.4)) {
+  const BRIGHTNESS: number = RGBtoHSV(color_picker.selected_color).v;
+
+  if (color_picker.selected_color.a > 0.5 && BRIGHTNESS < 50) {
     color_picker.searchbar.css('color', 'white');
     color_picker.searchbar_buttons.css('border-color', 'white');
   }
