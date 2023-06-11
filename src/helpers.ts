@@ -373,7 +373,7 @@ function RGBtoHSL(rgba: shared_types.RGBA) {
     hue = ((R - G) / CHROMA) + 4;
   }
 
-  HSL.h = hue;
+  HSL.h = hue * 60;
 
   // gets lightness
   HSL.l = (MAX + MIN) / 2;
@@ -387,7 +387,7 @@ function RGBtoHSL(rgba: shared_types.RGBA) {
   }
 
   // converting to whole number percentages
-  HSL.h = Math.round(HSL.h * 100);
+  HSL.h = Math.round(HSL.h);
   HSL.s = Math.round(HSL.s * 100);
   HSL.l = Math.round(HSL.l * 100);
 
