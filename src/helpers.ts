@@ -74,15 +74,15 @@ function updateSearchbarColor(color_picker: JSColorPicker) {
     case 'hsv':
       const HSV: shared_types.HSV = RGBtoHSV(color_picker.selected_color);
 
-      color_picker.searchbar.val(`hsv(${HSV.h}°, ${HSV
-      .s}%, ${HSV.v}%)`);
+      color_picker.searchbar.val(`hsva(${HSV.h}°, ${HSV
+      .s}%, ${HSV.v}%, ${color_picker.selected_color.a})`);
 
       break;
     case 'hsl':
       const HSL: shared_types.HSL = RGBtoHSL(color_picker.selected_color);
 
-      color_picker.searchbar.val(`hsl(${HSL.h}°, ${HSL
-      .s}%, ${HSL.l}%)`);
+      color_picker.searchbar.val(`hsla(${HSL.h}°, ${HSL
+      .s}%, ${HSL.l}%, ${color_picker.selected_color.a})`);
 
       break;
     default:
