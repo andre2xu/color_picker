@@ -351,7 +351,7 @@ function searchbarInputHandler(this: JSColorPicker, event: JQuery.TriggeredEvent
       const H: number = parseInt(HSVA_values[0]);
       const S: number = parseInt(HSVA_values[1]) / 100;
       const V: number = parseInt(HSVA_values[2]) / 100;
-      const A: number = parseInt(HSVA_values[3]);
+      const A: number = parseFloat(HSVA_values[3]);
 
       const H_IS_VALID: boolean = H >= 0 && H < 360;
       const S_IS_VALID: boolean = S >= 0 && S <= 100;
