@@ -432,7 +432,7 @@ function searchbarInputHandler(this: JSColorPicker, event: JQuery.TriggeredEvent
       // moves the vertical slider for hue
       const Y_COORDINATE_OF_HUE: number = Math.round((HSV.h / 360) * this.hues[0].offsetHeight);
 
-      helpers.moveVerticalSlider(
+      this.hue_slider_position = helpers.moveVerticalSlider(
         this.hue_slider[0],
         Y_COORDINATE_OF_HUE
       );
@@ -455,7 +455,7 @@ function searchbarInputHandler(this: JSColorPicker, event: JQuery.TriggeredEvent
       // moves the vertical slider for transparency
       const Y_COORDINATE_OF_ALPHA: number = Math.round((1 - this.selected_color.a) * this.alpha_channel[0].offsetHeight);
 
-      helpers.moveVerticalSlider(
+      this.ac_slider_position = helpers.moveVerticalSlider(
         this.ac_slider[0],
         Y_COORDINATE_OF_ALPHA
       );
