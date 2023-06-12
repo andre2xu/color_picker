@@ -149,6 +149,9 @@ class JSColorPicker {
 
 
   // GETTERS
+  getColor() {
+    return this.selected_color;
+  };
 
 
   // SETTERS
