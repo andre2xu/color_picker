@@ -466,6 +466,14 @@ function searchbarInputHandler(this: JSColorPicker, event: JQuery.TriggeredEvent
         Math.round(this.shades_and_tints[0].offsetWidth * (HSV.s / 100)),
         Math.round(this.shades_and_tints[0].offsetHeight * (1 - (HSV.v / 100)))
       );
+
+      // updates the other components
+      this.selected_color = COPY_OF_COLOR_INPUT;
+
+      helpers.updateSNTCursorBackground(this);
+      helpers.updateColorDisplay(this);
+      helpers.updateAlphaChannelDisplay(this);
+      helpers.adjustSearchbarColorContrast(this);
     }
   }
 };
