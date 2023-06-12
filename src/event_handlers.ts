@@ -449,7 +449,7 @@ function searchbarInputHandler(this: JSColorPicker, event: JQuery.TriggeredEvent
       helpers.moveSNTCursor(
         this.snt_cursor[0],
         Math.round(this.shades_and_tints[0].offsetWidth * (HSV.s / 100)),
-        Math.round(this.shades_and_tints[0].offsetHeight * (HSV.v / 100))
+        Math.round(this.shades_and_tints[0].offsetHeight * (1 - (HSV.v / 100)))
       );
     }
   }
