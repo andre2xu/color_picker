@@ -369,8 +369,8 @@ function searchbarInputHandler(this: JSColorPicker, event: JQuery.TriggeredEvent
       const A: number = parseFloat(HSVA_values[3]);
 
       const H_IS_VALID: boolean = H >= 0 && H < 360;
-      const S_IS_VALID: boolean = S >= 0 && S <= 100;
-      const V_IS_VALID: boolean = V >= 0 && V <= 100;
+      const S_IS_VALID: boolean = S >= 0 && S <= 1;
+      const V_IS_VALID: boolean = V >= 0 && V <= 1;
 
       if (H_IS_VALID && S_IS_VALID && V_IS_VALID) {
         const CHROMA: number = V * S;
@@ -403,8 +403,8 @@ function searchbarInputHandler(this: JSColorPicker, event: JQuery.TriggeredEvent
       const A: number = parseFloat(HSLA_values[3]);
 
       const H_IS_VALID: boolean = H >= 0 && H < 360;
-      const S_IS_VALID: boolean = S >= 0 && S <= 100;
-      const L_IS_VALID: boolean = L >= 0 && L <= 100;
+      const S_IS_VALID: boolean = S >= 0 && S <= 1;
+      const L_IS_VALID: boolean = L >= 0 && L <= 1;
 
       if (H_IS_VALID && S_IS_VALID && L_IS_VALID) {
         const CHROMA: number = (1 - Math.abs(2 * L - 1)) * S;
