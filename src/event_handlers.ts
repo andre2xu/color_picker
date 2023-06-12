@@ -425,6 +425,18 @@ function searchbarInputHandler(this: JSColorPicker, event: JQuery.TriggeredEvent
         }
       }
     }
+
+    if (is_valid_color && this.hues !== undefined && this.hue_slider !== undefined) {
+      const HSV: shared_types.HSV = helpers.RGBtoHSV(this.selected_color);
+
+      // moves the vertical slider for hue
+      const Y_COORDINATE_OF_HUE: number = Math.round((HSV.h / 360) * this.hues[0].offsetHeight);
+
+      helpers.moveVerticalSlider(
+        this.hue_slider[0],
+        Y_COORDINATE_OF_HUE
+      );
+    }
   }
 };
 
