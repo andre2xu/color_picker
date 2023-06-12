@@ -60,7 +60,7 @@ class JSColorPicker {
             <div class="color_display"></div>
 
             <div class="arrow_button left"></div>
-            <input type="text" class="searchbar">
+            <input type="text" class="searchbar" spellcheck="false">
             <div class="arrow_button right"></div>
           </div>
         </div>
