@@ -255,8 +255,6 @@ class JSColorPicker {
   };
 };
 
-new JSColorPicker('test');
-
 
 
 export default JSColorPicker;
