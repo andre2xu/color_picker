@@ -426,7 +426,7 @@ function searchbarInputHandler(this: JSColorPicker, event: JQuery.TriggeredEvent
       }
     }
 
-    if (is_valid_color && this.hues !== undefined && this.hue_slider !== undefined && this.alpha_channel !== undefined && this.ac_slider !== undefined) {
+    if (is_valid_color && this.hues !== undefined && this.hue_slider !== undefined && this.alpha_channel !== undefined && this.ac_slider !== undefined && this.shades_and_tints !== undefined && this.snt_cursor !== undefined) {
       const HSV: shared_types.HSV = helpers.RGBtoHSV(this.selected_color);
 
       // moves the vertical slider for hue
@@ -443,6 +443,13 @@ function searchbarInputHandler(this: JSColorPicker, event: JQuery.TriggeredEvent
       helpers.moveVerticalSlider(
         this.ac_slider[0],
         Y_COORDINATE_OF_ALPHA
+      );
+
+      // moves the S&T cursor
+      helpers.moveSNTCursor(
+        this.snt_cursor[0],
+        Math.round(this.shades_and_tints[0].offsetWidth * (HSV.s / 100)),
+        Math.round(this.shades_and_tints[0].offsetHeight * (HSV.v / 100))
       );
     }
   }
