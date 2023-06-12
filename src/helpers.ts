@@ -549,7 +549,8 @@ const helpers = {
   moveVerticalSlider,
   updateSNTCursorSize,
   moveSNTCursor,
-  adjustSearchbarColorContrast
+  adjustSearchbarColorContrast,
+  RGBtoHSV
 };
 
 export default helpers;
