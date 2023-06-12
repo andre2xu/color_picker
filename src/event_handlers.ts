@@ -426,7 +426,7 @@ function searchbarInputHandler(this: JSColorPicker, event: JQuery.TriggeredEvent
       }
     }
 
-    if (is_valid_color && this.hues !== undefined && this.hue_slider !== undefined && this.alpha_channel !== undefined && this.ac_slider !== undefined && this.shades_and_tints !== undefined && this.snt_cursor !== undefined) {
+    if (is_valid_color && this.hues !== undefined && this.hue_slider !== undefined && this.hcc_image_data !== undefined && this.alpha_channel !== undefined && this.ac_slider !== undefined && this.shades_and_tints !== undefined && this.snt_cursor !== undefined) {
       const HSV: shared_types.HSV = helpers.RGBtoHSV(this.selected_color);
 
       // moves the vertical slider for hue
@@ -436,6 +436,21 @@ function searchbarInputHandler(this: JSColorPicker, event: JQuery.TriggeredEvent
         this.hue_slider[0],
         Y_COORDINATE_OF_HUE
       );
+
+      // updates the gradient of the shade & tint component with the hue of the color input
+      const COPY_OF_COLOR_INPUT: shared_types.RGBA = this.selected_color;
+
+      const COLOR_INPUT_HUE: shared_types.PixelBits = helpers.getPixel(this.hcc_image_data, 0, Y_COORDINATE_OF_HUE);
+
+      this.selected_color = {
+        r: COLOR_INPUT_HUE[0],
+        g: COLOR_INPUT_HUE[1],
+        b: COLOR_INPUT_HUE[2],
+        a: this.selected_color.a
+      };
+
+      helpers.updateShadeAndTintCanvas(this);
+      helpers.updateShadeAndTintDisplay(this);
 
       // moves the vertical slider for transparency
       const Y_COORDINATE_OF_ALPHA: number = Math.round((1 - this.selected_color.a) * this.alpha_channel[0].offsetHeight);
