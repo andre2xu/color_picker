@@ -1,4 +1,20 @@
 {
+  "name": "@andre2xu/js-color-picker",
+  "version": "1.0.0",
+  "description": "A simple and lightweight color picker for JavaScript projects.",
+  "main": "index.js",
+  "keywords": [
+    "color",
+    "color picker",
+    "color-picker",
+    "color_picker",
+    "colour",
+    "colour picker",
+    "colour-picker",
+    "colour_picker"
+  ],
+  "author": "andre2xu",
+  "license": "MIT",
   "scripts": {
     "watch": "npx webpack --config webpack.dev.ts"
   },
