@@ -153,6 +153,10 @@ class JSColorPicker {
     return this.selected_color;
   };
 
+  getColorPicker() {
+    return this.color_picker !== undefined ? this.color_picker[0] : undefined;
+  };
+
 
   // SETTERS
   setSize(w: number, h: number) {
