@@ -25,7 +25,8 @@
     "url": "https://github.com/andre2xu/color_picker.git"
   },
   "scripts": {
-    "watch": "npx webpack --config webpack.dev.ts"
+    "watch": "npx webpack --config webpack.dev.ts",
+    "build": "npx tsc"
   },
   "devDependencies": {
     "ts-loader": "^9.4.3",
