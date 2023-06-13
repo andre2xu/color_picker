@@ -15,6 +15,9 @@
   ],
   "author": "andre2xu",
   "license": "MIT",
+  "files": [
+    "dist/**/*"
+  ],
   "scripts": {
     "watch": "npx webpack --config webpack.dev.ts"
   },
