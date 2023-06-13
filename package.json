@@ -20,6 +20,10 @@
     "dist/**/*",
     "index.css"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andre2xu/color_picker.git"
+  },
   "scripts": {
     "watch": "npx webpack --config webpack.dev.ts"
   },
