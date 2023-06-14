@@ -66,3 +66,7 @@ const CP_ELEMENT = COLOR_PICKER.getColorPicker() // returns the color picker's e
 - Make sure that the container element for the color picker has rendered on the DOM, otherwise you would get an error saying that there's no element with the id you specified in the constructor
 
 - Be sure to import/include the stylesheet because not only is it required to render the color picker but it's also used to compute the dimensions of the canvases
+<br>
+
+## License
+Distributed under the MIT License. See LICENSE for more information.
