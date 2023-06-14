@@ -1,4 +1,5 @@
 # JS Color Picker
+![GitHub](https://img.shields.io/github/license/andre2xu/color_picker?color=%23bdb237) <br><br>
 A simple and lightweight color picker for JavaScript projects. Feel free to use it for commercial and non-commercial purposes.
 
 <a href="https://andre2xu.github.io/color_picker/">View demo</a><br><br>
