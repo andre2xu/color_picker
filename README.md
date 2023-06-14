@@ -46,8 +46,20 @@ function App() {
 
 export default App;
 ```
+<br>
 
-<br><br>
+The following code block shows how to use the API:
+
+```JavaScript
+const COLOR_PICKER = new JSColorPicker('my-element');
+
+const RGBA = COLOR_PICKER.getColor() // returns an object containing RGBA data
+
+const CP_ELEMENT = COLOR_PICKER.getColorPicker() // returns the color picker's element (use this if you want to add your own CSS or overwrite the existing ones)
+```
+
+<br>
+
 ## IMPORTANT
 - The color picker can work on its own, it does not need React
 
