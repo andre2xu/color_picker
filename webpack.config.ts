@@ -15,7 +15,7 @@ module.exports = {
     extensions: ['.ts'],
   },
   output: {
-    filename: 'color_picker.js',
-    path: path.resolve(__dirname, 'local'),
+    filename: 'index.js',
+    path: path.resolve(__dirname),
   },
 };
