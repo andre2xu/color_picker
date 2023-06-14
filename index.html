@@ -10,34 +10,8 @@
   <title>Color Picker</title>
 </head>
 <body>
-  <canvas id="fake_hue" width="23" height="185" hidden></canvas>
-
   <div id="test"></div>
 
   <script src="./local/color_picker.js"></script>
-
-  <script>
-    // CANVAS SIMULATION
-    const canvas = document.getElementById('fake_hue');
-    canvas.width = 200;
-    const ctx = canvas.getContext('2d');
-
-    let gradient = ctx.createLinearGradient(0, 0, 0, canvas.offsetHeight);
-
-    ctx.fillStyle = gradient;
-    ctx.fillRect(0, 0, canvas.clientWidth, canvas.clientHeight);
-
-    gradient = ctx.createLinearGradient(0, 0, 0, canvas.offsetHeight);
-    gradient.addColorStop(0.01, 'rgb(255, 0, 0)');
-    gradient.addColorStop(60/360, 'rgb(255, 255, 0)');
-    gradient.addColorStop(120/360, 'rgb(0, 255, 0)');
-    gradient.addColorStop(180/360, 'rgb(0, 255, 255)');
-    gradient.addColorStop(240/360, 'rgb(0, 0, 255)');
-    gradient.addColorStop(300/360, 'rgb(255, 0, 255)');
-    gradient.addColorStop(0.99, 'rgb(255, 0, 0)');
-
-    ctx.fillStyle = gradient;
-    ctx.fillRect(0, 0, canvas.clientWidth, canvas.clientHeight);
-  </script>
 </body>
 </html>
