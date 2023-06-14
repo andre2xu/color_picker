@@ -1,5 +1,7 @@
 # JS Color Picker
-A simple and lightweight color picker for JavaScript projects. Feel free to use it for commercial and non-commercial purposes.<br><br>
+A simple and lightweight color picker for JavaScript projects. Feel free to use it for commercial and non-commercial purposes.
+
+<a href="https://andre2xu.github.io/color_picker/" target="_blank">View demo</a><br><br>
 
 ## Installation
 ```
