@@ -1,5 +1,5 @@
 # JS Color Picker &nbsp;![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black) ![TypeScript](https://img.shields.io/badge/TypeScript-2d8dfa?style=flat&logo=typescript&logoColor=white)
-![GitHub](https://img.shields.io/github/license/andre2xu/color_picker?color=%##33a633)&nbsp;&nbsp;&nbsp;![npm (scoped)](https://img.shields.io/npm/v/@andre2xu/js-color-picker?color=%23de0404&label=latest&logo=npm)<br><br>
+![GitHub](https://img.shields.io/github/license/andre2xu/color_picker?color=%##33a633) &nbsp;![npm (scoped)](https://img.shields.io/npm/v/@andre2xu/js-color-picker?color=%23de0404&label=latest&logo=npm)<br><br>
 A simple and lightweight color picker for JavaScript projects. Feel free to use it for commercial and non-commercial purposes.
 
 <a href="https://andre2xu.github.io/color_picker/">View demo</a><br><br>
