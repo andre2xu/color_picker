@@ -46,3 +46,11 @@ function App() {
 
 export default App;
 ```
+
+<br><br>
+## IMPORTANT
+- The color picker can work on its own, it does not need React
+
+- Make sure that the container element for the color picker has rendered on the DOM, otherwise you would get an error saying that there's no element with the id you specified in the constructor
+
+- Be sure to import/include the stylesheet because not only is it required to render the color picker but it's also used to compute the dimensions of the canvases
