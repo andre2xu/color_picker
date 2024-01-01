@@ -26,6 +26,7 @@
   },
   "scripts": {
     "watch": "npx webpack --config webpack.dev.ts",
+    "demo": "npx webpack --config webpack.demo.ts",
     "build": "npx tsc"
   },
   "devDependencies": {
