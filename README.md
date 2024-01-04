@@ -4,6 +4,9 @@ A simple and lightweight color picker for JavaScript projects. Feel free to use 
 
 <a href="https://andre2xu.github.io/color_picker/">View demo</a><br><br>
 
+STARTED: 1 June 2023<br>
+FINISHED: 13 June 2023<br>
+
 ## Installation
 ```
 npm install @andre2xu/js-color-picker
