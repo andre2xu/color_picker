@@ -46,7 +46,7 @@ function App() {
   return (
     <div className="App">
       <div id="my-element"></div>
-    </div>;
+    </div>
   );
 };
 
