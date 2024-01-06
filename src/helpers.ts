@@ -434,7 +434,7 @@ function RGBtoHSL(rgba: shared_types.RGBA) {
     // greater than 360 means that the hue angle rotated clockwise >= 0
     HSL.h = HSL.h - 360;
   }
-  else {
+  else if (isNaN(HSL.h)) {
     HSL.h = 0;
   }
 
@@ -495,7 +495,7 @@ function RGBtoHSV(rgba: shared_types.RGBA) {
     // greater than 360 means that the hue angle rotated clockwise >= 0
     HSV.h = HSV.h - 360;
   }
-  else {
+  else if (isNaN(HSV.h)) {
     HSV.h = 0;
   }
 
