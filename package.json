@@ -1,6 +1,6 @@
 {
   "name": "@andre2xu/js-color-picker",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A simple and lightweight color picker for JavaScript projects.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
