@@ -62,6 +62,8 @@ function mouseDownHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
         helpers.updateColorDisplay(this);
 
         helpers.updateSearchbarColor(this);
+
+        this.on_change_listener({color: this.selected_color});
       }
     }
     else if (this.alpha_channel !== undefined && this.alpha_channel[0] === CLICKED_ELEMENT && this.ac_slider !== undefined) {
@@ -82,6 +84,8 @@ function mouseDownHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
       helpers.updateSearchbarColor(this);
 
       helpers.adjustSearchbarColorContrast(this);
+
+      this.on_change_listener({color: this.selected_color});
     }
     else if (this.shades_and_tints !== undefined && this.shades_and_tints[0] === CLICKED_ELEMENT && this.snt_cursor !== undefined) {
       const SNTC: HTMLElement = this.snt_cursor[0];
@@ -124,6 +128,8 @@ function mouseDownHandler(this: JSColorPicker, event: JQuery.TriggeredEvent) {
         helpers.updateSearchbarColor(this);
 
         helpers.adjustSearchbarColorContrast(this);
+
+        this.on_change_listener({color: this.selected_color});
       }
     }
     else if (this.hue_slider !== undefined && this.hue_slider[0] === CLICKED_ELEMENT) {
