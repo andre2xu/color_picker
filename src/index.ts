@@ -29,6 +29,7 @@ class JSColorPicker {
   selected_color: shared_types.RGBA;
   component_held: ComponentReference;
   color_format: string; // rgb, hex, hsv, hsl
+  on_change_listener: (event: Object) => void = function () {};
 
   constructor (container_id: string) {
     const CONTAINER: HTMLElement | null = document.getElementById(container_id);
@@ -256,6 +257,10 @@ class JSColorPicker {
     if (this.color_picker !== undefined) {
       this.color_picker.removeClass('hide');
     }
+  };
+
+  addOnChangeListener(callback = (event: Object) => {}) {
+    this.on_change_listener = callback;
   };
 };
 
