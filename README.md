@@ -89,6 +89,11 @@ const CP_ELEMENT = COLOR_PICKER.getColorPicker(); // returns the color picker's 
 <br>
 
 ## CHANGELOG
+[1.1.0] - 2024-03-27
+### Added
+- Added an API method for binding a listener to the color picker that detects & reacts to changes in the color
+- The API code block in this README now includes all API methods<br><br>
+
 [1.0.5] - 2024-01-06
 ### Fixed
 - Fixed the condition that was supposed to prevent NaN values for the HSLA and HSVA angles; it now properly checks for NaN<br><br>
