@@ -74,5 +74,14 @@ const CP_ELEMENT = COLOR_PICKER.getColorPicker() // returns the color picker's e
 - Be sure to import/include the stylesheet because not only is it required to render the color picker but it's also used to compute the dimensions of the canvases
 <br>
 
+## CHANGELOG
+[1.0.5] - 2024-01-06
+### Fixed
+- Fixed the condition that was supposed to prevent NaN values for the HSLA and HSVA angles; it now properly checks for NaN<br><br>
+
+[1.0.1] - 2024-01-04 (deleted)
+### Fixed
+- Added a condition that prevents NaN values for the HSLA and HSVA angles<br><br>
+
 ## License
 Distributed under the MIT License. See LICENSE for more information.
