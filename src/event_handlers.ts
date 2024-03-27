@@ -486,6 +486,8 @@ function searchbarInputHandler(this: JSColorPicker, event: JQuery.TriggeredEvent
       helpers.updateColorDisplay(this);
       helpers.updateAlphaChannelDisplay(this);
       helpers.adjustSearchbarColorContrast(this);
+
+      this.on_change_listener({color: this.selected_color});
     }
   }
 };
