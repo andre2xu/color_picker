@@ -1,5 +1,9 @@
 import JSColorPicker from ".";
 
 window.addEventListener('load', function () {
-    new JSColorPicker('demo');
+    const CP = new JSColorPicker('demo');
+
+    CP.addOnChangeListener((event) => {
+        console.log(event);
+    });
 });
