@@ -59,9 +59,23 @@ The following code block shows how to use the API:
 ```JavaScript
 const COLOR_PICKER = new JSColorPicker('my-element');
 
-const RGBA = COLOR_PICKER.getColor() // returns an object containing RGBA data
+COLOR_PICKER.setSize(300, 250); // width: 300px, height: 250px
 
-const CP_ELEMENT = COLOR_PICKER.getColorPicker() // returns the color picker's element (use this if you want to add your own CSS or overwrite the existing ones)
+COLOR_PICKER.setScale(2); // width: (300*2)px, height: (250*2)px
+
+// control visibility
+COLOR_PICKER.hide();
+
+COLOR_PICKER.show();
+
+// detect & respond to changes in the color
+COLOR_PICKER.addOnChangeListener(function (event) {
+  console.log(event.color); // example: {r: 255, g: 0, b: 0, a: 0.5}
+});
+
+const RGBA = COLOR_PICKER.getColor(); // returns an object containing RGBA data
+
+const CP_ELEMENT = COLOR_PICKER.getColorPicker(); // returns the color picker's element (use this if you want to add your own CSS or overwrite the existing ones)
 ```
 
 <br>
