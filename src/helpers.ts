@@ -164,9 +164,11 @@ function getAlpha(alpha_channel_component: HTMLElement, vertical_slider_position
 };
 
 function getMousePositionRelativeToElement(element: HTMLElement, mouse_x: number, mouse_y: number): shared_types.Coordinates {
+  const BOUNDING_CLIENT_RECT: DOMRect = element.getBoundingClientRect();
+
   return {
-    x: mouse_x - element.offsetLeft,
-    y: mouse_y - element.offsetTop
+    x: mouse_x - BOUNDING_CLIENT_RECT.left,
+    y: mouse_y - BOUNDING_CLIENT_RECT.top
   };
 };
 
