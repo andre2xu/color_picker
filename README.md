@@ -89,6 +89,10 @@ const CP_ELEMENT = COLOR_PICKER.getColorPicker(); // returns the color picker's 
 <br>
 
 ## CHANGELOG
+[1.1.1] - 2025-03-07
+### Fixed
+- Fixed the movement of the cursor and the sliders.<br><br>
+
 [1.1.0] - 2024-03-27
 ### Added
 - Added an API method for binding a listener to the color picker that detects & reacts to changes in the color
